@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ギャラリー七面坂途中</title>
+<link rel="icon" href="/favicon.ico" />
+<meta property="og:url" content="https://gallerysichimen.yu-yake.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ギャラリー七面坂途中/Gallery Sichimensakatochu">
+<meta property="og:image" content="https://gallerysichimen.yu-yake.com/img/logo-sichi2.png">
+<meta property="og:description" content="東京都文京区千駄木にあるギャラリー七面坂途中の公式ホームページです。this site is Gallery Sichimensakatochu in Sendagi Bunkyo-ku Tokyo.">
+<meta name="description" content="東京都文京区千駄木にあるギャラリー七面坂途中の公式ホームページです。this site is Gallery Sichimensakatochu in Sendagi Bunkyo-ku Tokyo.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1">
+</head>
+
+<body style="text-align: center; padding: 0; border: 0; margin: 0; background-color: #c6bbb5; color: #1c1c1c; font-size: 15px;">
+
+<header id="header"style=" display:none; background:linear-gradient(rgba(10,8,5,0.8),rgba(10,8,5,0.5) 80%, rgba(10,8,5,0)); width:100%; height:100px; position: fixed; top: 0; z-index:3;">
+    <div id="nav" style="display:flex; justify-content: center; flex-wrap: wrap;">
+        <a href="#home" class="menu">Home</a>
+        <a href="#about" class="menu">About</a>
+        <a href="#past" class="menu">PastExhibitions</a>
+        <a href="#calendar" class="menu">Calendar</a>
+        <a href="#team" class="menu">Team</a>
+        <a href="#gallery" class="menu">Gallery</a>
+        <a href="#callfor" class="menu">CallForExhibition</a>
+        <a href="#contact" class="menu">Contact</a>
+    </div>
+</header>
+<div id="totobox"></div>
+<div id="home" style="width: 100%; height:700px;"></div>
+<canvas id="title" width="400px" height="50px" style="position: absolute; top: 270px; left: 0; right:0; margin: auto; z-index:3;"></canvas>
+<section id="about" style="height:500px;">
+    <div id="about_container" class="container" style="height:300px;width:820px;margin:auto;position:relative;top: -200px;left: -250px; background-color: #b7a696; padding: 100px; color: #373331;">
+        <div id="about_contents" style="left: 230px;position: relative;width: 760px;top: -30px;">
+            <div id="about_contents1" class="hopper" style=" visibility: hidden; height: 300px; width: 380px; margin: auto; position: relative; float: left;top: 10px;">
+                <p>ギャラリー七面坂途中。名前が示すのは芸術の道は遥か遠く、私たちは未だ道半ばである想いです。</p>
+                <p>新たな店舗で心機一転。<br>より良い出会いの機会を得られんことを。</p>
+                <br>
+                <ul style="text-align: left;">
+                    <li>決めつけないで立ち止まろう</li>
+                    <li>いつだって選択肢はあなたの手に</li>
+                    <li>まあ、いいじゃない。一休み一休み。</li>
+         	    </ul>
+            </div>
+            <div id="about_contents2" class="hopper" style=" visibility: hidden; height: 300px; width: 380px; margin: auto; position: relative; float: right;top: -10px; ">
+                <p>白を基調にした落ち着いた雰囲気の内装。
+                <br>大通りに面した道歩く人の目に付く大きな窓。
+                <br>広々とした空間。新しい出会い。</p>
+                <p>芸術の街を楽しむ穏やかな観光客。</p>
+                <p>それらがあなたの訪れをお待ちしています。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="past" style="height:600px; margin: 0px 0px 100px 0px;"></section>
+
+<section id="calendar" class="hopper">
+<h2>Calendar/Reservation</h2>
+                <h4>Calendar for exhibitions</h4>
+    <div id="calendar_container" style="margin:auto;width: 200px; left: 0;position: relative;">
+        
+        <div class="container-calendar">
+            <h4 id="monthAndYear"></h4>
+            <div class="button-container-calendar">
+                <button id="previous" onclick="previous()" style="background-color: #2f2b2a;border: 1px solid #574d48;color: #998b82;">‹</button>
+                <button id="next" onclick="next()" style="background-color: #2f2b2a;border: 1px solid #574d48;color: #998b82;">›</button>
+            </div>
+          
+            <table class="table-calendar" id="Scalendar" data-lang="ja" style="margin: auto;"> 
+                <thead id="thead-month"></thead>
+                <tbody id="calendar-body"></tbody>
+            </table>
+            <div id="reserve_tips" style="visibility: hidden; position: absolute; z-index: 2; background-color: #c1a493; left: 200px; top: 80px;padding: 20px; width: 200px;"></div>
+          
+            <div class="footer-container-calendar">
+                <label for="month">日付指定：</label>
+                <select id="month" onchange="jump()" style="background-color: #2f2b2a;border: 1px solid #574d48;color: #998b82;">
+                    <option value=0>1月</option>
+                    <option value=1>2月</option>
+                    <option value=2>3月</option>
+                    <option value=3>4月</option>
+                    <option value=4>5月</option>
+                    <option value=5>6月</option>
+                    <option value=6>7月</option>
+                    <option value=7>8月</option>
+                    <option value=8>9月</option>
+                    <option value=9>10月</option>
+                    <option value=10>11月</option>
+                    <option value=11>12月</option>
+                </select>
+                <select id="year" onchange="jump()" style="background-color: #2f2b2a;border: 1px solid #574d48;color: #998b82;"></select>
+            </div>
+        </div>   
+    </div>
+</section>
+
+<section id="team" class="hopper" style=" height: 740px;background-color:#33282555;">  
+    <div style="position: relative; top: 80px;">
+                <h2>Meet Our Chefs</h2>
+                <h4>we are art specialists!</h4>
+                <div id="team_container" class="flex" style="height: 500px; margin-top: 70px;">
+                    <div style="margin: 0px 15px 0px 15px;background-color: #645454; height: 340px; width: 170px;">
+                        <h3>ToTo</h3>
+                        <img src="img/toto1.jpg" >
+                        <p>店長-Store Manager-</p>
+                    </div>
+                    <div style="margin: 0px 15px 0px 15px;background-color: #645454;height: 340px; width: 170px;">
+                        <h3>Totty</h3>
+                        <img src="img/toto2.jpg">
+                        <p>芸術補佐官-Artistic Chef-</p>
+                    </div>
+                    <div style="margin: 0px 15px 0px 15px;background-color: #645454;height: 340px; width: 170px;">
+                        <h3>TotoMARU</h3>
+                        <img src="img/toto3.jpg">
+                        <p>休理-Sleeping Manager-</p>
+                    </div>
+                    <div style="margin: 0px 15px 0px 15px;background-color: #645454; width: 235px; height: 250px;">
+                        <div style="width:200px; padding: 20px;">ギャラリーを草葉の影から支配する名誉店長とと。<br>
+                        その他愉快な仲間に加わろう！
+                        </div>
+                        <p style="font-size: x-large; ">Join us</p>
+                    </div>
+                    <p style="font-size:small; margin: 50px;">※ジョークテキストです。<br>
+                    ※ネットとかよくわかってないオーナーに代わって呑気な息子が心を込めて<s>投げやりに</s>作ったサイトです。<s>毒気や間違いを</s>生暖かい目でご覧ください。
+                    </p>
+                </div>
+    </div>
+</section>
+<section id="gallery" style="height:0px;"></section>
+<section id="callfor" class="hopper" style=" background-color:#8a8584;padding-bottom: 100px; padding-top: 10px;">
+<div id="callfor_container" style="margin: 150px auto auto auto;width: 740px;text-align: left;position: relative;  ">
+    <h2>ギャラリーへの出展</h2>
+                <h4>Call for exhibition</h4>
+    
+    <p>アート作品展示の貸しスペースとしてお貸しいたします。<br>（内容によりお受けできないこともございます。）</p>
+    
+    <p id="callfor_text1">使用期間／6日間を1単位とします。<br>
+    使用料金／6日間 <span id="bigspace" style="color: #7d2844">スペース大</span>　￥120,000　/<span id="smallspace" style="color: #7d2844">スペース小</span>　￥50,000/<br>
+    全体（スペース大、小を合わせて）￥160,000<br>
+    延長料金: ￥3,000/1h   </p>
+    <div style="margin: 0px 0px 40px 40px;">
+    <li>受付時に予約金として使用料金の半額、会期初日までに残金をお支払い下さい。</li>
+    <li>ご使用者の都合による解約は予約金を返却いたしません。</li>
+    <li>ギャラリースタッフが作品の展示・販売まで請け負う場合、売り上げの30%を作品販売手数料として頂戴いたします。</li>
+    <li>※上記外の条件であっても売り上げの最低10%を作品販売手数料として頂戴いたします。</li>
+    <li style="margin-bottom:10px;">会期まで一か月以内での解約は全額ご負担いただきます。</li>
+    <li>宣伝用のDM（ポストカード）、フライヤー等は原則一か月前までに用意し、gallerysevenhalfway@gmail.comまで印刷納品時点のデータを表裏が確認できる形で添付下さい。</li>
+    <li>※当webサイト上での広報に利用いたします。</li>
+    </div>
+    <p>搬入／展覧会前日の17:00より<br>
+    搬出／展覧会最終日の17:00より<br>
+    照明装置／LEDスポットライト<br>
+    壁仕様／ピクチャーレールフック（釘、ネジなどのご利用についてはご相談下さい。）</p>
+    <div style="margin: 0px 0px 40px 40px;">
+    <li>オープンクローズ作業はスタッフがお手伝いいたします。</li>
+    <li>作品管理についてはご利用者のご責任でお願いいたします。</li>
+    <li>物販につきましては包装用具のご用意を各自お願いいたします。</li>
+    <li>汚損、破損、盗難、不慮の事故で生じた作品の損傷については当ギャラリーは一切の責任を負いません。</li>
+    
+    <li>整備の破損、汚損した場合は補修費を請求させていただきます。</li>
+    <li>住宅地のため、近隣のご迷惑にならないようご配慮お願いいたします。※ゴミはお持ち帰りください</li>
+    <li>室内は禁煙となります。</li>
+    </div>
+
+    <div style="margin-top:50px; color:#531515;">出品者の方は<a class="menu" href="https://goo.gl/forms/jAiy0eXV3C9uZGP62" target="_balnk" style="font-size: large; text-decoration: none; margin-top: 3%; margin-left: 1%; margin-right: 1%; color: rgb(136, 136, 153);">こちら</a>から必要事項を記入し投稿してください<a class="menu" href="https://goo.gl/forms/jAiy0eXV3C9uZGP62" target="_balnk" style="font-size: large; text-decoration: none; margin-top: 3%; margin-left: 1%; margin-right: 1%; color: rgb(136, 136, 153);">【投稿フォーム】for exhibition the form</a></div>
+ 
+</div>
+
+    <div style="margin-top:50px; color:#531515;"><a class="menu" href="http://gallerysichimen.yu-yake.com/downloads/DM_logos2024.zip" target="_balnk" style="font-size: large; text-decoration: none; margin-top: 3%; margin-left: 1%; margin-right: 1%; color: rgb(136, 136, 153);">ダウンロード</a></div>
+
+</section>
+<section id="contact" class="hopper"  style="height: 700px; padding-top:150px; background-color:#4d4a49;">
+                <h2>周辺ＭＡＰ</h2>
+                <h4>we are always ready to serve you!</h4>
+                <p><img id="gallery_map" src="img/map.png" ></p>
+                <p>◎JR日暮里駅北改札口を出て西口より徒歩15分</p>
+                <p>◎東京メトロ千代田線千駄木2番出口より徒歩2分/1番出口より徒歩3分</p>
+</section>
+
+
+
+
+<footer id="footer"  class="flex hopper" style="position: absolute; font-size:small; padding-top:50px;  background:linear-gradient(#4d4a49, #6c5c56);">
+<div style="width:300px; float: left;">
+                <h3>For Gallery</h3>
+                <p>個展を開きたい、イベントをあの場を借りて行いたい。そのような提案がある場合はぜひfacebookやtwitterなどのSNS、メールや電話などあらゆる手段でコンタクトをお取りください。</p>
+                <p>If you wanna be rent our space, wanna play event, wanna open exhibition, you can contact us by Twitter or Facebook, E-mail, any other way.
+</div>
+<div style="width:300px; float: left;">
+                <h3>Contact Detail</h3>
+                店舗
+                <p>〒113-0022<br>東京都文京区千駄木２丁目３５−６</p>
+                
+                <p>gallerysevenhalfway@gmail.com</p>
+</div>
+<div style="width:300px; float: left;">
+                <h3>Opening Hours</h3>
+                <p>Monday（月） - Thusday（木）(不定期)</p>
+               <p> 12:00 AM - 05:00 PM</p>
+                <h3>Regularly Closed（定休日）</h3>
+               <p> Friday（金）, Saturday（土）,Sunday（日）</p>
+               <p>個展が開いている場合はこの限りではない。</p>
+               <p>some time it will Open.
+</div><div style="width: 100%;"></div>
+
+<div class="flex" style="width: 100%; background:linear-gradient(#5550, #220e0e 200%);margin-top:20px;">
+<div style="width:400px;">Copyright c 2023 Created by <a href="https://twitter.com/gizmo_pants?ref_src=twsrc%5Etfw" class="menu" target="_blank">Gizmo_Pants</a></div>
+<div style="width:400px;">Gizmo_Pants Work<a href="https://mayoigapro.zashiki.com/" target="_blank" class="menu">MayoigaPoriject</a></div>
+<div style="width:400px;">  </div>
+</div>
+
+</div>
+</footer>
+
+
+ 
+  <!-- 古いachivements.jsの読み込みを削除 -->
+  <!-- <script type="text/javascript"  src="achivements.js" charset="UTF-8"></script> -->
+  <script src="https://apis.google.com/js/api.js"></script>
+  <!-- 新しいdata.jsをSichimenMain.jsの前に読み込む -->
+  <script type="text/javascript"  src="data.js" charset="UTF-8"></script>
+  <!-- 更新されたSichimenMain.jsを読み込む -->
+  <script type="text/javascript"  src="SichimenMain.js" charset="UTF-8"></script>
+</body>
+</html>

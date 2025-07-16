@@ -1,0 +1,1965 @@
+[
+  {
+    "id": "exhibition-1",
+    "year": "2023",
+    "datePeriod": "555555",
+    "name": "『例大祭り』展",
+    "time": "",
+    "exhibitors": [
+      "佐々木礼次郎"
+    ],
+    "comments": "コメント書いてね",
+    "images": []
+  },
+  {
+    "id": "exhibition-2",
+    "year": "2025",
+    "datePeriod": "03/23~03/30",
+    "name": "『 陶女達+  』展",
+    "time": "12:00-18:00",
+    "exhibitors": [
+      "田中大生",
+      "田中久米生",
+      "田中 伸子",
+      "SONKAKU",
+      "高橋みさ江",
+      "tobo 4.8"
+    ],
+    "comments": "陶器の中に見つめる人間模様",
+    "images": []
+  },
+  {
+    "id": "exhibition-3",
+    "year": "2025",
+    "datePeriod": "03/12~03/19",
+    "name": "『 たねえらび 』展",
+    "time": "12:00-18:00",
+    "exhibitors": [
+      "yoska",
+      "masala",
+      "susumu",
+      "野口大地",
+      "En",
+      "TOTO"
+    ],
+    "comments": "たねえらびの時間だよ！なにが詰まってるかは開けてからのお楽しみ",
+    "images": []
+  },
+  {
+    "id": "exhibition-4",
+    "year": "2025",
+    "datePeriod": "02/22~02/27",
+    "name": "『 drip slip trip 』展",
+    "time": "11:00-19:00",
+    "exhibitors": [
+      "北島寧子",
+      "谷野怡佳",
+      "mol",
+      "ヒロハラユキコ",
+      "間嶋桃子"
+    ],
+    "comments": "全ては滑り落ちていく日常の中に溶けていく",
+    "images": []
+  },
+  {
+    "id": "exhibition-5",
+    "year": "2025",
+    "datePeriod": "02/07~02/15",
+    "name": "『 ねことか 』展",
+    "time": "12:00-18:00",
+    "exhibitors": [
+      "いいづかもこ",
+      "斉藤緩",
+      "toto",
+      "水野宏美",
+      "Momoe"
+    ],
+    "comments": "ねことかいるかもしれない",
+    "images": []
+  },
+  {
+    "id": "exhibition-6",
+    "year": "2025",
+    "datePeriod": "01/21~01/27",
+    "name": "『 宙と命脈 』展",
+    "time": "12:00-18:00",
+    "exhibitors": [
+      "帳はるをし",
+      "Koshi"
+    ],
+    "comments": "二つの境界を結ぶのは波のような",
+    "images": []
+  },
+  {
+    "id": "exhibition-7",
+    "year": "2025",
+    "datePeriod": "01/09~01/18",
+    "name": "『 MADE FROM STARDUST 』展",
+    "time": "13:00-18:00",
+    "exhibitors": [
+      "DAICHI NOGUCHI"
+    ],
+    "comments": "星空の下の解放感",
+    "images": []
+  },
+  {
+    "id": "exhibition-8",
+    "year": "2024",
+    "datePeriod": "12/16~12/25 ※火曜日定休日",
+    "name": "『 サプライズ 』個展",
+    "time": "13:00-19:00",
+    "exhibitors": [
+      "Fuda Hajime"
+    ],
+    "comments": "見えないところからコンニチワ。います、ここにいますよ。",
+    "images": []
+  },
+  {
+    "id": "exhibition-9",
+    "year": "2024",
+    "datePeriod": "12/01~12/14",
+    "name": "『 Cheap Fakes 』絵画展",
+    "time": "12:00-19:00",
+    "exhibitors": [
+      "齋藤弥主子"
+    ],
+    "comments": "繰り返す日常を書き留めてみたら",
+    "images": []
+  },
+  {
+    "id": "exhibition-10",
+    "year": "2024",
+    "datePeriod": "11/09~11/20",
+    "name": "『 起源 』初個展",
+    "time": "12:00-18:00 12日,19日休",
+    "exhibitors": [
+      "ムラマツアユミ"
+    ],
+    "comments": "魂が胎動する場所",
+    "images": []
+  },
+  {
+    "id": "exhibition-11",
+    "year": "2024",
+    "datePeriod": "10/14~10/20",
+    "name": "『 二人展 』",
+    "time": "11:30-17:30",
+    "exhibitors": [
+      "いいづかもこ",
+      "水野宏美"
+    ],
+    "comments": "二人が仲良く並んでます。",
+    "images": []
+  },
+  {
+    "id": "exhibition-12",
+    "year": "2024",
+    "datePeriod": "10/01~10/12",
+    "name": "『 青にこんがらがって 』展",
+    "time": "12:00~18:00",
+    "exhibitors": [
+      "イグレオン",
+      "おおらいえみこ",
+      "オーライタロー",
+      "岡林こういち",
+      "片山正之",
+      "kyontashi",
+      "もちっこ",
+      "森嘉一",
+      "渡辺恵"
+    ],
+    "comments": "グループ展。いつも青く冴えわたる空がそこにある。",
+    "images": []
+  },
+  {
+    "id": "exhibition-13",
+    "year": "2024",
+    "datePeriod": "9/19~9/28",
+    "name": "『 色鉛筆画展』",
+    "time": "12:00-18:00",
+    "exhibitors": [
+      "古河博章"
+    ],
+    "comments": "色の虹の隙間から見える景色",
+    "images": []
+  },
+  {
+    "id": "exhibition-14",
+    "year": "2024",
+    "datePeriod": "09/01~09/08",
+    "name": "『 ねこ 』展",
+    "time": "12:00-18:00",
+    "exhibitors": [
+      "Rco",
+      "イグレオン",
+      "沖昌之",
+      "我無",
+      "斉藤緩",
+      "さゆ",
+      "すかけ"
+    ],
+    "comments": "ギャラリーKnulp・谷中ギャラリーならん葉 共同開催",
+    "images": []
+  },
+  {
+    "id": "exhibition-15",
+    "year": "2024",
+    "datePeriod": "08/18~08/25",
+    "name": "『 サロメヨカナーン 』展",
+    "time": "12:00-18:00",
+    "exhibitors": [
+      "しば鉄塊"
+    ],
+    "comments": "頭をおよこしなさい　首を巡らせみるのもたまにはいいのでは？",
+    "images": []
+  },
+  {
+    "id": "exhibition-16",
+    "year": "2024",
+    "datePeriod": "08/10~08/17",
+    "name": "『 Uncertain 』展",
+    "time": "12:00-18:00",
+    "exhibitors": [
+      "間馬 健祥"
+    ],
+    "comments": "あなたのもとへ不確かに揺らめく世界を届けます",
+    "images": []
+  },
+  {
+    "id": "exhibition-17",
+    "year": "2024",
+    "datePeriod": "08/04~08/09",
+    "name": "『 Zoe's Gloset 』展",
+    "time": "12:00-18:00",
+    "exhibitors": [
+      "森 きなこ"
+    ],
+    "comments": "じっと見つめる薔薇のような瞳",
+    "images": []
+  },
+  {
+    "id": "exhibition-18",
+    "year": "2024",
+    "datePeriod": "07/27~08/03",
+    "name": "『 COLOURS VOICE 』展",
+    "time": "13:00-19:00",
+    "exhibitors": [
+      "イグレオン"
+    ],
+    "comments": "またまたイグレオンがやってきた。その色彩鮮やかな絵画達が回廊を揺らす波となって襲い来る",
+    "images": []
+  },
+  {
+    "id": "exhibition-19",
+    "year": "2024",
+    "datePeriod": "07/15~07/25",
+    "name": "『 煙が南になびく 』展",
+    "time": "",
+    "exhibitors": [
+      "中村奈津希"
+    ],
+    "comments": "重く厚みのあるどっしりと構えた油絵の上に流れる風はひとつの世界を確かにそこに形作る",
+    "images": []
+  },
+  {
+    "id": "exhibition-20",
+    "year": "2024",
+    "datePeriod": "07/02~07/13",
+    "name": "『 てぴリズム 』展",
+    "time": "",
+    "exhibitors": [
+      "斉藤 緩"
+    ],
+    "comments": "猫の水彩画 木炭ドローイング。斉藤 緩の個展。ティピティピチュパチュパ♪不思議な魔法の言葉",
+    "images": []
+  },
+  {
+    "id": "exhibition-21",
+    "year": "2024",
+    "datePeriod": "06/01~06/30",
+    "name": "『 影を遺す 』展",
+    "time": "",
+    "exhibitors": [
+      "村上野中"
+    ],
+    "comments": "活動10周年記念個展。人が生きるために必要なのものを吐き出した後に残った残滓がそこにある",
+    "images": []
+  },
+  {
+    "id": "exhibition-22",
+    "year": "2024",
+    "datePeriod": "05/18~05/26",
+    "name": "『 土に馴染む 』展",
+    "time": "",
+    "exhibitors": [
+      "渡辺清司 、 栗山綾子"
+    ],
+    "comments": "陶器が映し出すのは日々の暮らし",
+    "images": []
+  },
+  {
+    "id": "exhibition-23",
+    "year": "2024",
+    "datePeriod": "05/02~05/11",
+    "name": "『 モグーは郵便パイロット 』展",
+    "time": "",
+    "exhibitors": [
+      "大空出版"
+    ],
+    "comments": "写真絵本の世界に飛び立つモグーを待ち受けるものとは？？？　5月3・5・11日作家在廊",
+    "images": []
+  },
+  {
+    "id": "exhibition-24",
+    "year": "2024",
+    "datePeriod": "04/01~04/29",
+    "name": "『 イタグレフェス 』展",
+    "time": "",
+    "exhibitors": [
+      "町田リな、古屋菜々、Rco、toto、野口大地"
+    ],
+    "comments": "イタリアングレーハウンドのその背が描く滑らかな丘陵の美がそこに",
+    "images": []
+  },
+  {
+    "id": "exhibition-25",
+    "year": "2024",
+    "datePeriod": "03/29~03/30",
+    "name": "『はるのえいがのじかん』",
+    "time": "",
+    "exhibitors": [
+      "山内奈々子"
+    ],
+    "comments": "活動弁士が贈る無声映画！3月29日、30日の二日に分けての公演です",
+    "images": []
+  },
+  {
+    "id": "exhibition-26",
+    "year": "2024",
+    "datePeriod": "03/10~03/24",
+    "name": "『ordovician』展",
+    "time": "",
+    "exhibitors": [
+      "我無"
+    ],
+    "comments": "カンブリア大爆発からその後、氷河期に至る環境の穏やかな拡散 活きなる様をお見せしよう",
+    "images": []
+  },
+  {
+    "id": "exhibition-27",
+    "year": "2024",
+    "datePeriod": "03/01~03/09",
+    "name": "『334.334』グループ展",
+    "time": "",
+    "exhibitors": [
+      "yosaka、masala、susumu、野口大地、En"
+    ],
+    "comments": "企画展です。",
+    "images": []
+  },
+  {
+    "id": "exhibition-28",
+    "year": "2024",
+    "datePeriod": "02/17~02/25",
+    "name": "『凸凹』グループ展",
+    "time": "",
+    "exhibitors": [
+      "いしかわ、我無、きょんたん、翡翠、松木、marine"
+    ],
+    "comments": "uneven、絵画の中から溢れる個性に溺れてみませんか",
+    "images": []
+  },
+  {
+    "id": "exhibition-29",
+    "year": "2024",
+    "datePeriod": "02/02~02/11",
+    "name": "『etra oleum - ペトラ オレウム-』展",
+    "time": "",
+    "exhibitors": [
+      "響 健太、鷲秋卯 紗"
+    ],
+    "comments": "東京藝術大学 絵画科油画専攻する二人の画家が魅せる“あぶら”と“いし”のせかい",
+    "images": []
+  },
+  {
+    "id": "exhibition-30",
+    "year": "2024",
+    "datePeriod": "01/06~01/14",
+    "name": "『こと もの』展",
+    "time": "",
+    "exhibitors": [
+      "野口大地"
+    ],
+    "comments": "ことわり、ものごとの姿。シンプルなタッチで浮かび上がらせます",
+    "images": []
+  },
+  {
+    "id": "exhibition-31",
+    "year": "2023",
+    "datePeriod": "12/29~12/30",
+    "name": "『Kotoa Kotiin』展",
+    "time": "",
+    "exhibitors": [
+      "コスケンニエミ ユキコ、高原悠子"
+    ],
+    "comments": "芸術を介した国際交流の新しい形、ここに結ばれています",
+    "images": []
+  },
+  {
+    "id": "exhibition-32",
+    "year": "2023",
+    "datePeriod": "12/15~12/23",
+    "name": "『冷えた廊下、浮遊するグレープフルーツ』展",
+    "time": "",
+    "exhibitors": [
+      "まちだリな、Machida Lina"
+    ],
+    "comments": "東京藝術大学大学院映像研究科アニメーション専攻修了。アニメーション人間の生き様、魅せます",
+    "images": []
+  },
+  {
+    "id": "exhibition-33",
+    "year": "2023",
+    "datePeriod": "12/01~12/10",
+    "name": "『gallery shichimenzatocyu Group Echibition』展",
+    "time": "",
+    "exhibitors": [
+      "いいづかもこ、水野宏美、吉野涼子"
+    ],
+    "comments": "七面差坂途中の季節の合同展。ユニークな作品がお待ちしております。",
+    "images": []
+  },
+  {
+    "id": "exhibition-34",
+    "year": "2023",
+    "datePeriod": "11/22~11/29",
+    "name": "『けてち』展",
+    "time": "",
+    "exhibitors": [
+      "高原悠子"
+    ],
+    "comments": "ちょっとズレた。でも素朴な日常の味わい",
+    "images": []
+  },
+  {
+    "id": "exhibition-35",
+    "year": "2023",
+    "datePeriod": "11/13~11/19",
+    "name": "『三香展』",
+    "time": "",
+    "exhibitors": [
+      "米倉功蔵"
+    ],
+    "comments": "トラディッショナルな日本をご紹介",
+    "images": []
+  },
+  {
+    "id": "exhibition-36",
+    "year": "2023",
+    "datePeriod": "10/27~11/11",
+    "name": "『UNKNOWN』展",
+    "time": "",
+    "exhibitors": [
+      "FUDA HAJIME"
+    ],
+    "comments": "なにもわからないってことはなにもわからないことがわかるんだ。ほら、なにもわからないが覗いているよ",
+    "images": []
+  },
+  {
+    "id": "exhibition-37",
+    "year": "2023",
+    "datePeriod": "10/14~10/22",
+    "name": "『七人の異形頭展』",
+    "time": "",
+    "exhibitors": [
+      "RCO",
+      "イグレオン",
+      "我無",
+      "さゆ",
+      "しば",
+      "鉄塊",
+      "村上"
+    ],
+    "comments": "異形頭が七人もそろえば異形こそが通常さ",
+    "images": []
+  },
+  {
+    "id": "exhibition-38",
+    "year": "2023",
+    "datePeriod": "9/30~10/12",
+    "name": "『ゆみ鳥の♪「日常のたからもの」展』",
+    "time": "",
+    "exhibitors": [
+      "yumi"
+    ],
+    "comments": "yumiが描くほのぼのした動物たちと仲良くしてね！",
+    "images": []
+  },
+  {
+    "id": "exhibition-39",
+    "year": "2023",
+    "datePeriod": "9/16~9/27",
+    "name": "『エムズ商店街へようこそ』",
+    "time": "",
+    "exhibitors": [
+      "長浦萌子",
+      "信川みなみ",
+      "小島美冬"
+    ],
+    "comments": "またまたエムズ商店街がこの町に現れたよ。今日はなにが見つかるかな",
+    "images": []
+  },
+  {
+    "id": "exhibition-40",
+    "year": "2023",
+    "datePeriod": "9/01~9/10",
+    "name": "『古河博章 色鉛筆画展』",
+    "time": "",
+    "exhibitors": [
+      "古河博章"
+    ],
+    "comments": "色鉛筆っていいよね...谷根千地域のどこかにある風景、 かつてあった風景。 絵のなかの散策で、 きっとなにか が見つかるはず。",
+    "images": []
+  },
+  {
+    "id": "exhibition-41",
+    "year": "2023",
+    "datePeriod": "8/11~8/26",
+    "name": "『COLOUR GROUND』",
+    "time": "",
+    "exhibitors": [
+      "イグレオン"
+    ],
+    "comments": "どっしりと構えた大地の調べ",
+    "images": []
+  },
+  {
+    "id": "exhibition-42",
+    "year": "2023",
+    "datePeriod": "8/01~8/06",
+    "name": "『真夏の夢』",
+    "time": "",
+    "exhibitors": [
+      "稲場 信也"
+    ],
+    "comments": "真夏の夜に一杯どうです？",
+    "images": []
+  },
+  {
+    "id": "exhibition-43",
+    "year": "2023",
+    "datePeriod": "07/10~07/30",
+    "name": "『漂流』",
+    "time": "",
+    "exhibitors": [
+      "我無",
+      "RCO"
+    ],
+    "comments": "流されるような日々。それでも僕らはどこかに流れ着く",
+    "images": []
+  },
+  {
+    "id": "exhibition-44",
+    "year": "2023",
+    "datePeriod": "6/27~7/8",
+    "name": "『room』",
+    "time": "",
+    "exhibitors": [
+      "岡路貴理",
+      "長岡聡之",
+      "青木崇司",
+      "中村奈津希",
+      "長田芽以"
+    ],
+    "comments": "部屋、日常を過ごす空間。窓の外の景色。",
+    "images": []
+  },
+  {
+    "id": "exhibition-45",
+    "year": "2023",
+    "datePeriod": "06/18~06/25",
+    "name": "『something between white and light』",
+    "time": "",
+    "exhibitors": [
+      "田中智美"
+    ],
+    "comments": "白地に浮かび上がる光と影のダンス",
+    "images": []
+  },
+  {
+    "id": "exhibition-46",
+    "year": "2023",
+    "datePeriod": "06/04~06/13",
+    "name": "『光曼荼羅あそび』",
+    "time": "",
+    "exhibitors": [
+      "田中映里子"
+    ],
+    "comments": "インドの多重世界を表す曼荼羅をモチーフにした万華鏡のようにめぐるめぐる地平",
+    "images": []
+  },
+  {
+    "id": "exhibition-47",
+    "year": "2023",
+    "datePeriod": "05/13~05/21",
+    "name": "『土に馴染む』",
+    "time": "",
+    "exhibitors": [
+      "栗山綾子",
+      "渡辺清司"
+    ],
+    "comments": "二人展でおなじみの陶器作家さんがまたやってきてくれました。透き通る土の輝きを是非ご覧ください",
+    "images": []
+  },
+  {
+    "id": "exhibition-48",
+    "year": "2023",
+    "datePeriod": "04/29",
+    "name": "『はるのえいがのじかん』",
+    "time": "",
+    "exhibitors": [
+      "活動写真弁士：山内奈々子"
+    ],
+    "comments": "1932年小津安二郎監督作品「生まれてはみたけれど」を見る会。お申込みはnanakoyamauchi@gmail.comまで。料金2000円。",
+    "images": []
+  },
+  {
+    "id": "exhibition-49",
+    "year": "2023",
+    "datePeriod": "04/30~05/09",
+    "name": "『春の風』グループ展",
+    "time": "",
+    "exhibitors": [
+      "いいづかもこ",
+      "TOTO",
+      "水野宏美",
+      "山崎純子"
+    ],
+    "comments": "春の風が運ぶ新しい年のすがすがしい香りをご堪能下さい",
+    "images": []
+  },
+  {
+    "id": "exhibition-50",
+    "year": "2023",
+    "datePeriod": "04/10~04/23",
+    "name": "『もも助の、引っ越しだもん』展",
+    "time": "",
+    "exhibitors": [
+      "尾坂昌紀・良幸"
+    ],
+    "comments": "大空出版さんの写真絵本の世界を除いてみませんか？",
+    "images": []
+  },
+  {
+    "id": "exhibition-51",
+    "year": "2023",
+    "datePeriod": "03/23~04/02",
+    "name": "『紡ぐ』グループ展",
+    "time": "",
+    "exhibitors": [
+      "我無",
+      "きょんたし",
+      "福井秀",
+      "松木宏賢",
+      "ミント"
+    ],
+    "comments": "作家達が紡いでいく作品を是非その目で。",
+    "images": []
+  },
+  {
+    "id": "exhibition-52",
+    "year": "2023",
+    "datePeriod": "03/04~03/18",
+    "name": "『334.334』グループ展",
+    "time": "",
+    "exhibitors": [
+      "yoska、masala、susumu、En、野口大地"
+    ],
+    "comments": "春も近づいてきました。秘密の展示が始まります。",
+    "images": []
+  },
+  {
+    "id": "exhibition-53",
+    "year": "2023",
+    "datePeriod": "02/01~02/28",
+    "name": "『沖さんとおそとねこ』写真展",
+    "time": "",
+    "exhibitors": [
+      "沖昌之"
+    ],
+    "comments": "沖昌之とねことの おそと の さんぽ。",
+    "images": []
+  },
+  {
+    "id": "exhibition-54",
+    "year": "2023",
+    "datePeriod": "01/24~ 01/29",
+    "name": "『縁起物市』",
+    "time": "",
+    "exhibitors": [
+      "片山正之、日比野猛、野口大地、toto、mako、RCO、sukake90"
+    ],
+    "comments": "個性派そろいだめでたいな。",
+    "images": []
+  },
+  {
+    "id": "exhibition-55",
+    "year": "2023",
+    "datePeriod": "01/18~ 01/23",
+    "name": "『ミヤさんの作品展』-物語と戯れる-",
+    "time": "",
+    "exhibitors": [
+      "ミヤ"
+    ],
+    "comments": "糸が織り成す大地を見よ。",
+    "images": []
+  },
+  {
+    "id": "exhibition-56",
+    "year": "2023",
+    "datePeriod": "1/7-1/15",
+    "name": "『welcome』展",
+    "time": "",
+    "exhibitors": [
+      "野口大地"
+    ],
+    "comments": "野口大地が確かな技巧であなたを歓迎します。",
+    "images": []
+  },
+  {
+    "id": "exhibition-57",
+    "year": "2022",
+    "datePeriod": "12/12~12/25",
+    "name": "『街灯もない道で』展",
+    "time": "",
+    "exhibitors": [
+      "上田智之"
+    ],
+    "comments": "上田智之の描く印象的な相模原の風景。",
+    "images": []
+  },
+  {
+    "id": "exhibition-58",
+    "year": "2022",
+    "datePeriod": "11/18~11/27",
+    "name": "『姿と遠』宇野七穂 岡路貴理 二人展",
+    "time": "",
+    "exhibitors": [
+      "宇野七穂、岡路貴理"
+    ],
+    "comments": "宇野七穂と岡路貴理。二人の作家が描く内面を映し出すかのような遠い景色とその有様。",
+    "images": []
+  },
+  {
+    "id": "exhibition-59",
+    "year": "2022",
+    "datePeriod": "11/16",
+    "name": "『京子さんの 手ぶらで 三味線』体験",
+    "time": "",
+    "exhibitors": [
+      "京子さん"
+    ],
+    "comments": "手ぶらでどうぞ三味線教室。",
+    "images": []
+  },
+  {
+    "id": "exhibition-60",
+    "year": "2022",
+    "datePeriod": "11/03~11/13",
+    "name": "「鉄の指す方」展",
+    "time": "",
+    "exhibitors": [
+      "古屋 菜々"
+    ],
+    "comments": "鉄に惚れて始めた鍛冶屋 古屋 菜々。職人が見る世界の一端をこの展示にてご紹介。",
+    "images": []
+  },
+  {
+    "id": "exhibition-61",
+    "year": "2022",
+    "datePeriod": "10/19~10/31",
+    "name": "『虚構の城』展",
+    "time": "",
+    "exhibitors": [
+      "FUDA HAJIME"
+    ],
+    "comments": "絵の中から現れる虚構の城に潜むものは果たして財宝かはたまた魔王か",
+    "images": []
+  },
+  {
+    "id": "exhibition-62",
+    "year": "2022",
+    "datePeriod": "10/8~10/10",
+    "name": "合同企画 「ねこ写真Smite展」",
+    "time": "",
+    "exhibitors": [
+      "星野俊光"
+    ],
+    "comments": "今回は、ねこ作品を中心とした作品展のお知らせです。 コロナ感染の拡大以来初の合同展示会参加となります。  感染対策を行い開催、さんしまいの在廊も未定です。 お近くにお越しの際は、気まぐれに覗いてみてください。",
+    "images": []
+  },
+  {
+    "id": "exhibition-63",
+    "year": "2022",
+    "datePeriod": "10/01~10/06",
+    "name": "『Paper wasp』展",
+    "time": "",
+    "exhibitors": [
+      "Dafna Avidan"
+    ],
+    "comments": "ロールシャッハを彷彿させるいつもと違った画風を携えて今回はどんな世界を見せてくれるのかご期待ください",
+    "images": []
+  },
+  {
+    "id": "exhibition-64",
+    "year": "2022",
+    "datePeriod": "09/11~09/25",
+    "name": "『旅する絵描き』我無個展",
+    "time": "",
+    "exhibitors": [
+      "我無"
+    ],
+    "comments": "我無の個展。ひねたポーズからまっすぐな瞳で世界を渡り歩く無我の境地。その目が写すものは。",
+    "images": []
+  },
+  {
+    "id": "exhibition-65",
+    "year": "2022",
+    "datePeriod": "08/28~09/09",
+    "name": "『Connect/Bond / Drama』展",
+    "time": "",
+    "exhibitors": [
+      "Hayato Yoshioka"
+    ],
+    "comments": "東京大学博士課程1年 生きとし生けるこの世の感情を重厚な油絵で表現します",
+    "images": []
+  },
+  {
+    "id": "exhibition-66",
+    "year": "2022",
+    "datePeriod": "08/19~08/27",
+    "name": "『Color Dive』展",
+    "time": "",
+    "exhibitors": [
+      "イグレオン"
+    ],
+    "comments": "溢れる水底の色があなたを魅せます。拡散する光をその目に焼き付けろ",
+    "images": []
+  },
+  {
+    "id": "exhibition-67",
+    "year": "2022",
+    "datePeriod": "08/08~08/14",
+    "name": "『garden』展",
+    "time": "",
+    "exhibitors": [
+      "野口ダイチ"
+    ],
+    "comments": "野口ダイチの庭にはなにが咲き誇るのか",
+    "images": []
+  },
+  {
+    "id": "exhibition-68",
+    "year": "2022",
+    "datePeriod": "8/1~8/7",
+    "name": "『個展・壱 Migiwa Hidari / Solo exhibition・1』展",
+    "time": "",
+    "exhibitors": [
+      "汀子"
+    ],
+    "comments": "汀子(みぎわひだり)の初「個展・壱」を東京・横浜・名古屋の3会場にて開催。初物です。",
+    "images": []
+  },
+  {
+    "id": "exhibition-69",
+    "year": "2022",
+    "datePeriod": "7/18~7/31",
+    "name": "『minami nobukawa solo exhibition』展",
+    "time": "",
+    "exhibitors": [
+      "信川みなみ"
+    ],
+    "comments": "信川みなみ PROFILE 1996年 千葉市出身 2020年 東京藝術大学デザイン科卒業 現在デザイナーとして働きつつ手彫りのゴム版画作品の制作をしている。",
+    "images": []
+  },
+  {
+    "id": "exhibition-70",
+    "year": "2022",
+    "datePeriod": "7/12~7/17",
+    "name": "『青にこんがらがってvol.02』展",
+    "time": "",
+    "exhibitors": [
+      "岡林こういち、青九界之、片山正之、萩原始、日比野猛、元木秀彦、获嘉一、山内望起子"
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-71",
+    "year": "2022",
+    "datePeriod": "07/02~07/10",
+    "name": "『5 SICK』日芸 版画5人展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "日芸からやってきた5人組の深化をお見せしよう",
+    "images": []
+  },
+  {
+    "id": "exhibition-72",
+    "year": "2022",
+    "datePeriod": "6/22~6/29",
+    "name": "『七面坂から』Group exhibition",
+    "time": "",
+    "exhibitors": [
+      "いいづかもこ、石井奏子、櫻井三喜子、豊山千賀子、水野宏美"
+    ],
+    "comments": "出展作家: いいづかもこ、石井奏子、櫻井三喜子、豊山千賀子、水野宏美",
+    "images": []
+  },
+  {
+    "id": "exhibition-73",
+    "year": "2022",
+    "datePeriod": "06/01~06/07",
+    "name": "『岡林こういち』展",
+    "time": "",
+    "exhibitors": [
+      "岡林こういち"
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-74",
+    "year": "2022",
+    "datePeriod": "5/20~5/29",
+    "name": "『Floer of Moment邦題：時分の花』展",
+    "time": "",
+    "exhibitors": [
+      "Efrat Aeirlle Peleg、Hanako Kudlic"
+    ],
+    "comments": "Efrat Aeirlle Peleg/Hanako Kudlic Duo Exhibition",
+    "images": []
+  },
+  {
+    "id": "exhibition-75",
+    "year": "2022",
+    "datePeriod": "04/23~05/08",
+    "name": "渡辺清司さんと栗山綾子さんの二人展",
+    "time": "",
+    "exhibitors": [
+      "渡辺清司、栗山綾子"
+    ],
+    "comments": "工芸作家のコロボレーション。二人の陶器が重なる静かな時間。",
+    "images": []
+  },
+  {
+    "id": "exhibition-76",
+    "year": "2022",
+    "datePeriod": "04/11~04/20",
+    "name": "84（ばっしー）「84×20」初個展展",
+    "time": "",
+    "exhibitors": [
+      "84"
+    ],
+    "comments": "84（ばっしー）さんによる初個展！ランドセル頭の奇才はなにを思うのか？是非中を覗いてみませんか！！",
+    "images": []
+  },
+  {
+    "id": "exhibition-77",
+    "year": "2022",
+    "datePeriod": "04/09",
+    "name": "山内菜々子「はるのえいがのじかん」展",
+    "time": "",
+    "exhibitors": [
+      "山内菜々子"
+    ],
+    "comments": "ギャラリー七面坂途中５周年目記念、活動弁士山内菜々子による無声映画の会",
+    "images": []
+  },
+  {
+    "id": "exhibition-78",
+    "year": "2022",
+    "datePeriod": "04/01~04/07",
+    "name": "まちだリ展「シックス・イヤー・オールド」展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-79",
+    "year": "2022",
+    "datePeriod": "3/20~03/30",
+    "name": "高原悠子「純粋（小）」展",
+    "time": "",
+    "exhibitors": [
+      "高原悠子"
+    ],
+    "comments": "同時展示Finland⇄Japanプロジェクトコスケンニエミ　ユキコ作品:序章「トビラの中のこと」",
+    "images": []
+  },
+  {
+    "id": "exhibition-80",
+    "year": "2022",
+    "datePeriod": "03/09~03/19",
+    "name": "『HandSome』展",
+    "time": "",
+    "exhibitors": [
+      "Mori Kinako"
+    ],
+    "comments": "Mori Kinakoが贈る独特なハンサム世界。ハンサム、お手々がたくさん。手を見ればその人の人となりがわかるそう。ハンサムもわかるかな？",
+    "images": []
+  },
+  {
+    "id": "exhibition-81",
+    "year": "2022",
+    "datePeriod": "02/27~03/08",
+    "name": "ダフナとトトの　[ひみつきち]展",
+    "time": "",
+    "exhibitors": [
+      "Dafne Avidan"
+    ],
+    "comments": "ダフナとトトはとってもなかよし。犬と人だけど木に登ったり元気に遊ぶんだ。",
+    "images": []
+  },
+  {
+    "id": "exhibition-82",
+    "year": "2022",
+    "datePeriod": "1/13~01/23",
+    "name": "瑞森聖華作陶展『瑞々』",
+    "time": "",
+    "exhibitors": [
+      "瑞森聖華"
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-83",
+    "year": "2021",
+    "datePeriod": "12/31~1/9",
+    "name": "『なにげないにちじょう』展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "なにげない日常を各作家さんかが非日常へと切り取ります。13日から第二弾、外から見る展示に切り替わります。",
+    "images": []
+  },
+  {
+    "id": "exhibition-84",
+    "year": "2021",
+    "datePeriod": "12/22~12/27",
+    "name": "『ねことこほり』展",
+    "time": "",
+    "exhibitors": [
+      "NahoYonekura"
+    ],
+    "comments": "みなさん大好きねこです。よろしくお願いします。NahoYonekuraのコンビが贈る蕩けそうなかほり",
+    "images": []
+  },
+  {
+    "id": "exhibition-85",
+    "year": "2021",
+    "datePeriod": "12/6~12/18",
+    "name": "『松谷凜花さん』展",
+    "time": "",
+    "exhibitors": [
+      "松谷凜花"
+    ],
+    "comments": "初個展",
+    "images": []
+  },
+  {
+    "id": "exhibition-86",
+    "year": "2021",
+    "datePeriod": "11/21~12/04",
+    "name": "『エムズ商店街へようこそ2』展",
+    "time": "",
+    "exhibitors": [
+      "長浦萌子、信川みなみ、尾島美冬"
+    ],
+    "comments": "東京藝術大学デザイン科の長浦萌子、信川みなみ、尾島美冬によるほんわか三人組の不思議な商店街がまた開いた よ。今回は帽子デザイナーの白倉優子とのコラボにも注目だ！",
+    "images": []
+  },
+  {
+    "id": "exhibition-87",
+    "year": "2021",
+    "datePeriod": "11/04~11/14",
+    "name": "『Carpe diem ~Rest In Riot~』展",
+    "time": "",
+    "exhibitors": [
+      "RCO-13、我無、イグレオン、枝"
+    ],
+    "comments": "若手作家が集ったぞ。なにやら怪しい雲行きだ。陽気に墓から飛び出した！",
+    "images": []
+  },
+  {
+    "id": "exhibition-88",
+    "year": "2021",
+    "datePeriod": "10/24~11/03",
+    "name": "『染色』展",
+    "time": "",
+    "exhibitors": [
+      "山崎純子"
+    ],
+    "comments": "「一枚の型紙から一気に世界を広げていく型紙染め」偶然の染みる出会い",
+    "images": []
+  },
+  {
+    "id": "exhibition-89",
+    "year": "2021",
+    "datePeriod": "10/12~10/23",
+    "name": "『秋月IV』展",
+    "time": "",
+    "exhibitors": [
+      "いいづかもこ"
+    ],
+    "comments": "かわいくてユニークないつものあのこたちが今年も月と一緒に来たぞ",
+    "images": []
+  },
+  {
+    "id": "exhibition-90",
+    "year": "2021",
+    "datePeriod": "9/28~10/10",
+    "name": "『Freaks』展",
+    "time": "",
+    "exhibitors": [
+      "RCO-13"
+    ],
+    "comments": "聞こえてこないか不気味な音が町に化け物たちのサーカスがやってきた",
+    "images": []
+  },
+  {
+    "id": "exhibition-91",
+    "year": "2021",
+    "datePeriod": "9/11~9/26",
+    "name": "『Color Scale』展",
+    "time": "",
+    "exhibitors": [
+      "イグレオン"
+    ],
+    "comments": "イグレオンを知ってるか。鱗が大好きなこいつがやってきた！艶やかに色めく自然の幾何学模様にあなたもメロメ ロ",
+    "images": []
+  },
+  {
+    "id": "exhibition-92",
+    "year": "2021",
+    "datePeriod": "9/02~9/08",
+    "name": "色鉛筆画展『“Colors for Yanesen”』",
+    "time": "",
+    "exhibitors": [
+      "古河博章"
+    ],
+    "comments": "古河博章の腕が振るう鮮やかな谷根千の魅力",
+    "images": []
+  },
+  {
+    "id": "exhibition-93",
+    "year": "2021",
+    "datePeriod": "8/21~8/30",
+    "name": "『近藤綾　ガラス展』",
+    "time": "",
+    "exhibitors": [
+      "近藤綾"
+    ],
+    "comments": "ガラスボタンを中心に、暮らしを彩るうつわやアクセサリーを展示販売します。",
+    "images": []
+  },
+  {
+    "id": "exhibition-94",
+    "year": "2021",
+    "datePeriod": "8/1~8/15",
+    "name": "『KEFALI/SOMA』展",
+    "time": "",
+    "exhibitors": [
+      "無我、村上野中"
+    ],
+    "comments": "無我と村上野中のタッグのスタイリッシュな世界に酔いしれろ",
+    "images": []
+  },
+  {
+    "id": "exhibition-95",
+    "year": "2021",
+    "datePeriod": "7/1~7/11",
+    "name": "『あのこのすみか』個展",
+    "time": "",
+    "exhibitors": [
+      "こじまみふゆ"
+    ],
+    "comments": "東京藝術大学デザイン科専攻修士1年こじまみふゆの贈るの『空想の棲み家』を堪能あれ",
+    "images": []
+  },
+  {
+    "id": "exhibition-96",
+    "year": "2021",
+    "datePeriod": "6/12~6/27",
+    "name": "6/12~6/27",
+    "time": "",
+    "exhibitors": [
+      "荻原始"
+    ],
+    "comments": "実力派作家 荻原始による舞い落ちるような空を窓からの眺め",
+    "images": []
+  },
+  {
+    "id": "exhibition-97",
+    "year": "2021",
+    "datePeriod": "5/29~6/6",
+    "name": "『-遠い国から風が吹く-』展",
+    "time": "",
+    "exhibitors": [
+      "島袋慶子"
+    ],
+    "comments": "島袋慶子が感じた清涼な風がそっとギャラリーを優しく撫でます",
+    "images": []
+  },
+  {
+    "id": "exhibition-98",
+    "year": "2021",
+    "datePeriod": "5/8～5/22",
+    "name": "谷根千とり巡り『鳥』展",
+    "time": "",
+    "exhibitors": [
+      "谷根千ギャラリー連合"
+    ],
+    "comments": "とりとりとり。毎年恒例谷根千に飛来したとり達の会合。是非ともとりに見においで",
+    "images": []
+  },
+  {
+    "id": "exhibition-99",
+    "year": "2021",
+    "datePeriod": "4/27~5/5",
+    "name": "『ワタシが旅した世界の断片たち』展",
+    "time": "",
+    "exhibitors": [
+      "長浦萌子"
+    ],
+    "comments": "長浦萌子が心の中で練り歩いた旅の窓がここに開いておりまする",
+    "images": []
+  },
+  {
+    "id": "exhibition-100",
+    "year": "2021",
+    "datePeriod": "4/10~4/24",
+    "name": "『あがく』展",
+    "time": "",
+    "exhibitors": [
+      "黒乃香丹"
+    ],
+    "comments": "焼き絵作家・黒乃香丹の初個展！galerie亜露麻さんでもやってます。鋭い観察眼からリアルに描き出される命の脈動をぜひ",
+    "images": []
+  },
+  {
+    "id": "exhibition-101",
+    "year": "2021",
+    "datePeriod": "4/1~4/4",
+    "name": "『沖さんとおそとねこ』展　沖昌之の秘密基地",
+    "time": "",
+    "exhibitors": [
+      "沖昌之"
+    ],
+    "comments": "沖昌之の鋭い観察眼にによって切り取られた日常に転がるねこたちののんびりした写真展",
+    "images": []
+  },
+  {
+    "id": "exhibition-102",
+    "year": "2021",
+    "datePeriod": "2/6~2/23",
+    "name": "『Cambria』展",
+    "time": "",
+    "exhibitors": [
+      "我無"
+    ],
+    "comments": "ユニークなクリーチャー達の行進だ。形の無いものたちの見えざるうねりがそこにあるのかもしれない",
+    "images": []
+  },
+  {
+    "id": "exhibition-103",
+    "year": "2021",
+    "datePeriod": "2/6~2/23",
+    "name": "ひなたぼっこ展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "毎年おなじみのネコの日を記念したネコの街、谷根千のギャラリー合同企画",
+    "images": []
+  },
+  {
+    "id": "exhibition-104",
+    "year": "2021",
+    "datePeriod": "1/16~1/24",
+    "name": "私の好きなもの",
+    "time": "",
+    "exhibitors": [
+      "青柳諒、いいづかもこ、石井奏子、宇野七穂、川名泰夢、梅野顕司、岡路貴理、岡林こういち、島袋慶子、清水康平、信川み なみ、原木友寿那"
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-105",
+    "year": "2020",
+    "datePeriod": "12/26~1/11",
+    "name": "『縁起物市』展",
+    "time": "",
+    "exhibitors": [
+      "松谷凛花、長浦萌子、小島美冬、福井貴大、近藤綾、小河原美波、後藤由芽、信川みなみ"
+    ],
+    "comments": "東洋と西洋の縁起物をテーマにした作品が集まる年末年始にぴったりな展示です。見たら運気が上がるかも・・？",
+    "images": []
+  },
+  {
+    "id": "exhibition-106",
+    "year": "2020",
+    "datePeriod": "12/13~12/23",
+    "name": "『寄ってらっしゃい遊んでらっしゃい』展",
+    "time": "",
+    "exhibitors": [
+      "信川みなみ"
+    ],
+    "comments": "信川みなみプレゼンツ！参加型アート「愉しむ手」をメインとした遊べる展示ここに爆誕！！",
+    "images": []
+  },
+  {
+    "id": "exhibition-107",
+    "year": "2020",
+    "datePeriod": "12/05~12/12",
+    "name": "『忌械の葬列』展",
+    "time": "",
+    "exhibitors": [
+      "かめまん、RCO-13、壱千十、やちゅい"
+    ],
+    "comments": "かめまん/RCO-13/壱千十/やちゅい のグループ展。個性的な作家達が織りなすちょっぴりダークな漆黒のサバトへ ご招待",
+    "images": []
+  },
+  {
+    "id": "exhibition-108",
+    "year": "2020",
+    "datePeriod": "11/21~11/28",
+    "name": "『あお空と星くず』展",
+    "time": "",
+    "exhibitors": [
+      "岡林こういち"
+    ],
+    "comments": "油彩で描かれた落ち着きのある\"あお\"に深く深く落ちて行きたい",
+    "images": []
+  },
+  {
+    "id": "exhibition-109",
+    "year": "2020",
+    "datePeriod": "10/01~10/15",
+    "name": "『匣の中の匣の中 HOMECOMING』展",
+    "time": "",
+    "exhibitors": [
+      "RCO-13"
+    ],
+    "comments": "癖のある作風で独特な味を醸し出すハジメさんの参上です。箱庭の中に住む住人が描き出した作品はどのような意 味を持つのか",
+    "images": []
+  },
+  {
+    "id": "exhibition-110",
+    "year": "2020",
+    "datePeriod": "9/19~9/27",
+    "name": "Grasshopper Dafne Avidan Art Exhibition",
+    "time": "",
+    "exhibitors": [
+      "Dafne Avidan"
+    ],
+    "comments": "お馴染みダフネ アビダンの個人展です。どこだっけ？イスラエルではない。ウルグアイ？違う。とにかく海外から日本に移住した独特な感性を堪能ください。",
+    "images": []
+  },
+  {
+    "id": "exhibition-111",
+    "year": "2020",
+    "datePeriod": "9/1~9/13",
+    "name": "エムズ商店街へようこそ",
+    "time": "",
+    "exhibitors": [
+      "長浦萌子、信川みなみ、尾島美冬"
+    ],
+    "comments": "東京藝術大学デザイン科の長浦萌子、信川みなみ、尾島美冬の……前に紹介した気がする。コロナで日付がズレた のかも。",
+    "images": []
+  },
+  {
+    "id": "exhibition-112",
+    "year": "2020",
+    "datePeriod": "8/1~8/8",
+    "name": "出ズフェス ～出たかった展～",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "イベントが中止になるのは仕方がない、でも溢れる想いをどこかにぶつけたい、そんな四人の合同展です。",
+    "images": []
+  },
+  {
+    "id": "exhibition-113",
+    "year": "2020",
+    "datePeriod": "7/18~7/30",
+    "name": "優遊展",
+    "time": "",
+    "exhibitors": [
+      "黒乃香丹、水野宏美、桜井三喜子、toto、いいづかも"
+    ],
+    "comments": "５名から送る夏の優しい展覧会、遊び心を添えて……",
+    "images": []
+  },
+  {
+    "id": "exhibition-114",
+    "year": "2020",
+    "datePeriod": "6/13~6/27",
+    "name": "青にこんがらがって",
+    "time": "",
+    "exhibitors": [
+      "岡林こういち、宇野七穂、荻原始、岡路貴理、片山正之、斎木一貫"
+    ],
+    "comments": "６名の作家たちが紡ぐ青のハーモニー。複雑なこのご時世を反映するような混沌をあなたは目撃する？",
+    "images": []
+  },
+  {
+    "id": "exhibition-115",
+    "year": "2020",
+    "datePeriod": "6/5~6/7",
+    "name": "『今日のあなたと、明日のあなた』展",
+    "time": "",
+    "exhibitors": [
+      "森水翔"
+    ],
+    "comments": "宮城県からやってきた！あなたの日常を見せにやってきた！あなたの未来はここにある？",
+    "images": []
+  },
+  {
+    "id": "exhibition-116",
+    "year": "2020",
+    "datePeriod": "4/18~5/6",
+    "name": "いぬが動物園に行く",
+    "time": "",
+    "exhibitors": [
+      "宇野七穂、岡路貴理、ぎずも・ぱんっ、黒乃香丹、佐藤緩、さわさとる、島袋慶子、信川みなみ、toto"
+    ],
+    "comments": "動物園に犬がいる？いない？3周年記念「ジャズのゆうべ」4",
+    "images": []
+  },
+  {
+    "id": "exhibition-117",
+    "year": "2020",
+    "datePeriod": "3/4~3/14",
+    "name": "ふくろう展",
+    "time": "",
+    "exhibitors": [
+      "さわさとる、ぎずも・ぱんっ、mako、toto、福井貴大"
+    ],
+    "comments": "福を呼ぶふくろう展。ほんわかした空間をドウゾ、さわさとる、ぎずも・ぱんっ、mako、toto、福井貴大",
+    "images": []
+  },
+  {
+    "id": "exhibition-118",
+    "year": "2020",
+    "datePeriod": "2/15~2/29",
+    "name": "『谷根千ねこラリー』展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "谷根千は猫の町。あらゆるところに猫がいるよ。そしてギャラリーにも",
+    "images": []
+  },
+  {
+    "id": "exhibition-119",
+    "year": "2020",
+    "datePeriod": "1/11~1/25",
+    "name": "はな展",
+    "time": "",
+    "exhibitors": [
+      "山内奈々子、宇野七穂、島袋慶子、山﨑純子、斉藤緩、黒乃香丹、石井奏子、吉野涼子"
+    ],
+    "comments": "活動弁士山内奈々子による無声映画を初日に交えた宇野七穂、島袋慶子、山﨑純子、斉藤緩、黒乃香丹、石井奏子 、吉野涼子と多数の作家をそろえた合同展",
+    "images": []
+  },
+  {
+    "id": "exhibition-120",
+    "year": "2019",
+    "datePeriod": "12/7~12/15",
+    "name": "『動物達のクリスマス』展",
+    "time": "",
+    "exhibitors": [
+      "56、いいづかもこ、近藤綾、黒乃香丹、Mother Tree"
+    ],
+    "comments": "動物たちが祝ってくれるクリスマスならさみしくないかもね",
+    "images": []
+  },
+  {
+    "id": "exhibition-121",
+    "year": "2019",
+    "datePeriod": "11/1~11/12",
+    "name": "草『Grass』展",
+    "time": "",
+    "exhibitors": [
+      "Dafne Avidan"
+    ],
+    "comments": "※オリジナルブローチ ※カラスの児童書※カラスのマント",
+    "images": []
+  },
+  {
+    "id": "exhibition-122",
+    "year": "2019",
+    "datePeriod": "10/19~10/26",
+    "name": "中村あきこ展-なぜ　ここに？-",
+    "time": "",
+    "exhibitors": [
+      "中村あきこ"
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-123",
+    "year": "2019",
+    "datePeriod": "10/5~10/15",
+    "name": "『秋月展III』",
+    "time": "",
+    "exhibitors": [
+      "いいづかもこ"
+    ],
+    "comments": "月見ねこいかがですか",
+    "images": []
+  },
+  {
+    "id": "exhibition-124",
+    "year": "2019",
+    "datePeriod": "9/20~9/30",
+    "name": "『ガラス』展",
+    "time": "",
+    "exhibitors": [
+      "近藤綾"
+    ],
+    "comments": "日々の暮らしを彩るガラス作品新潟にて制作してます。",
+    "images": []
+  },
+  {
+    "id": "exhibition-125",
+    "year": "2019",
+    "datePeriod": "8/10~8/19",
+    "name": "こねこねこの子prtⅢ",
+    "time": "",
+    "exhibitors": [
+      "野口大地、梅野顕司、張　源之、椎葉聡子"
+    ],
+    "comments": "ねこねこねこねこねこねこねこねこ",
+    "images": []
+  },
+  {
+    "id": "exhibition-126",
+    "year": "2019",
+    "datePeriod": "7/31",
+    "name": "ハッピーフェイスTシャツワークショップ",
+    "time": "",
+    "exhibitors": [
+      "Dafne Avidan"
+    ],
+    "comments": "ワークショップだよ。パッチワークで君だけの作品を作ろう",
+    "images": []
+  },
+  {
+    "id": "exhibition-127",
+    "year": "2019",
+    "datePeriod": "7/22~7/28",
+    "name": "『にゃんこ相撲-下町編-』写真展",
+    "time": "",
+    "exhibitors": [
+      "大空出版"
+    ],
+    "comments": "「おかーさん、相撲ってなーに？」ほのぼのとしたねこを斬新な目線で切り取る",
+    "images": []
+  },
+  {
+    "id": "exhibition-128",
+    "year": "2019",
+    "datePeriod": "7/15~7/21",
+    "name": "『noise』展",
+    "time": "",
+    "exhibitors": [
+      "間馬健祥"
+    ],
+    "comments": "インクを飛ばしたような独特のタッチで描かれるノイジーな世界",
+    "images": []
+  },
+  {
+    "id": "exhibition-129",
+    "year": "2019",
+    "datePeriod": "6/20~6/25",
+    "name": "『和の器展』",
+    "time": "",
+    "exhibitors": [
+      "AIZAWA AKIRA"
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-130",
+    "year": "2019",
+    "datePeriod": "6/10~6/15",
+    "name": "『???展』",
+    "time": "",
+    "exhibitors": [
+      "???"
+    ],
+    "comments": "???",
+    "images": []
+  },
+  {
+    "id": "exhibition-131",
+    "year": "2019",
+    "datePeriod": "5/10~5/21",
+    "name": "鳥展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-132",
+    "year": "2019",
+    "datePeriod": "4/28~5/6",
+    "name": "『雪のような日』展",
+    "time": "",
+    "exhibitors": [
+      "上田智之"
+    ],
+    "comments": "霜るような水彩で描かれたなつかしい景色",
+    "images": []
+  },
+  {
+    "id": "exhibition-133",
+    "year": "2019",
+    "datePeriod": "4/6~4/14",
+    "name": "ギャラリー2歳の誕生日会",
+    "time": "",
+    "exhibitors": [
+      "ToTo"
+    ],
+    "comments": "①Meeena odissiインド舞踏家　Yasuhiro kiwada パンドーラ奏者のパフォーマンス②jazzピアニスト　jazzシンガーのパフォーマンス　など",
+    "images": []
+  },
+  {
+    "id": "exhibition-134",
+    "year": "2019",
+    "datePeriod": "3/28~4/2",
+    "name": "こねぎたん様展示",
+    "time": "",
+    "exhibitors": [
+      "こねぎたん"
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-135",
+    "year": "2019",
+    "datePeriod": "3/16~3/24",
+    "name": "ふくろう展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "",
+    "images": []
+  },
+  {
+    "id": "exhibition-136",
+    "year": "2019",
+    "datePeriod": "2/16~2/24",
+    "name": "猫展",
+    "time": "",
+    "exhibitors": [
+      "いいづかもこ、大橋トモ、さわさとる、野村知紗子、ゆみ鳥、mako、TOTO"
+    ],
+    "comments": "久々のmako登場。人気の猫Tネット販売してるってよ。精鋭によるねこを味わいつくすグループ展。",
+    "images": []
+  },
+  {
+    "id": "exhibition-137",
+    "year": "2019",
+    "datePeriod": "2/7~2/12",
+    "name": "二人展",
+    "time": "",
+    "exhibitors": [
+      "渡辺清司"
+    ],
+    "comments": "渡辺清司による深みのある陶器、朝生ゆりこによる繊細な水彩画",
+    "images": []
+  },
+  {
+    "id": "exhibition-138",
+    "year": "2019",
+    "datePeriod": "2/1~2/5",
+    "name": ">Andrea Beteta展",
+    "time": "",
+    "exhibitors": [
+      "Andrea Beteta"
+    ],
+    "comments": "ペルーから来た情熱の作家Andreaさんの全身を使った前衛的アート展。身体的特徴はその人しか出せない味です。",
+    "images": []
+  },
+  {
+    "id": "exhibition-139",
+    "year": "2019",
+    "datePeriod": "1/7~1/25",
+    "name": "26人による小品展",
+    "time": "",
+    "exhibitors": [
+      "朝生ゆるこ、いいづかもこ、石井奏子、梅野顕司、おおいじゅんこ、大橋トモ、岡林こういち、栗田広敏、黒乃香丹、斉藤緩 、再名生ゆかり、さわさとる、椎葉聡子、島袋慶子、田中智美、茅原佳介、長谷川健司、日比野猛、MAA、MASAMI、森水翔、山内望起 子、山下あゆ美、山本健、夕宇香、与那覇大智"
+    ],
+    "comments": "総勢26名による色のアンサンブル。",
+    "images": []
+  },
+  {
+    "id": "exhibition-140",
+    "year": "2018",
+    "datePeriod": "12/18~12/24",
+    "name": "ろう画会のクリスマス展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "ギャラリーで月１，２回ほど開かれているろう画会の展示。個性派揃いのすこしクセになる世界をお楽しみくださ い。",
+    "images": []
+  },
+  {
+    "id": "exhibition-141",
+    "year": "2018",
+    "datePeriod": "12/01~12/16",
+    "name": "クリスマス展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "合同展。雪のようにふわりと溶け出すような温かさとにぎやかな彩りがあなたを迎えます。",
+    "images": []
+  },
+  {
+    "id": "exhibition-142",
+    "year": "2018",
+    "datePeriod": "11/20~11/25",
+    "name": "「イラストのしごと」展",
+    "time": "",
+    "exhibitors": [
+      "朝生ゆりこ「イラストのしごと」"
+    ],
+    "comments": "ほのぼのとしたタッチできめ細やかに描かれためくるめく世界。",
+    "images": []
+  },
+  {
+    "id": "exhibition-143",
+    "year": "2018",
+    "datePeriod": "11/01~11/17",
+    "name": "風の色展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "風ってなんなの？あなたのイメージは？わたしのイメージは…。",
+    "images": []
+  },
+  {
+    "id": "exhibition-144",
+    "year": "2018",
+    "datePeriod": "10/13~10/20",
+    "name": "岡林こういち展",
+    "time": "",
+    "exhibitors": [
+      "岡林こういち"
+    ],
+    "comments": "独特なタッチで描かれた。",
+    "images": []
+  },
+  {
+    "id": "exhibition-145",
+    "year": "2018",
+    "datePeriod": "09/20~09/25",
+    "name": "島袋慶子展",
+    "time": "",
+    "exhibitors": [
+      "島袋慶子"
+    ],
+    "comments": "絵画、水彩画、鉛筆画、手作り小物など多彩な画材で描く繊細なワールド。",
+    "images": []
+  },
+  {
+    "id": "exhibition-146",
+    "year": "2018",
+    "datePeriod": "09/09~09/16",
+    "name": "さいとうゆいこ展",
+    "time": "",
+    "exhibitors": [
+      "さいとうゆいこ"
+    ],
+    "comments": "宮城からやってきました仲良し二人。ほんわかした絵柄がポップにキュートにあなたの心になにやら訴えかけます 。",
+    "images": []
+  },
+  {
+    "id": "exhibition-147",
+    "year": "2018",
+    "datePeriod": "08/31~09/8",
+    "name": "いぬ展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "いぬ。それは身近にあって言葉も通じる......ように見せかけて独自の生態系を持つ隣人。",
+    "images": []
+  },
+  {
+    "id": "exhibition-148",
+    "year": "2018",
+    "datePeriod": "08/10~08/19",
+    "name": "こねこねこのこpart.Ⅱ展",
+    "time": "",
+    "exhibitors": [
+      "ToTo"
+    ],
+    "comments": "ギャラリーオーナーToToが満を持して解禁する多彩な才能を持つ芸術家達が織り成す子猫軍団、待望の第二弾。",
+    "images": []
+  },
+  {
+    "id": "exhibition-149",
+    "year": "2018",
+    "datePeriod": "07/12~07/21",
+    "name": "梅野顕司展 -白猫のいる風景-",
+    "time": "",
+    "exhibitors": [
+      "梅野顕司"
+    ],
+    "comments": "18日（水）は休廊。SM油彩による日常に潜む斬新な世界へあなたをお送りします。",
+    "images": []
+  },
+  {
+    "id": "exhibition-150",
+    "year": "2018",
+    "datePeriod": "06/21~06/30",
+    "name": "栗田広敏展 ―痕跡―",
+    "time": "",
+    "exhibitors": [
+      "栗田広敏"
+    ],
+    "comments": "27日は休廊。油彩、テンペラ",
+    "images": []
+  },
+  {
+    "id": "exhibition-151",
+    "year": "2018",
+    "datePeriod": "4/28~05/06",
+    "name": "こねこ展",
+    "time": "",
+    "exhibitors": [
+      "ToTo"
+    ],
+    "comments": "ギャラリーオーナーToToが満を持して解禁する多彩な才能を持つ芸術家達が織り成す子猫軍団。",
+    "images": []
+  },
+  {
+    "id": "exhibition-152",
+    "year": "2018",
+    "datePeriod": "04/10~4/15",
+    "name": "奏春譜",
+    "time": "",
+    "exhibitors": [
+      "朝生ゆりこ、滝宣子、前田伸子、森敏美"
+    ],
+    "comments": "水彩・油彩・ガラス絵・ミクトメディア・ステンドガラスなど様々な技法を用いた「春」をテーマにした作品の欠 片が紡ぐ視覚のアンサンブル。",
+    "images": []
+  },
+  {
+    "id": "exhibition-153",
+    "year": "2018",
+    "datePeriod": "04/03~04/08",
+    "name": "長谷川健司とはせがわけんじ展",
+    "time": "",
+    "exhibitors": [
+      "長谷川健司"
+    ],
+    "comments": "「それぞれの対峙」をキーワードにした油彩・テンペラ平面作品／陶立体作品。",
+    "images": []
+  },
+  {
+    "id": "exhibition-154",
+    "year": "2018",
+    "datePeriod": "03/01~03/28",
+    "name": "ひとりあそび展",
+    "time": "",
+    "exhibitors": [
+      "佐々木礼次郎"
+    ],
+    "comments": "ギャラリーオーナーToToが織り成す不思議で居心地の良い謎空間。妖精さんがいたり、あまり上手ではないウクレ レの音が聞こえてきたり、わが物顔で居座るぎずもが転がっていたり。",
+    "images": []
+  },
+  {
+    "id": "exhibition-155",
+    "year": "2018",
+    "datePeriod": "2/10~2/2",
+    "name": "しあわせを呼ぶ ふくろう展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "あなたを見つめるふくろうさん。お魚お目目のふくろうさん。いろんなふくろうの目があなたのしあわせを見つめ ます。",
+    "images": []
+  },
+  {
+    "id": "exhibition-156",
+    "year": "2018",
+    "datePeriod": "1/11~1/22",
+    "name": "サムホール展",
+    "time": "",
+    "exhibitors": [
+      ""
+    ],
+    "comments": "元気に開催しております。サムホールは手の平サイズの小さな作品を呼ぶものです。たくさんのユニークな作家さ んが集まってくれました。",
+    "images": []
+  },
+  {
+    "id": "exhibition-157",
+    "year": "2017",
+    "datePeriod": "12/22~12/22",
+    "name": "俺の食",
+    "time": "",
+    "exhibitors": [
+      "大島正光"
+    ],
+    "comments": "大島正光さん初めての個展  開催中 ユニークな視点で写し撮った作品達がお待ちしております。",
+    "images": []
+  },
+  {
+    "id": "exhibition-158",
+    "year": "2017",
+    "datePeriod": "10/23~10/29",
+    "name": "妙 展　―楯野 妙　卆寿記念―油絵を描き描き続けて40年",
+    "time": "",
+    "exhibitors": [
+      "楯野 妙"
+    ],
+    "comments": "ギャラリーの中は 明るい色彩にあふれて お花畑にいるようです♪",
+    "images": []
+  },
+  {
+    "id": "exhibition-159",
+    "year": "2017",
+    "datePeriod": "09/10~09/17",
+    "name": "―フレスコ画・水彩画―",
+    "time": "",
+    "exhibitors": [
+      "椎葉聡子 個展"
+    ],
+    "comments": "くすのきのモデルは、とても温かく心に、語りかけてくれます。",
+    "images": []
+  }
+]
