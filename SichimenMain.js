@@ -13,17 +13,15 @@ const callfor = document.getElementById('callfor');
 const contact = document.getElementById('contact');
 const footer = document.getElementById('footer');
 
-// cal, img, news, zooms, newsCan, ctxnews, newszoomCan, ctxnewszoom, calimg, ctxcal
-// これらは動的に生成されるため、初期化はそのまま
-const cal = new Array();
-const img = new Array();
+const cal = new Array(); // cal画像（Imageオブジェクト）を格納
+const img = new Array(); // img要素（HTMLImageElement）を格納
 const news = new Array();
-const zooms = new Array();
+const zooms = new Array(); // zoom画像（Imageオブジェクト）を格納
 const newsCan = new Array();
 const ctxnews = new Array();
 const newszoomCan = new Array();
 const ctxnewszoom = new Array();
-const ctxcal = new Array(); // calimgは後で動的に設定
+const ctxcal = new Array(); // cal用CanvasRenderingContext2Dを格納
 
 let pointstart;
 let pointend;
@@ -33,92 +31,170 @@ window.scrollTo(0, 0);
 const gallery_map = document.getElementById("gallery_map");
 const team_container = document.getElementById('team_container');
 
-// DOMContentLoadedイベントリスナー内で、データ読み込みを待機
-window.addEventListener('DOMContentLoaded', async function() {
-    // data.jsから展示データをロードし、利用可能になるまで待機
-    // loadExhibitionData() は data.js で定義されています
-    await window.loadExhibitionData();
-    const exhibitions = window.getExhibitions();
-    const formattedDates = window.getFormattedExhibitionDates();
-    const DMNum = exhibitions.length; // DMNumは展示データの数に等しい
+// ★★★ 変更点: DOMContentLoadedイベントリスナー内でデータロードの待機方法を変更 ★★★
+window.addEventListener('DOMContentLoaded', () => {
+    // data.js からの 'exhibitionsLoaded' イベントをリッスン
+    window.addEventListener('exhibitionsLoaded', (event) => {
+        const exhibitionsData = event.detail.exhibitions;
+        const formattedDatesData = event.detail.formattedDates;
 
-    // 既存のモバイル判定ロジック
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-        gallery_map.style.width = "450px";
-        contact.style.width = "450px";
-        team.style.width = "450px";
-        team.style.height = "1700px";
-        team_container.style.height = "1500px";
-        callfor.style.paddingBottom = "200px";
-        gallery.style.width = "450px";
-        footer.style.width = "450px";
-        header.style.width = "450px";
-    }
+        const DMNum = exhibitionsData.length; // DMNum を展示会データの総数に設定
 
-    menuSet(); // メニュー設定はデータロード前に実行可能
-
-    misc = new Image();
-    misc.src = `../img/misc.png`; // misc.pngのパス
-
-    // cal画像とzoom画像のロード
-    let newsLoadedCount = 0;
-    let calLoadedCount = 0;
-
-    // cal画像のロード
-    for (let i = 0; i < DMNum; i++) {
-        // JSONデータから画像のパスを取得するように変更
-        // ここでは仮にexhibition.idを画像ファイル名に利用すると仮定
-        // 実際の画像ファイル名がJSONに含まれるようにバックエンドを実装してください
-        const calImgPath = `../img/cal/${exhibitions[i].id || (DMNum - i)}.jpg`; // 例: cal/unique-exhibition-id-1.jpg
-        cal[i] = new Image();
-        cal[i].src = calImgPath;
-        cal[i].onload = () => {
-            calLoadedCount++;
-        };
-        cal[i].onerror = () => {
-            console.warn(`Failed to load cal image: ${calImgPath}`);
-            calLoadedCount++; // ロード失敗でもカウントを進める
-        };
-    }
-
-    // zoom画像のロード
-    for (let i = 0; i < DMNum; i++) { // NewsNumではなくDMNumを使用
-        // JSONデータから画像のパスを取得するように変更
-        // 例: zoom/unique-exhibition-id-1.jpg
-        const zoomImgPath = `../img/zoom/${exhibitions[i].id || (DMNum - i)}.jpg`;
-        zooms[i] = new Image();
-        zooms[i].src = zoomImgPath;
-        zooms[i].onload = () => {
-            newsLoadedCount++;
-        };
-        zooms[i].onerror = () => {
-            console.warn(`Failed to load zoom image: ${zoomImgPath}`);
-            newsLoadedCount++; // ロード失敗でもカウントを進める
-        };
-    }
-
-    // img[1], img[2], img[3] のロード (静的な画像)
-    for (let i = 1; i <= ImgsNum; i++) {
-        img[i] = new Image();
-        img[i].src = `../img/img${i}.jpg`;
-    }
-
-    misc.onload = function() {
-        ctxtitle.drawImage(misc, 0, 0, 400, 50, 0, 0, 400, 50);
-    };
-
-    // 全ての画像がロードされるのを待つタイマー
-    const totalImagesToLoad = DMNum * 2 + ImgsNum; // cal, zoom, img
-    let timer = setInterval(() => {
-        if (calLoadedCount === DMNum && newsLoadedCount === DMNum) { // DMNumを使用
-            RoomPrepar();
-            // GoogleカレンダーAPIのロード（APIキーは別途設定）
-            gapi.load('client', Gcalender);
-            clearInterval(timer);
+        // 既存のモバイル判定ロジックはDOMContentLoaded直下に置く
+        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
+            gallery_map.style.width = "450px";
+            contact.style.width = "450px";
+            team.style.width = "450px";
+            team.style.height = "1700px";
+            team_container.style.height = "1500px";
+            callfor.style.paddingBottom = "200px";
+            gallery.style.width = "450px";
+            footer.style.width = "450px";
+            header.style.width = "450px";
         }
-    }, 10);
+
+        menuSet(); // メニュー設定はデータロード前に実行可能
+
+        // misc画像のロード
+        const misc = new Image();
+        misc.src = `../img/misc.png`; // misc.pngのパス
+
+        // 各要素の生成と初期化 (DOM要素の生成は、データロードを待たずにここで行う)
+        for (let i = 0; i < DMNum; i++) {
+            cal[i] = document.createElement('canvas');
+            cal[i].className = 'cal';
+            cal[i].id = `cal-${i}`;
+            document.getElementById('achives_box').appendChild(cal[i]);
+            ctxcal[i] = cal[i].getContext('2d');
+
+            // img[i] (HTMLImageElement) はDOMに挿入されないが、後でcanvas描画に使うため用意
+            img[i] = document.createElement('img'); 
+            img[i].className = 'img';
+            img[i].id = `img-${i}`;
+            // img[i].src と alt は後述の画像ロード処理で設定
+
+            news[i] = document.createElement('div');
+            news[i].className = 'news';
+            news[i].id = `news-${i}`;
+            news[i].textContent = exhibitionsData[i].name; 
+            document.getElementById('news_ul').appendChild(news[i]);
+
+            // zooms[i] (HTMLImageElement) もDOMに挿入されないが、後でcanvas描画に使うため用意
+            zooms[i] = document.createElement('img');
+            zooms[i].className = 'zoomimg';
+            zooms[i].id = `zoomimg-${i}`;
+            // zooms[i].src と alt は後述の画像ロード処理で設定
+
+            newsCan[i] = document.createElement('canvas');
+            newsCan[i].className = 'newsCan';
+            newsCan[i].id = `newsCan-${i}`;
+            document.getElementById('news_li').appendChild(newsCan[i]);
+            ctxnews[i] = newsCan[i].getContext('2d');
+
+            newszoomCan[i] = document.createElement('canvas');
+            newszoomCan[i].className = 'newszoomCan';
+            newszoomCan[i].id = `newszoomCan-${i}`;
+            document.getElementById('news_li_top').appendChild(newszoomCan[i]);
+            ctxnewszoom[i] = newszoomCan[i].getContext('2d');
+        }
+
+        // img[1], img[2], img[3] のロード (静的な画像)
+        for (let i = 1; i <= ImgsNum; i++) {
+            img[i] = new Image();
+            img[i].src = `../img/img${i}.jpg`;
+        }
+
+        misc.onload = function() {
+            ctxtitle.drawImage(misc, 0, 0, 400, 50, 0, 0, 400, 50);
+        };
+
+        // cal画像とzoom画像のロード状況を監視
+        let loadedCount = 0;
+        const totalDynamicImages = DMNum * 2; // cal と zoom の合計数
+        
+        // Load dynamic images (cal and zoom)
+        for (let i = 0; i < DMNum; i++) {
+            const exhibition = exhibitionsData[i];
+
+            // calImageのロード
+            const calImage = new Image();
+            if (exhibition.calImage && exhibition.calImage.filename && exhibition.calImage.extension) {
+                calImage.src = `img/calimg/${exhibition.calImage.filename}.${exhibition.calImage.extension}`;
+                calImage.alt = `cal_img_${exhibition.name}`;
+            } else {
+                calImage.src = 'img/placeholder.webp'; 
+                calImage.alt = 'No image available';
+            }
+            // cal[i] にロードしたImageオブジェクトを格納
+            cal[i] = calImage; 
+            calImage.onload = () => {
+                loadedCount++;
+                if (loadedCount === totalDynamicImages) {
+                    initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData);
+                }
+            };
+            calImage.onerror = () => {
+                console.warn(`Failed to load cal image: ${calImage.src}`);
+                loadedCount++;
+                if (loadedCount === totalDynamicImages) {
+                    initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData);
+                }
+            };
+
+            // zoomImageのロード
+            const zoomImage = new Image();
+            if (exhibition.zoomImage && exhibition.zoomImage.filename && exhibition.zoomImage.extension) {
+                zoomImage.src = `img/calzoom/${exhibition.zoomImage.filename}.${exhibition.zoomImage.extension}`;
+                zoomImage.alt = `zoom_img_${exhibition.name}`;
+            } else {
+                zoomImage.src = 'img/placeholder_zoom.webp'; 
+                zoomImage.alt = 'No zoom image available';
+            }
+            // zooms[i] にロードしたImageオブジェクトを格納
+            zooms[i] = zoomImage; 
+            zoomImage.onload = () => {
+                loadedCount++;
+                if (loadedCount === totalDynamicImages) {
+                    initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData);
+                }
+            };
+            zoomImage.onerror = () => {
+                console.warn(`Failed to load zoom image: ${zoomImage.src}`);
+                loadedCount++;
+                if (loadedCount === totalDynamicImages) {
+                    initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData);
+                }
+            };
+        }
+
+    });
 });
 
+// 画像ロード後に呼び出される初期化関数
+function initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData) {
+    RoomPrepar(); 
+    gapi.load('client', Gcalender); // GoogleカレンダーAPIのロード（APIキーは別途設定）
+
+    // 各関数の呼び出し
+    Main_Load(DMNum, exhibitionsData, formattedDatesData); 
+    NewsEvent(DMNum, exhibitionsData, formattedDatesData); 
+    NowaDayNews(DMNum, exhibitionsData); 
+    
+    Init(); 
+    Header();
+    footer_create();
+    Title_create();
+    About();
+    Gallery();
+    Team();
+    Contact();
+    CallFor();
+    ScrollSetting();
+    Page_move();
+    
+    HoverEvents(DMNum); 
+    ClickEvents(DMNum); 
+}
 
 if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
     pointstart = `touchstart`;
@@ -130,7 +206,6 @@ if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
     pointmove = "mousemove";
 }
 
-
 function RoomPrepar() {
     let inboxCan;
     if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
@@ -141,141 +216,198 @@ function RoomPrepar() {
         home.insertAdjacentHTML("beforebegin", `<div id="toproom" style=" visibility: hidden; position: absolute; background-color: #9b846d; height: 500px;width: 800px;top: 50px; left: 0; right:0; margin: auto; z-index:1;"></div>`);
     }
     PopAnim(document.getElementById('toproom'), 5000, 0);
-    NewsEvent();
 }
 
-function NewsEvent() {
-    const exhibitions = window.getExhibitions();
-    const formattedDates = window.getFormattedExhibitionDates();
-    const DMNum = exhibitions.length; // 最新のDMNumを取得
+// ★★★ 変更点: Main_Load 関数の引数と内容を更新 ★★★
+function Main_Load(DMNum, exhibitionsData, formattedDatesData) {
+    for (let i = 0; i < DMNum; i++) {
+        // カレンダーイメージの描画
+        if (cal[i] && cal[i].complete && ctxcal[i]) { // 画像がロード済みであることを確認
+            ctxcal[i].clearRect(0, 0, ctxcal[i].canvas.width, ctxcal[i].canvas.height);
+            ctxcal[i].drawImage(cal[i], 0, 0, cal[i].width, cal[i].height, 0, 0, ctxcal[i].canvas.width, ctxcal[i].canvas.height);
+        } else if (ctxcal[i]) {
+            console.warn(`Cal image for index ${i} not yet loaded for Main_Load.`);
+            // 必要に応じてプレースホルダーやロード中表示
+        }
+        
+        // テキスト情報の描画
+        ctxcal[i].font = '16px "Noto Sans JP"';
+        ctxcal[i].textAlign = 'center';
+        ctxcal[i].fillStyle = 'rgb(28,28,28)';
 
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-        document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;"></div>`);
-        document.getElementById('toproom').insertAdjacentHTML("afterend",
-            `<div id="newszoombox" style="width:400px;height:600px;background-color: #110501df; visibility: hidden; z-index:4; position:absolute; margin: 0px auto 0px auto; top: 100px;left: 0; right: 0;"></div>`);
-        document.getElementById('newszoombox').insertAdjacentHTML("afterbegin",
-            `<div id="newszoomflex" style="width:400px;height:600px; gap:800px 800px; display:flex; overflow: hidden; position:absolute; margin: auto;"></div>`);
-    } else {
-        document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;left: 450px;"></div>`);
-        document.getElementById('toproom').insertAdjacentHTML("afterend",
-            `<div id="newszoombox" style="width:850px;height:600px;background-color: #110501df; visibility: hidden; z-index:4; position:absolute; margin: 0px auto 0px auto; top: 100px;left: 0; right: 0;"></div>`);
-        document.getElementById('newszoombox').insertAdjacentHTML("afterbegin",
-            `<div id="newszoomflex" style="width:850px;height:600px; gap:800px 800px; display:flex; overflow: hidden; position:absolute; margin: auto;"></div>`);
+        // 年月日と曜日
+        ctxcal[i].fillText(exhibitionsData[i].year, 150, 40);
+        ctxcal[i].fillText(formattedDatesData[i], 150, 65);
+
+        // イベント名
+        ctxcal[i].font = '19px "Noto Sans JP"';
+        ctxcal[i].fillText(exhibitionsData[i].name, 150, 100);
+
+        // 出展者
+        ctxcal[i].font = '14px "Noto Sans JP"';
+        ctxcal[i].fillText(exhibitionsData[i].exhibitors.join(', '), 150, 130); 
     }
-    var newsflexbox = document.getElementById('newsflexbox');
-    var newszoomflex = document.getElementById('newszoomflex');
-    newszoombox.insertAdjacentHTML("beforeend",
-        `<div class="newsturnleft" style="font-size:xxx-large; transform: scaleY(3); float:left;width: 20px;height: 100px; position:absolute;top: 50%; color: #8e8b88;">≪</div><div class="newsturnright" style="transform: scaleY(3); font-size:xxx-large; float:right;width: 20px;height: 100px;position:absolute;top: 50%; right: 0px; color: #8e8b88;">≫</div>`);
-    newsflexbox.insertAdjacentHTML("afterbegin",
-        `<div id="newsflex" style=" display:flex; overflow: hidden; height: 160px; width: 350px; margin: auto;background-color: #241f17;"></div>`);
-    newsflexbox.insertAdjacentHTML("beforeend",
-        `<div class="newsturnleft" style="float:left;width: 20px;height: 100px;z-index:1; position:absolute;top: 20px;"></div><div class="newsturnright" style="float:right;width: 20px;height: 100px;position:absolute;top: 20px;right: 0px;z-index:1;"></div>`);
+}
+
+
+// ★★★ 変更点: NewsEvent 関数の引数と内容を更新 ★★★
+function NewsEvent(DMNum, exhibitionsData, formattedDatesData) {
+    // ニュース表示の初期設定
+    // DOM要素の生成は一度だけ行うべきなので、RoomPreparから移動 (初回のみ実行されるようにチェックを追加)
+    if (document.getElementById('newsflexbox') === null) { 
+        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
+            document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;"></div>`);
+            document.getElementById('toproom').insertAdjacentHTML("afterend",
+                `<div id="newszoombox" style="width:400px;height:600px;background-color: #110501df; visibility: hidden; z-index:4; position:absolute; margin: 0px auto 0px auto; top: 100px;left: 0; right: 0;"></div>`);
+            document.getElementById('newszoombox').insertAdjacentHTML("afterbegin",
+                `<div id="newszoomflex" style="width:400px;height:600px; gap:800px 800px; display:flex; overflow: hidden; position:absolute; margin: auto;"></div>`);
+        } else {
+            document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;left: 450px;"></div>`);
+            document.getElementById('toproom').insertAdjacentHTML("afterend",
+                `<div id="newszoombox" style="width:850px;height:600px;background-color: #110501df; visibility: hidden; z-index:4; position:absolute; margin: 0px auto 0px auto; top: 100px;left: 0; right: 0;"></div>`);
+            document.getElementById('newszoombox').insertAdjacentHTML("afterbegin",
+                `<div id="newszoomflex" style="width:850px;height:600px; gap:800px 800px; display:flex; overflow: hidden; position:absolute; margin: auto;"></div>`);
+        }
+        var newsflexbox = document.getElementById('newsflexbox');
+        var newszoomflex = document.getElementById('newszoomflex');
+        newszoombox.insertAdjacentHTML("beforeend",
+            `<div class="newsturnleft" style="font-size:xxx-large; transform: scaleY(3); float:left;width: 20px;height: 100px; position:absolute;top: 50%; color: #8e8b88;">≪</div><div class="newsturnright" style="transform: scaleY(3); font-size:xxx-large; float:right;width: 20px;height: 100px;position:absolute;top: 50%; right: 0px; color: #8e8b88;">≫</div>`);
+        newsflexbox.insertAdjacentHTML("afterbegin",
+            `<div id="newsflex" style=" display:flex; overflow: hidden; height: 160px; width: 350px; margin: auto;background-color: #241f17;"></div>`);
+        newsflexbox.insertAdjacentHTML("beforeend",
+            `<div class="newsturnleft" style="float:left;width: 20px;height: 100px;z-index:1; position:absolute;top: 20px;"></div><div class="newsturnright" style="float:right;width: 20px;height: 100px;position:absolute;top: 20px;right: 0px;z-index:1;"></div>`);
+    }
+
     var newsflex = document.getElementById(`newsflex`);
 
-    // DMNum (exhibitions.length) を使用してループ
-    for (let i = 0; i < DMNum; i++) {
-        const exhibition = exhibitions[i];
-        const formattedDate = formattedDates[i];
-        const calImage = cal[i]; // cal配列は0からDMNum-1まで
-        const zoomImage = zooms[i]; // zooms配列も0からDMNum-1まで
+    for (let i = 0; i < DMNum; i++) { 
+        const exhibition = exhibitionsData[i];
+        const formattedDate = formattedDatesData[i]; 
+        const calImage = cal[i]; // ロード済みImageオブジェクト
+        const zoomImage = zooms[i]; // ロード済みImageオブジェクト
 
-        var newsimgheight = calImage.height * 0.6;
-        var newsimgwidth = calImage.width * 0.6;
-        if (calImage.height == 200) {
-            newsimgwidth = calImage.width * 0.4;
-            newsimgheight = calImage.height * 0.4;
+        // ニュースアイテムの既存要素があれば更新、なければ新規作成
+        let newsboxElem = document.getElementById(`newsbox${i}`);
+        let newsCanElem = document.getElementById(`news${i}`);
+        let newstexElem = document.getElementById(`newtex${i}`);
+        let newszoomboxElem = document.getElementById(`newszoombox${i}`);
+        let newszoomCanElem = document.getElementById(`newszooms${i}`);
+
+        if (!newsboxElem) { // 要素がまだ作成されていない場合
+            // calImage.width, calImage.height はロード後に利用可能
+            var newsimgheight = calImage.height * 0.6; 
+            var newsimgwidth = calImage.width * 0.6; 
+            if (calImage.height == 200) { 
+                newsimgwidth = calImage.width * 0.4; 
+                newsimgheight = calImage.height * 0.4; 
+            }
+            newsflex.insertAdjacentHTML("beforeend", `<div id="newsbox${i}" style="width: 150px;height:100px; margin: 1%;"><canvas id="news${i}" width="${newsimgwidth}px" height="${newsimgheight}px" style=" margin: 10px 0 0 10px;"></canvas></div>`);
+            newsboxElem = document.getElementById(`newsbox${i}`);
+            newsCanElem = document.getElementById(`news${i}`);
+            ctxnews[i] = newsCanElem.getContext('2d'); 
+            newsboxElem.insertAdjacentHTML("beforeend", `<div id="newtex${i}" style="margin: -0px 0px 0px 5px; color: #988; width:150px;"><p style="font-size: 12px;margin:0px;">${exhibition.name}<br><font style="font-size: xx-small;">${formattedDate}<br>${exhibition.time || ''}</font></p></div>`);
+            newstexElem = document.getElementById(`newtex${i}`);
+
+            if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
+                var newszoomheight = zoomImage.height / 2; 
+                var newszoomwidth = zoomImage.width / 2; 
+                if (zoomImage.height == 800) { 
+                    newszoomheight = zoomImage.height * 0.7 / 2; 
+                    newszoomwidth = zoomImage.width * 0.7 / 2; 
+                }
+                newszoomflex.insertAdjacentHTML("beforeend",
+                    `<div id="newszoombox${i}" style="width: 425px;height:300px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
+
+            } else {
+                var newszoomheight = zoomImage.height; 
+                var newszoomwidth = zoomImage.width; 
+                if (zoomImage.height == 800) { 
+                    newszoomheight = zoomImage.height * 0.7; 
+                    newszoomwidth = zoomImage.width * 0.7; 
+                }
+                newszoomflex.insertAdjacentHTML("beforeend",
+                    `<div id="newszoombox${i}" style="width: 850px;height:600px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
+            }
+            newszoomboxElem = document.getElementById(`newszoombox${i}`);
+            newszoomCanElem = document.getElementById(`newszooms${i}`);
+            ctxnewszoom[i] = newszoomCanElem.getContext('2d'); 
         }
-        inboxCan = `<div id="newsbox${i}" style="width: 150px;height:100px; margin: 1%;"><canvas id="news${i}" width="${newsimgwidth}px" height="${newsimgheight}px" style=" margin: 10px 0 0 10px;"></canvas></div>`;
-        newsflex.insertAdjacentHTML("beforeend", inboxCan);
-        newsCan[i] = document.getElementById(`news${i}`);
-        ctxnews[i] = newsCan[i].getContext('2d');
-        ctxnews[i].drawImage(calImage, 0, 0, calImage.width, calImage.height, 0, 0, newsimgwidth, newsimgheight);
-        inboxCan = `<div id="newtex${i}" style="margin: -0px 0px 0px 5px; color: #988; width:150px;"><p style="font-size: 12px;margin:0px;">${exhibition.name}<br><font style="font-size: xx-small;">${formattedDate}<br>${exhibition.time || ''}</font></p></div>`;
-        document.getElementById(`newsbox${i}`).insertAdjacentHTML("beforeend", inboxCan);
+        
+        // Canvasの描画とテキストの更新 (初回生成時とデータ更新時に実行)
+        // ここではロード済みのImageオブジェクトを直接drawImageに渡す
+        if (calImage && calImage.complete && ctxnews[i]) {
+            ctxnews[i].clearRect(0, 0, newsCanElem.width, newsCanElem.height); 
+            ctxnews[i].drawImage(calImage, 0, 0, calImage.width, calImage.height, 0, 0, newsCanElem.width, newsCanElem.height);
+        }
 
+        if (zoomImage && zoomImage.complete && ctxnewszoom[i]) {
+            ctxnewszoom[i].clearRect(0, 0, newszoomCanElem.width, newszoomCanElem.height); 
+            ctxnewszoom[i].drawImage(zoomImage, 0, 0, zoomImage.width, zoomImage.height, 0, 0, newszoomCanElem.width, newszoomCanElem.height);
+        }
+
+        // テキストコンテンツの更新
+        newstexElem.querySelector('p').innerHTML = `${exhibition.name}<br><font style="font-size: xx-small;">${formattedDate}<br>${exhibition.time || ''}</font>`;
+
+    }
+    NewsZoomer(); 
+    NowaDayNews(DMNum, exhibitionsData); 
+
+    // totobox以下の要素の生成はNewsEventの初回呼び出し時にのみ行う
+    if (document.getElementById('toto') === null) {
         if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-            var newszoomheight = zoomImage.height / 2;
-            var newszoomwidth = zoomImage.width / 2;
-            if (zoomImage.height == 800) {
-                newszoomheight = zoomImage.height * 0.7 / 2;
-                newszoomwidth = zoomImage.width * 0.7 / 2;
-            }
-            newszoomflex.insertAdjacentHTML("beforeend",
-                `<div id="newszoombox${i}" style="width: 425px;height:300px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
-
+            totobox.insertAdjacentHTML("afterbegin", `<canvas id="toto" width="200px" height="200px" style="position:absolute; margin: auto;top: 380px;right: 0px;left: 250px; z-index:3;"></canvas>`);
         } else {
-            var newszoomheight = zoomImage.height;
-            var newszoomwidth = zoomImage.width;
-            if (zoomImage.height == 800) {
-                newszoomheight = zoomImage.height * 0.7;
-                newszoomwidth = zoomImage.width * 0.7;
-            }
-            newszoomflex.insertAdjacentHTML("beforeend",
-                `<div id="newszoombox${i}" style="width: 850px;height:600px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
-
+            totobox.insertAdjacentHTML("afterbegin", `<canvas id="toto" width="200px" height="200px" style="position:absolute; margin: auto;top: 680px;right: 0px;left: ${window.innerWidth-200}px; z-index:3;"></canvas>`);
         }
-        newszoomCan[i] = document.getElementById(`newszooms${i}`);
-        ctxnewszoom[i] = newszoomCan[i].getContext('2d');
-        ctxnewszoom[i].drawImage(zoomImage, 0, 0, zoomImage.width, zoomImage.height, 0, 0, newszoomwidth, newszoomheight);
+        const toto = document.getElementById('toto');
+        var ctxtoto = toto.getContext('2d');
+        // misc画像がロードされていることを確認してから描画
+        if (misc && misc.complete) {
+            ctxtoto.drawImage(misc, 500, 500, 200, 200, 0, 0, 200, 200);
+        } else {
+            misc.onload = () => { // misc画像が遅れてロードされた場合
+                ctxtoto.drawImage(misc, 500, 500, 200, 200, 0, 0, 200, 200);
+            };
+        }
+        PopAnim(document.getElementById('toto'), 5000, 0);
+        AboutMove();
+        CallforMove();
+        AchiveFolder();
     }
-    NewsZoomer();
-    NowaDayNews();
-
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-        totobox.insertAdjacentHTML("afterbegin", `<canvas id="toto" width="200px" height="200px" style="position:absolute; margin: auto;top: 380px;right: 0px;left: 250px; z-index:3;"></canvas>`);
-    } else {
-        totobox.insertAdjacentHTML("afterbegin", `<canvas id="toto" width="200px" height="200px" style="position:absolute; margin: auto;top: 680px;right: 0px;left: ${window.innerWidth-200}px; z-index:3;"></canvas>`);
-    }
-    const toto = document.getElementById('toto');
-    var ctxtoto = toto.getContext('2d');
-    ctxtoto.drawImage(misc, 500, 500, 200, 200, 0, 0, 200, 200);
-    PopAnim(document.getElementById('toto'), 5000, 0);
-
-    AboutMove();
-    CallforMove();
-
-    AchiveFolder();
-
 }
 
-function NowaDayNews() {
-    const exhibitions = window.getExhibitions();
-    const DMNum = exhibitions.length;
 
+// ★★★ 変更点: NowaDayNews 関数の引数と内容を更新 ★★★
+function NowaDayNews(DMNum, exhibitionsData) {
     let nowaday = new Date();
-    let nowmonth = nowaday.getMonth() + 1;
-    let nowday = nowaday.getDate();
+    let foundCurrentNews = false;
+    let targetIndex = DMNum - 1; 
 
     for (let i = 0; i < DMNum; i++) {
-        const exhibition = exhibitions[i];
-        const dates = exhibition.datePeriod.split(/[~|～|-]/);
-        if (dates.length === 2) {
-            const [startDateStr, endDateStr] = dates;
-            const startMonth = parseInt(startDateStr.split('/')[0].replace(/^0+/, ''));
-            const endMonth = parseInt(endDateStr.split('/')[0].replace(/^0+/, ''));
-            const endDate = parseInt(endDateStr.split('/')[1].replace(/^0+/, ''));
+        const exhibition = exhibitionsData[i];
 
-            // 現在の月が展示期間内、または展示開始月以降で、まだ終了していない展示を探す
-            if (exhibition.year == nowaday.getFullYear() &&
-                (nowmonth >= startMonth && nowmonth <= endMonth) &&
-                !(nowmonth === endMonth && nowday > endDate)) {
-                let num = i;
-                var topnews = document.getElementById("newsflex");
-                // 現在の展示が中央に来るようにスクロール位置を調整
-                topnews.scrollLeft = 150 * num - (topnews.offsetWidth / 2) + 75; // 75はnewsboxの半分
-                break;
-            }
-        }
-        // 全ての展示をチェックし終えて、該当するものがなければ最後の展示にスクロール
-        if (i === DMNum - 1) {
-            let num = i;
-            var topnews = document.getElementById("newsflex");
-            topnews.scrollLeft = 150 * num - (topnews.offsetWidth / 2) + 75;
-            break;
+        const startDate = new Date(exhibition.startDate);
+        const endDate = new Date(exhibition.endDate);
+
+        if (startDate <= nowaday && nowaday <= endDate && exhibition.isNews === true) {
+            targetIndex = i;
+            foundCurrentNews = true;
+            break; 
         }
     }
-}
 
+    if (foundCurrentNews) {
+        document.getElementById('news_li_top').scrollTo({
+            top: newsCan[targetIndex].offsetTop,
+            behavior: 'smooth'
+        });
+    } else {
+        document.getElementById('news_li_top').scrollTo({
+            top: newsCan[targetIndex].offsetTop, 
+            behavior: 'smooth'
+        });
+    }
+}
 
 const about_container = document.getElementById('about_container');
 const about_contents = document.getElementById('about_contents');
