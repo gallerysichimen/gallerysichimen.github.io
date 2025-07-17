@@ -1,3 +1,6 @@
+// data.js
+// このスクリプトは、展示情報をJSONファイルから非同期で読み込み、
+// 必要な形式に変換して他のスクリプトに提供します。
 
 let allExhibitions = []; // 全ての展示情報を格納する配列
 let formattedExhibitionDates = []; // 表示用にフォーマットされた日付を格納する配列
@@ -7,26 +10,27 @@ async function loadExhibitionData() {
     try {
         // exhibitions.jsonファイルのパスは、実際の配置場所に合わせて変更してください
         // ユーザーが提供したファイルリストに基づき、exhibitions.jsonはルートにあると仮定
-        const response = await fetch('exhibitions.json'); // ★変更: パスを修正
+        const response = await fetch('exhibitions.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        allExhibitions = await response.json();
+        const jsonData = await response.json();
+        allExhibitions = jsonData.exhibitions; // exhibitions.jsonのルートオブジェクトが "exhibitions" 配列を持つため
         console.log('展示データが正常に読み込まれました:', allExhibitions);
 
         // 読み込んだデータを元に日付をフォーマット
         formatExhibitionDates();
 
-        // ★追加: データロード完了イベントをディスパッチ
+        // データロード完了イベントをディスパッチ
         const event = new CustomEvent('exhibitionsLoaded', {
             detail: {
-                exhibitions: allExhibitions.exhibitions, // exhibitions.jsonのルートオブジェクトが "exhibitions" 配列を持つため
+                exhibitions: allExhibitions,
                 formattedDates: formattedExhibitionDates
             }
         });
-        window.dispatchEvent(event); // windowオブジェクトを介してイベントをディスパッチ
+        window.dispatchEvent(event);
 
-        return allExhibitions.exhibitions; // 読み込んだデータを返す (exhibitions配列を返す)
+        return allExhibitions; // 読み込んだデータを返す
     } catch (error) {
         console.error('展示データの読み込み中にエラーが発生しました:', error);
         return []; // エラー時は空の配列を返す
@@ -38,8 +42,7 @@ function formatExhibitionDates() {
     formattedExhibitionDates = []; // リセット
     const weekchars = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"];
 
-    // exhibitions.json の "exhibitions" 配列をループ
-    allExhibitions.exhibitions.forEach(exhibition => {
+    allExhibitions.forEach(exhibition => {
         // exhibits.jsonの構造に基づき、startDateとendDateが存在する場合のみ日付をパース
         if (exhibition.startDate && exhibition.endDate) {
             const startDateStr = exhibition.startDate; // "YYYY-MM-DD"形式
@@ -59,7 +62,7 @@ function formatExhibitionDates() {
             const formattedStart = formatSingleDate(startDateObj);
             const formattedEnd = formatSingleDate(endDateObj);
 
-            // ★変更: 期間が同じ日の場合（例：単日イベント）は「X月Y日(曜日)」のみ表示
+            // 期間が同じ日の場合（例：単日イベント）は「X月Y日(曜日)」のみ表示
             if (startDateObj.toDateString() === endDateObj.toDateString()) {
                 formattedExhibitionDates.push(formattedStart);
             } else {
@@ -77,7 +80,7 @@ function formatExhibitionDates() {
 
 // 他のスクリプトから展示データにアクセスするための関数
 function getExhibitions() {
-    return allExhibitions.exhibitions; // exhibitions配列を返す
+    return allExhibitions;
 }
 
 // 他のスクリプトからフォーマットされた日付にアクセスするための関数

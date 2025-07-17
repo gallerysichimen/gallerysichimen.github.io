@@ -31,7 +31,7 @@ window.scrollTo(0, 0);
 const gallery_map = document.getElementById("gallery_map");
 const team_container = document.getElementById('team_container');
 
-// ★★★ 変更点: DOMContentLoadedイベントリスナー内でデータロードの待機方法を変更 ★★★
+// DOMContentLoadedイベントリスナー内でデータロードを待機
 window.addEventListener('DOMContentLoaded', () => {
     // data.js からの 'exhibitionsLoaded' イベントをリッスン
     window.addEventListener('exhibitionsLoaded', (event) => {
@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const DMNum = exhibitionsData.length; // DMNum を展示会データの総数に設定
 
-        // 既存のモバイル判定ロジックはDOMContentLoaded直下に置く
+        // 既存のモバイル判定ロジック
         if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
             gallery_map.style.width = "450px";
             contact.style.width = "450px";
@@ -112,7 +112,7 @@ window.addEventListener('DOMContentLoaded', () => {
         let loadedCount = 0;
         const totalDynamicImages = DMNum * 2; // cal と zoom の合計数
         
-        // Load dynamic images (cal and zoom)
+        // Dynamic images (cal and zoom) loading
         for (let i = 0; i < DMNum; i++) {
             const exhibition = exhibitionsData[i];
 
@@ -173,7 +173,12 @@ window.addEventListener('DOMContentLoaded', () => {
 // 画像ロード後に呼び出される初期化関数
 function initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData) {
     RoomPrepar(); 
-    gapi.load('client', Gcalender); // GoogleカレンダーAPIのロード（APIキーは別途設定）
+    // GoogleカレンダーAPIのロード（APIキーは別途設定）
+    if (typeof gapi !== 'undefined' && gapi.load) { // gapiがロードされているか確認
+        gapi.load('client', Gcalender);
+    } else {
+        console.warn('Google API client library (gapi) not loaded. Google Calendar integration may not work.');
+    }
 
     // 各関数の呼び出し
     Main_Load(DMNum, exhibitionsData, formattedDatesData); 
@@ -207,26 +212,29 @@ if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
 }
 
 function RoomPrepar() {
-    let inboxCan;
+    let inboxCan; // 未使用の変数
     if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
         home.insertAdjacentHTML("beforebegin", `<div id="toproom" style=" visibility: hidden; position: absolute; background-color: #9b846d; height: 500px;width: 450px;top: 50px; left: 0; right:0; margin: auto; z-index:1;"></div>`);
         let calendar_container = document.getElementById("calendar_container");
-        calendar_container.style.left = "-80px";
+        if (calendar_container) {
+            calendar_container.style.left = "-80px";
+        }
     } else {
         home.insertAdjacentHTML("beforebegin", `<div id="toproom" style=" visibility: hidden; position: absolute; background-color: #9b846d; height: 500px;width: 800px;top: 50px; left: 0; right:0; margin: auto; z-index:1;"></div>`);
     }
     PopAnim(document.getElementById('toproom'), 5000, 0);
 }
 
-// ★★★ 変更点: Main_Load 関数の引数と内容を更新 ★★★
+// Main_Load 関数
 function Main_Load(DMNum, exhibitionsData, formattedDatesData) {
     for (let i = 0; i < DMNum; i++) {
         // カレンダーイメージの描画
-        if (cal[i] && cal[i].complete && ctxcal[i]) { // 画像がロード済みであることを確認
+        // cal[i] は既にロードされたImageオブジェクト
+        if (cal[i] && cal[i].complete && ctxcal[i]) { 
             ctxcal[i].clearRect(0, 0, ctxcal[i].canvas.width, ctxcal[i].canvas.height);
             ctxcal[i].drawImage(cal[i], 0, 0, cal[i].width, cal[i].height, 0, 0, ctxcal[i].canvas.width, ctxcal[i].canvas.height);
         } else if (ctxcal[i]) {
-            console.warn(`Cal image for index ${i} not yet loaded for Main_Load.`);
+            console.warn(`Cal image for index ${i} not yet loaded or invalid for Main_Load.`);
             // 必要に応じてプレースホルダーやロード中表示
         }
         
@@ -250,10 +258,9 @@ function Main_Load(DMNum, exhibitionsData, formattedDatesData) {
 }
 
 
-// ★★★ 変更点: NewsEvent 関数の引数と内容を更新 ★★★
+// NewsEvent 関数
 function NewsEvent(DMNum, exhibitionsData, formattedDatesData) {
     // ニュース表示の初期設定
-    // DOM要素の生成は一度だけ行うべきなので、RoomPreparから移動 (初回のみ実行されるようにチェックを追加)
     if (document.getElementById('newsflexbox') === null) { 
         if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
             document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;"></div>`);
@@ -294,12 +301,17 @@ function NewsEvent(DMNum, exhibitionsData, formattedDatesData) {
         let newszoomCanElem = document.getElementById(`newszooms${i}`);
 
         if (!newsboxElem) { // 要素がまだ作成されていない場合
-            // calImage.width, calImage.height はロード後に利用可能
-            var newsimgheight = calImage.height * 0.6; 
-            var newsimgwidth = calImage.width * 0.6; 
-            if (calImage.height == 200) { 
-                newsimgwidth = calImage.width * 0.4; 
-                newsimgheight = calImage.height * 0.4; 
+            // 画像の実際の幅と高さを使用するために complete プロパティを確認
+            const actualCalImageWidth = calImage.complete ? calImage.naturalWidth : 200; // デフォルト値
+            const actualCalImageHeight = calImage.complete ? calImage.naturalHeight : 200; // デフォルト値
+            const actualZoomImageWidth = zoomImage.complete ? zoomImage.naturalWidth : 800; // デフォルト値
+            const actualZoomImageHeight = zoomImage.complete ? zoomImage.naturalHeight : 600; // デフォルト値
+
+            var newsimgheight = actualCalImageHeight * 0.6; 
+            var newsimgwidth = actualCalImageWidth * 0.6; 
+            if (actualCalImageHeight == 200) { 
+                newsimgwidth = actualCalImageWidth * 0.4; 
+                newsimgheight = actualCalImageHeight * 0.4; 
             }
             newsflex.insertAdjacentHTML("beforeend", `<div id="newsbox${i}" style="width: 150px;height:100px; margin: 1%;"><canvas id="news${i}" width="${newsimgwidth}px" height="${newsimgheight}px" style=" margin: 10px 0 0 10px;"></canvas></div>`);
             newsboxElem = document.getElementById(`newsbox${i}`);
@@ -309,21 +321,21 @@ function NewsEvent(DMNum, exhibitionsData, formattedDatesData) {
             newstexElem = document.getElementById(`newtex${i}`);
 
             if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-                var newszoomheight = zoomImage.height / 2; 
-                var newszoomwidth = zoomImage.width / 2; 
-                if (zoomImage.height == 800) { 
-                    newszoomheight = zoomImage.height * 0.7 / 2; 
-                    newszoomwidth = zoomImage.width * 0.7 / 2; 
+                var newszoomheight = actualZoomImageHeight / 2; 
+                var newszoomwidth = actualZoomImageWidth / 2; 
+                if (actualZoomImageHeight == 800) { 
+                    newszoomheight = actualZoomImageHeight * 0.7 / 2; 
+                    newszoomwidth = actualZoomImageWidth * 0.7 / 2; 
                 }
                 newszoomflex.insertAdjacentHTML("beforeend",
                     `<div id="newszoombox${i}" style="width: 425px;height:300px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
 
             } else {
-                var newszoomheight = zoomImage.height; 
-                var newszoomwidth = zoomImage.width; 
-                if (zoomImage.height == 800) { 
-                    newszoomheight = zoomImage.height * 0.7; 
-                    newszoomwidth = zoomImage.width * 0.7; 
+                var newszoomheight = actualZoomImageHeight; 
+                var newszoomwidth = actualZoomImageWidth; 
+                if (actualZoomImageHeight == 800) { 
+                    newszoomheight = actualZoomImageHeight * 0.7; 
+                    newszoomwidth = actualZoomImageWidth * 0.7; 
                 }
                 newszoomflex.insertAdjacentHTML("beforeend",
                     `<div id="newszoombox${i}" style="width: 850px;height:600px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
@@ -377,11 +389,11 @@ function NewsEvent(DMNum, exhibitionsData, formattedDatesData) {
 }
 
 
-// ★★★ 変更点: NowaDayNews 関数の引数と内容を更新 ★★★
+// NowaDayNews 関数
 function NowaDayNews(DMNum, exhibitionsData) {
     let nowaday = new Date();
     let foundCurrentNews = false;
-    let targetIndex = DMNum - 1; 
+    let targetIndex = DMNum - 1; // デフォルトは最新の展示会 (配列の最後)
 
     for (let i = 0; i < DMNum; i++) {
         const exhibition = exhibitionsData[i];
@@ -389,24 +401,99 @@ function NowaDayNews(DMNum, exhibitionsData) {
         const startDate = new Date(exhibition.startDate);
         const endDate = new Date(exhibition.endDate);
 
+        // 現在の日付が展示期間内にあるか、かつ isNews が true の場合
+        // Dateオブジェクトの比較はgetTime()を使うか、年月日を個別に比較
         if (startDate <= nowaday && nowaday <= endDate && exhibition.isNews === true) {
             targetIndex = i;
             foundCurrentNews = true;
-            break; 
+            break; // 見つかったらループを抜ける
         }
     }
 
     if (foundCurrentNews) {
+        // 現在のニュースが見つかった場合、そのニュースにスクロール
+        // news_li_top はニュースの上部、newsCan[targetIndex] は個別のニュース要素
         document.getElementById('news_li_top').scrollTo({
             top: newsCan[targetIndex].offsetTop,
             behavior: 'smooth'
         });
     } else {
+        // 現在のニュースが見つからない場合、最新のニュース（リストの最後）にスクロール
         document.getElementById('news_li_top').scrollTo({
-            top: newsCan[targetIndex].offsetTop, 
+            top: newsCan[targetIndex].offsetTop, // targetIndex は DMNum - 1
             behavior: 'smooth'
         });
     }
+}
+
+
+// ============================================================================
+// 以下は元のSichimenMain.jsに存在すると仮定されるが、定義が不明な関数群のスタブです。
+// 元のコードがある場合は、以下の空の関数を適切な実装で置き換えてください。
+// ============================================================================
+
+function Init() {
+    // ページ全体の初期化処理
+    // 例: イベントリスナーの設定、初期表示状態の調整など
+    // console.log("Init() called");
+}
+
+function Header() {
+    // ヘッダーに関する処理
+    // 例: ヘッダーの表示/非表示、スクロール時の挙動など
+    // console.log("Header() called");
+}
+
+function footer_create() {
+    // フッターの生成または初期化処理
+    // console.log("footer_create() called");
+}
+
+function Title_create() {
+    // タイトル部分（canvas要素）の生成または初期化処理
+    // misc画像の描画はDOMContentLoadedイベント内で既に行われています。
+    // console.log("Title_create() called");
+}
+
+function About() {
+    // Aboutセクションに関する処理
+    // 例: 内容の表示、アニメーションなど
+    // console.log("About() called");
+}
+
+function Gallery() {
+    // Galleryセクションに関する処理
+    // 例: 画像ギャラリーの初期化、スライドショーなど
+    // console.log("Gallery() called");
+}
+
+function Team() {
+    // Teamセクションに関する処理
+    // 例: メンバー情報の表示、レイアウト調整など
+    // console.log("Team() called");
+}
+
+function Contact() {
+    // Contactセクションに関する処理
+    // 例: 連絡先情報の表示、フォームの初期化など
+    // console.log("Contact() called");
+}
+
+function CallFor() {
+    // Call Forセクションに関する処理
+    // 例: 募集要項の表示など
+    // console.log("CallFor() called");
+}
+
+function ScrollSetting() {
+    // スクロールイベントに関する設定や処理
+    // 例: スクロールに応じた要素の表示/非表示、アニメーションなど
+    // console.log("ScrollSetting() called");
+}
+
+function Page_move() {
+    // ページ内リンクやナビゲーションによるスムーズスクロールなど、ページ移動に関する処理
+    // console.log("Page_move() called");
 }
 
 const about_container = document.getElementById('about_container');
