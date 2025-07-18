@@ -25,6 +25,7 @@ const ctxnewszoom = new Array();
 let calimg = new Array();
 const ctxcal = new Array();
 let newsNum;
+let DMNum;
 
 let pointstart;
 let pointend;
@@ -117,9 +118,9 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 function onAllImagesLoaded(allExhibitions, formattedExhibitionDates) {
-    // DMNumをallExhibitionsの長さで設定
-    const DMNum = allExhibitions.length;
-    calimg = new Array(DMNum);
+
+	DMNum = allExhibitions.length;
+    calimg = new Array(allExhibitions.length);
     // AchiveFolderを呼び出す
     AchiveFolder(allExhibitions);
     
@@ -180,9 +181,9 @@ function NewsEvent(exhibitions, formattedDates){
 	`<div class="newsturnleft" style="float:left;width: 20px;height: 100px;z-index:1; position:absolute;top: 20px;"></div><div class="newsturnright" style="float:right;width: 20px;height: 100px;position:absolute;top: 20px;right: 0px;z-index:1;"></div>`);
 	var newsflex = document.getElementById(`newsflex`);
 	for(i=1; i <= NewsNum ; i++){
-		var newsimgheight=cal[DMNum-i+1].height*0.6;
-		var newsimgwidth=cal[DMNum-i+1].width*0.6;
-		if(cal[DMNum-i+1].height==200){
+		var newsimgheight=cal[allExhibitions.length-i+1].height*0.6;
+		var newsimgwidth=cal[allExhibitions.length-i+1].width*0.6;
+		if(cal[allExhibitions.length-i+1].height==200){
 			newsimgwidth=cal[DMNum-i+1].width*0.4;
 			newsimgheight=cal[DMNum-i+1].height*0.4;
 		}
