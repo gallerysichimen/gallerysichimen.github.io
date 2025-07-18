@@ -56,6 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 };
                 cal[index].onerror = () => {
+                    console.error(`Failed to load cal image: ${cal[index].src}`);
                     imagesLoadedCount++; // エラーでもカウントを進める
                     if (imagesLoadedCount === totalImagesToLoad) {
                         onAllImagesLoaded(allExhibitions);
@@ -158,6 +159,7 @@ function RoomPrepar(exhibitions, formattedDates){ // exhibitionsとformattedDate
 }
 	
 function NewsEvent(exhibitions, formattedDates){ // exhibitionsとformattedDatesを受け取るように変更
+	 console.log("NewsEvent が呼び出されました。受け取った exhibitions:", exhibitions);
 	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
 		document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;"></div>`);
 		document.getElementById('toproom').insertAdjacentHTML("afterend", 
