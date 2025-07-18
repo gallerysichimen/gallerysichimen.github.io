@@ -532,7 +532,7 @@ function menuSet() {
 	SetBox(callfor,()=>{PopAnim(callfor, 500,0);},{});
 	SetBox(contact,()=>{PopAnim(contact, 500,0);},{});
 }
-
+/*
 function Gcalender(){
     gapi.client.init({
         'apiKey': 'YOUR_API_KEY', // ここにGoogle Calendar APIのAPIキーを設定
@@ -568,3 +568,4 @@ function Gcalender(){
         console.error('Error: ' + reason.result.error.message);
     });
 }
+	*/
