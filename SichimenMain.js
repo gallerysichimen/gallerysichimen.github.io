@@ -259,8 +259,6 @@ function NewsEvent(exhibitions, formattedDates){
 		document.getElementById('newszoombox').insertAdjacentHTML("afterbegin", 
 		`<div id="newszoomflex" style="width:850px;height:600px; gap:800px 800px; display:flex; overflow: hidden; position:absolute; margin: auto;"></div>`);
 	}
-	var newsflexbox = document.getElementById('newsflexbox');
-	var newszoomflex = document.getElementById('newszoomflex');
 	newszoombox.insertAdjacentHTML("beforeend",
 	`<div class="newsturnleft" style="font-size:xxx-large; transform: scaleY(3); float:left;width: 20px;height: 100px; position:absolute;top: 50%; color: #8e8b88;">≪</div><div class="newsturnright" style="transform: scaleY(3); font-size:xxx-large; float:right;width: 20px;height: 100px;position:absolute;top: 50%; right: 0px; color: #8e8b88;">≫</div>`);
 	newsflexbox.insertAdjacentHTML("afterbegin",
