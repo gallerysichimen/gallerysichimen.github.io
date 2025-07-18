@@ -121,9 +121,7 @@ function onAllImagesLoaded(allExhibitions, formattedExhibitionDates) {
 
 	DMNum = allExhibitions.length;
     calimg = new Array(allExhibitions.length);
-    // AchiveFolderを呼び出す
-    AchiveFolder(allExhibitions);
-    
+	
     // RoomPreparなど、calやzooms配列に依存する関数をここで呼び出す
     RoomPrepar(allExhibitions, formattedExhibitionDates);
     gapi.load('client', Gcalender);
