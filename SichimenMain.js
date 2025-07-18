@@ -24,6 +24,7 @@ const ctxnews = new Array();
 const newszoomCan = new Array();
 const ctxnewszoom = new Array();
 const ctxcal = new Array(); // cal用CanvasRenderingContext2Dを格納
+const calimg = new Array(); 
 
 let pointstart;
 let pointend;
