@@ -125,7 +125,7 @@ function onAllImagesLoaded(allExhibitions) {
     AchiveFolder(allExhibitions);
     
     // RoomPreparなど、calやzooms配列に依存する関数をここで呼び出す
-    RoomPrepar();
+    RoomPrepar(allExhibitions, formattedExhibitionDates);
     gapi.load('client', Gcalender); // Gcalenderが何に依存するかによる
 }
 
