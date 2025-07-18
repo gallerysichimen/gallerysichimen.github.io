@@ -56,7 +56,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 };
                 cal[index].onerror = () => {
-                    console.error(`Failed to load cal image: ${cal[index].src}`);
                     imagesLoadedCount++; // エラーでもカウントを進める
                     if (imagesLoadedCount === totalImagesToLoad) {
                         onAllImagesLoaded(allExhibitions);
