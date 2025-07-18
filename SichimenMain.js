@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		let imagesLoadedCount = 0;
         let actualImagesToLoad = 0; 
 
-		Exhibitions.forEach((exhibition, index) => {
+		allExhibitions.forEach((exhibition, index) => {
             // calとzoomsの各要素を必ずImageオブジェクトとして初期化します。
             cal[index] = new Image();
 
