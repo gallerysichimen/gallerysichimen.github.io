@@ -22,7 +22,7 @@ const newsCan = new Array();
 const ctxnews = new Array();
 const newszoomCan = new Array();
 const ctxnewszoom = new Array();
-const calimg = new Array(coments.length);
+let calimg = new Array();
 const ctxcal = new Array();
 let newsNum;
 
@@ -119,7 +119,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function onAllImagesLoaded(allExhibitions, formattedExhibitionDates) {
     // DMNumをallExhibitionsの長さで設定
     const DMNum = allExhibitions.length;
-    
+    calimg = new Array(DMNum);
     // AchiveFolderを呼び出す
     AchiveFolder(allExhibitions);
     
