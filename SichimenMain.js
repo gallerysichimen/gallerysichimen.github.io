@@ -42,55 +42,64 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // 画像のプリロード（calとzoom）
         let imagesLoadedCount = 0;
-        const totalImagesToLoad = allExhibitions.length * 2; // calImageとzoomImage
+        // totalImagesToLoad は、存在する calImage と zoomImage の合計数で計算
+        let actualImagesToLoad = 0;
 
         allExhibitions.forEach((exhibition, index) => {
+            // cal画像とzoom画像を先にImageオブジェクトとして初期化
+            cal[index] = new Image();
+            zooms[index] = new Image();
+
             // cal画像の読み込み
             if (exhibition.calImage && exhibition.calImage.filename) {
-                cal[index] = new Image();
+                actualImagesToLoad++;
                 cal[index].src = `../img/cal/${exhibition.calImage.filename}.${exhibition.calImage.extension}`;
                 cal[index].onload = () => {
                     imagesLoadedCount++;
-                    if (imagesLoadedCount === totalImagesToLoad) {
-                        onAllImagesLoaded(allExhibitions);
+                    if (imagesLoadedCount === actualImagesToLoad) {
+                        onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
                     }
                 };
                 cal[index].onerror = () => {
-                    console.error(`Failed to load cal image: ${cal[index].src}`);
+                    console.error(`Failed to load cal image: ${cal[index].src}. This image might not exist.`);
                     imagesLoadedCount++; // エラーでもカウントを進める
-                    if (imagesLoadedCount === totalImagesToLoad) {
-                        onAllImagesLoaded(allExhibitions);
+                    if (imagesLoadedCount === actualImagesToLoad) {
+                        onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
                     }
                 };
             } else {
-                imagesLoadedCount++; // calImageがない場合もカウントを進める
+                console.warn(`Skipping cal image loading for exhibition at index ${index} due to missing calImage data.`);
+                // この場合は onload/onerror が発生しないので、ここでカウントを進める必要はない。
+                // actualImagesToLoad にも含まれないため。
             }
 
             // zoom画像の読み込み
             if (exhibition.zoomImage && exhibition.zoomImage.filename) {
-                zooms[index] = new Image();
+                actualImagesToLoad++;
                 zooms[index].src = `../img/zoom/${exhibition.zoomImage.filename}.${exhibition.zoomImage.extension}`;
                 zooms[index].onload = () => {
                     imagesLoadedCount++;
-                    if (imagesLoadedCount === totalImagesToLoad) {
-                        onAllImagesLoaded(allExhibitions);
+                    if (imagesLoadedCount === actualImagesToLoad) {
+                        onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
                     }
                 };
                 zooms[index].onerror = () => {
-                    console.error(`Failed to load zoom image: ${zooms[index].src}`);
+                    console.error(`Failed to load zoom image: ${zooms[index].src}. This image might not exist.`);
                     imagesLoadedCount++; // エラーでもカウントを進める
-                    if (imagesLoadedCount === totalImagesToLoad) {
-                        onAllImagesLoaded(allExhibitions);
+                    if (imagesLoadedCount === actualImagesToLoad) {
+                        onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
                     }
                 };
             } else {
-                imagesLoadedCount++; // zoomImageがない場合もカウントを進める
+                console.warn(`Skipping zoom image loading for exhibition at index ${index} due to missing zoomImage data.`);
+                // この場合も onload/onerror が発生しないので、ここでカウントを進める必要はない。
+                // actualImagesToLoad にも含まれないため。
             }
         });
 
-        // 画像がない場合の対応（全画像が読み込まれる前にAchiveFolderが呼ばれるのを防ぐ）
-        if (totalImagesToLoad === 0) {
-            onAllImagesLoaded(allExhibitions);
+        // 実際にロードを試みる画像がない場合の対応
+        if (actualImagesToLoad === 0) {
+            onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
         }
     });
 
@@ -159,7 +168,6 @@ function RoomPrepar(exhibitions, formattedDates){ // exhibitionsとformattedDate
 }
 	
 function NewsEvent(exhibitions, formattedDates){ // exhibitionsとformattedDatesを受け取るように変更
-	 console.log("NewsEvent が呼び出されました。受け取った exhibitions:", exhibitions);
 	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
 		document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;"></div>`);
 		document.getElementById('toproom').insertAdjacentHTML("afterend", 
