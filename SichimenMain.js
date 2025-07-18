@@ -1,4 +1,4 @@
-const ImgsNum = 3; // この値は静的な画像数なのでそのまま
+﻿const ImgsNum = 3; 
 
 const header = document.getElementById('header');
 const title = document.getElementById('title');
@@ -13,6 +13,8 @@ const callfor = document.getElementById('callfor');
 const contact = document.getElementById('contact');
 const footer = document.getElementById('footer');
 
+// cal, img, news, zooms, newsCan, ctxnews, newszoomCan, ctxnewszoom, calimg, ctxcal
+// これらは動的に生成されるため、初期化はそのまま
 const cal = new Array(); // cal画像（Imageオブジェクト）を格納
 const img = new Array(); // img要素（HTMLImageElement）を格納
 const news = new Array();
@@ -35,777 +37,372 @@ const team_container = document.getElementById('team_container');
 window.addEventListener('DOMContentLoaded', () => {
     // data.js からの 'exhibitionsLoaded' イベントをリッスン
     window.addEventListener('exhibitionsLoaded', (event) => {
-        const exhibitionsData = event.detail.exhibitions;
-        const formattedDatesData = event.detail.formattedDates;
+        const allExhibitions = event.detail.exhibitions;
+        const formattedExhibitionDates = event.detail.formattedDates;
 
-        const DMNum = exhibitionsData.length; // DMNum を展示会データの総数に設定
+        // 画像のプリロード（calとzoom）
+        let imagesLoadedCount = 0;
+        const totalImagesToLoad = allExhibitions.length * 2; // calImageとzoomImage
 
-        // 既存のモバイル判定ロジック
-        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-            gallery_map.style.width = "450px";
-            contact.style.width = "450px";
-            team.style.width = "450px";
-            team.style.height = "1700px";
-            team_container.style.height = "1500px";
-            callfor.style.paddingBottom = "200px";
-            gallery.style.width = "450px";
-            footer.style.width = "450px";
-            header.style.width = "450px";
-        }
-
-        menuSet(); // メニュー設定はデータロード前に実行可能
-
-        // misc画像のロード
-        const misc = new Image();
-        misc.src = `../img/misc.png`; // misc.pngのパス
-
-        // 各要素の生成と初期化 (DOM要素の生成は、データロードを待たずにここで行う)
-        for (let i = 0; i < DMNum; i++) {
-            cal[i] = document.createElement('canvas');
-            cal[i].className = 'cal';
-            cal[i].id = `cal-${i}`;
-            document.getElementById('achives_box').appendChild(cal[i]);
-            ctxcal[i] = cal[i].getContext('2d');
-
-            // img[i] (HTMLImageElement) はDOMに挿入されないが、後でcanvas描画に使うため用意
-            img[i] = document.createElement('img'); 
-            img[i].className = 'img';
-            img[i].id = `img-${i}`;
-            // img[i].src と alt は後述の画像ロード処理で設定
-
-            news[i] = document.createElement('div');
-            news[i].className = 'news';
-            news[i].id = `news-${i}`;
-            news[i].textContent = exhibitionsData[i].name; 
-            document.getElementById('news_ul').appendChild(news[i]);
-
-            // zooms[i] (HTMLImageElement) もDOMに挿入されないが、後でcanvas描画に使うため用意
-            zooms[i] = document.createElement('img');
-            zooms[i].className = 'zoomimg';
-            zooms[i].id = `zoomimg-${i}`;
-            // zooms[i].src と alt は後述の画像ロード処理で設定
-
-            newsCan[i] = document.createElement('canvas');
-            newsCan[i].className = 'newsCan';
-            newsCan[i].id = `newsCan-${i}`;
-            document.getElementById('news_li').appendChild(newsCan[i]);
-            ctxnews[i] = newsCan[i].getContext('2d');
-
-            newszoomCan[i] = document.createElement('canvas');
-            newszoomCan[i].className = 'newszoomCan';
-            newszoomCan[i].id = `newszoomCan-${i}`;
-            document.getElementById('news_li_top').appendChild(newszoomCan[i]);
-            ctxnewszoom[i] = newszoomCan[i].getContext('2d');
-        }
-
-        // img[1], img[2], img[3] のロード (静的な画像)
-        for (let i = 1; i <= ImgsNum; i++) {
-            img[i] = new Image();
-            img[i].src = `../img/img${i}.jpg`;
-        }
-
-        misc.onload = function() {
-            ctxtitle.drawImage(misc, 0, 0, 400, 50, 0, 0, 400, 50);
-        };
-
-        // cal画像とzoom画像のロード状況を監視
-        let loadedCount = 0;
-        const totalDynamicImages = DMNum * 2; // cal と zoom の合計数
-        
-        // Dynamic images (cal and zoom) loading
-        for (let i = 0; i < DMNum; i++) {
-            const exhibition = exhibitionsData[i];
-
-            // calImageのロード
-            const calImage = new Image();
-            if (exhibition.calImage && exhibition.calImage.filename && exhibition.calImage.extension) {
-                calImage.src = `img/calimg/${exhibition.calImage.filename}.${exhibition.calImage.extension}`;
-                calImage.alt = `cal_img_${exhibition.name}`;
+        allExhibitions.forEach((exhibition, index) => {
+            // cal画像の読み込み
+            if (exhibition.calImage && exhibition.calImage.filename) {
+                cal[index] = new Image();
+                cal[index].src = `../img/cal/${exhibition.calImage.filename}.${exhibition.calImage.extension}`;
+                cal[index].onload = () => {
+                    imagesLoadedCount++;
+                    if (imagesLoadedCount === totalImagesToLoad) {
+                        onAllImagesLoaded(allExhibitions);
+                    }
+                };
+                cal[index].onerror = () => {
+                    console.error(`Failed to load cal image: ${cal[index].src}`);
+                    imagesLoadedCount++; // エラーでもカウントを進める
+                    if (imagesLoadedCount === totalImagesToLoad) {
+                        onAllImagesLoaded(allExhibitions);
+                    }
+                };
             } else {
-                calImage.src = 'img/placeholder.webp'; 
-                calImage.alt = 'No image available';
+                imagesLoadedCount++; // calImageがない場合もカウントを進める
             }
-            // cal[i] にロードしたImageオブジェクトを格納
-            cal[i] = calImage; 
-            calImage.onload = () => {
-                loadedCount++;
-                if (loadedCount === totalDynamicImages) {
-                    initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData);
-                }
-            };
-            calImage.onerror = () => {
-                console.warn(`Failed to load cal image: ${calImage.src}`);
-                loadedCount++;
-                if (loadedCount === totalDynamicImages) {
-                    initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData);
-                }
-            };
 
-            // zoomImageのロード
-            const zoomImage = new Image();
-            if (exhibition.zoomImage && exhibition.zoomImage.filename && exhibition.zoomImage.extension) {
-                zoomImage.src = `img/calzoom/${exhibition.zoomImage.filename}.${exhibition.zoomImage.extension}`;
-                zoomImage.alt = `zoom_img_${exhibition.name}`;
+            // zoom画像の読み込み
+            if (exhibition.zoomImage && exhibition.zoomImage.filename) {
+                zooms[index] = new Image();
+                zooms[index].src = `../img/zoom/${exhibition.zoomImage.filename}.${exhibition.zoomImage.extension}`;
+                zooms[index].onload = () => {
+                    imagesLoadedCount++;
+                    if (imagesLoadedCount === totalImagesToLoad) {
+                        onAllImagesLoaded(allExhibitions);
+                    }
+                };
+                zooms[index].onerror = () => {
+                    console.error(`Failed to load zoom image: ${zooms[index].src}`);
+                    imagesLoadedCount++; // エラーでもカウントを進める
+                    if (imagesLoadedCount === totalImagesToLoad) {
+                        onAllImagesLoaded(allExhibitions);
+                    }
+                };
             } else {
-                zoomImage.src = 'img/placeholder_zoom.webp'; 
-                zoomImage.alt = 'No zoom image available';
+                imagesLoadedCount++; // zoomImageがない場合もカウントを進める
             }
-            // zooms[i] にロードしたImageオブジェクトを格納
-            zooms[i] = zoomImage; 
-            zoomImage.onload = () => {
-                loadedCount++;
-                if (loadedCount === totalDynamicImages) {
-                    initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData);
-                }
-            };
-            zoomImage.onerror = () => {
-                console.warn(`Failed to load zoom image: ${zoomImage.src}`);
-                loadedCount++;
-                if (loadedCount === totalDynamicImages) {
-                    initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData);
-                }
-            };
-        }
+        });
 
+        // 画像がない場合の対応（全画像が読み込まれる前にAchiveFolderが呼ばれるのを防ぐ）
+        if (totalImagesToLoad === 0) {
+            onAllImagesLoaded(allExhibitions);
+        }
     });
+
+    // その他の初期化処理
+    if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
+        gallery_map.style.width="450px";
+        contact.style.width="450px";
+        team.style.width="450px";
+        team.style.height="1700px";
+        team_container.style.height="1500px";
+        callfor.style.paddingBottom="200px";
+        gallery.style.width="450px";
+        footer.style.width="450px";
+        header.style.width="450px";
+    }
+    menuSet(); // menuSetの定義場所によるが、データのロードを待つ必要がないならDOMContentLoadedで呼んで良い
+    misc = new Image();
+    misc.src=`../img/misc.png`;
+    misc.onload = function (){
+        ctxtitle.drawImage(misc, 0, 0, 400, 50, 0, 0, 400, 50);
+    };
+
+    // ここでRoomPreparなどを直接呼ばず、データのロードと画像のプリロードが完了するまで待つ
+    // RoomPreparやNewsEventなどはonAllImagesLoadedから呼ばれるようにする
 });
 
-// 画像ロード後に呼び出される初期化関数
-function initAfterImagesLoaded(DMNum, exhibitionsData, formattedDatesData) {
-    RoomPrepar(); 
-    // GoogleカレンダーAPIのロード（APIキーは別途設定）
-    if (typeof gapi !== 'undefined' && gapi.load) { // gapiがロードされているか確認
-        gapi.load('client', Gcalender);
-    } else {
-        console.warn('Google API client library (gapi) not loaded. Google Calendar integration may not work.');
-    }
-
-    // 各関数の呼び出し
-    Main_Load(DMNum, exhibitionsData, formattedDatesData); 
-    NewsEvent(DMNum, exhibitionsData, formattedDatesData); 
-    NowaDayNews(DMNum, exhibitionsData); 
+function onAllImagesLoaded(allExhibitions) {
+    // DMNumをallExhibitionsの長さで設定
+    const DMNum = allExhibitions.length;
     
-    Init(); 
-    Header();
-    footer_create();
-    Title_create();
-    About();
-    Gallery();
-    Team();
-    Contact();
-    CallFor();
-    ScrollSetting();
-    Page_move();
+    // AchiveFolderを呼び出す
+    AchiveFolder(allExhibitions);
     
-    HoverEvents(DMNum); 
-    ClickEvents(DMNum); 
+    // RoomPreparなど、calやzooms配列に依存する関数をここで呼び出す
+    RoomPrepar();
+    gapi.load('client', Gcalender); // Gcalenderが何に依存するかによる
 }
 
-if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
-    pointstart = `touchstart`;
-    pointend = `touchend`;
-    pointmove = `touchmove`;
-} else {
-    pointstart = "mouseover";
-    pointend = "mouseleave";
-    pointmove = "mousemove";
+if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
+	pointstart = `touchstart`;
+	pointend = `touchend`;
+	pointmove = `touchmove`;
+}
+else{
+	pointstart ="mouseover";
+	pointend = "mouseleave";
+	pointmove = "mousemove";
 }
 
-function RoomPrepar() {
-    let inboxCan; // 未使用の変数
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-        home.insertAdjacentHTML("beforebegin", `<div id="toproom" style=" visibility: hidden; position: absolute; background-color: #9b846d; height: 500px;width: 450px;top: 50px; left: 0; right:0; margin: auto; z-index:1;"></div>`);
-        let calendar_container = document.getElementById("calendar_container");
-        if (calendar_container) {
-            calendar_container.style.left = "-80px";
+
+function RoomPrepar(exhibitions, formattedDates){ // exhibitionsとformattedDatesを受け取るように変更
+	
+	let inboxCan;
+	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
+		home.insertAdjacentHTML("beforebegin", `<div id="toproom" style=" visibility: hidden; position: absolute; background-color: #9b846d; height: 500px;width: 450px;top: 50px; left: 0; right:0; margin: auto; z-index:1;"></div>`);
+		let calendar_container = document.getElementById("calendar_container")
+		if (calendar_container) { // calendar_containerが存在するか確認
+            calendar_container.style.left="-80px";
         }
-    } else {
-        home.insertAdjacentHTML("beforebegin", `<div id="toproom" style=" visibility: hidden; position: absolute; background-color: #9b846d; height: 500px;width: 800px;top: 50px; left: 0; right:0; margin: auto; z-index:1;"></div>`);
-    }
-    PopAnim(document.getElementById('toproom'), 5000, 0);
+	}
+	else{
+		home.insertAdjacentHTML("beforebegin", `<div id="toproom" style=" visibility: hidden; position: absolute; background-color: #9b846d; height: 500px;width: 800px;top: 50px; left: 0; right:0; margin: auto; z-index:1;"></div>`);
+	}
+	PopAnim(document.getElementById('toproom'), 5000,0);
+	NewsEvent(exhibitions, formattedDates); // exhibitionsとformattedDatesを渡す
 }
+	
+function NewsEvent(exhibitions, formattedDates){ // exhibitionsとformattedDatesを受け取るように変更
+	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
+		document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;"></div>`);
+		document.getElementById('toproom').insertAdjacentHTML("afterend", 
+		`<div id="newszoombox" style="width:400px;height:600px;background-color: #110501df; visibility: hidden; z-index:4; position:absolute; margin: 0px auto 0px auto; top: 100px;left: 0; right: 0;"></div>`);
+		document.getElementById('newszoombox').insertAdjacentHTML("afterbegin", 
+		`<div id="newszoomflex" style="width:400px;height:600px; gap:800px 800px; display:flex; overflow: hidden; position:absolute; margin: auto;"></div>`);
+	}
+	else{
+		document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;left: 450px;"></div>`);
+		document.getElementById('toproom').insertAdjacentHTML("afterend", 
+		`<div id="newszoombox" style="width:850px;height:600px;background-color: #110501df; visibility: hidden; z-index:4; position:absolute; margin: 0px auto 0px auto; top: 100px;left: 0; right: 0;"></div>`);
+		document.getElementById('newszoombox').insertAdjacentHTML("afterbegin", 
+		`<div id="newszoomflex" style="width:850px;height:600px; gap:800px 800px; display:flex; overflow: hidden; position:absolute; margin: auto;"></div>`);
+	}
+	var newsflexbox = document.getElementById('newsflexbox');
+	var newszoomflex = document.getElementById('newszoomflex');
+	newszoombox.insertAdjacentHTML("beforeend",
+	`<div class="newsturnleft" style="font-size:xxx-large; transform: scaleY(3); float:left;width: 20px;height: 100px; position:absolute;top: 50%; color: #8e8b88;">≪</div><div class="newsturnright" style="transform: scaleY(3); font-size:xxx-large; float:right;width: 20px;height: 100px;position:absolute;top: 50%; right: 0px; color: #8e8b88;">≫</div>`);
+	newsflexbox.insertAdjacentHTML("afterbegin",
+	`<div id="newsflex" style=" display:flex; overflow: hidden; height: 160px; width: 350px; margin: auto;background-color: #241f17;"></div>`);
+	newsflexbox.insertAdjacentHTML("beforeend", 
+	`<div class="newsturnleft" style="float:left;width: 20px;height: 100px;z-index:1; position:absolute;top: 20px;"></div><div class="newsturnright" style="float:right;width: 20px;height: 100px;position:absolute;top: 20px;right: 0px;z-index:1;"></div>`);
+	var newsflex = document.getElementById(`newsflex`);
 
-// Main_Load 関数
-function Main_Load(DMNum, exhibitionsData, formattedDatesData) {
-    for (let i = 0; i < DMNum; i++) {
-        // カレンダーイメージの描画
-        // cal[i] は既にロードされたImageオブジェクト
-        if (cal[i] && cal[i].complete && ctxcal[i]) { 
-            ctxcal[i].clearRect(0, 0, ctxcal[i].canvas.width, ctxcal[i].canvas.height);
-            ctxcal[i].drawImage(cal[i], 0, 0, cal[i].width, cal[i].height, 0, 0, ctxcal[i].canvas.width, ctxcal[i].canvas.height);
-        } else if (ctxcal[i]) {
-            console.warn(`Cal image for index ${i} not yet loaded or invalid for Main_Load.`);
-            // 必要に応じてプレースホルダーやロード中表示
+    const DISPLAY_NEWS_COUNT = 4; // ニュースとして表示する最新の展示数
+    // exhibitions配列は古い順なので、最新のNewsNum個を取得して逆順にする
+    const newsItems = exhibitions.slice(Math.max(0, exhibitions.length - DISPLAY_NEWS_COUNT)).reverse();
+
+    newsItems.forEach((exhibition, index) => {
+        // cal画像とzoom画像のファイル名から0-indexedのインデックスを取得
+        const calImageIndex = parseInt(exhibition.calImage.filename) - 1;
+        const zoomImageIndex = parseInt(exhibition.zoomImage.filename) - 1;
+
+        // original code for drawing news canvas
+        var newsimgheight=cal[calImageIndex].height*0.6;
+        var newsimgwidth=cal[calImageIndex].width*0.6;
+        if(cal[calImageIndex].height==200){
+            newsimgwidth=cal[calImageIndex].width*0.4;
+            newsimgheight=cal[calImageIndex].height*0.4;
         }
+        // idは1から始まるように調整
+        inboxCan = `<div id="newsbox${index+1}" style="width: 150px;height:100px; margin: 1%;"><canvas id="news${index+1}" width="${newsimgwidth}px" height="${newsimgheight}px" style=" margin: 10px 0 0 10px;"></canvas></div>`;
+        newsflex.insertAdjacentHTML("beforeend", inboxCan);
+        newsCan[index+1] = document.getElementById(`news${index+1}`);
+        ctxnews[index+1] = newsCan[index+1].getContext('2d');
+        ctxnews[index+1].drawImage(cal[calImageIndex], 0, 0, cal[calImageIndex].width, cal[calImageIndex].height, 0, 0, newsimgwidth, newsimgheight);
         
-        // テキスト情報の描画
-        ctxcal[i].font = '16px "Noto Sans JP"';
-        ctxcal[i].textAlign = 'center';
-        ctxcal[i].fillStyle = 'rgb(28,28,28)';
+        // original code for news text
+        // formattedDatesはexhibitionsと同じ順番で格納されている前提
+        const formattedDateForNews = formattedDates[exhibitions.indexOf(exhibition)]; 
+        inboxCan = `<div id="newtex${index+1}" style="margin: -0px 0px 0px 5px; color: #988; width:150px;"><p style="font-size: 12px;margin:0px;">${exhibition.name}<br><font style="font-size: xx-small;">${formattedDateForNews}<br>${exhibition.time}</font></p></div>`;
+        document.getElementById(`newsbox${index+1}`).insertAdjacentHTML("beforeend", inboxCan);
 
-        // 年月日と曜日
-        ctxcal[i].fillText(exhibitionsData[i].year, 150, 40);
-        ctxcal[i].fillText(formattedDatesData[i], 150, 65);
-
-        // イベント名
-        ctxcal[i].font = '19px "Noto Sans JP"';
-        ctxcal[i].fillText(exhibitionsData[i].name, 150, 100);
-
-        // 出展者
-        ctxcal[i].font = '14px "Noto Sans JP"';
-        ctxcal[i].fillText(exhibitionsData[i].exhibitors.join(', '), 150, 130); 
-    }
-}
-
-
-// NewsEvent 関数
-function NewsEvent(DMNum, exhibitionsData, formattedDatesData) {
-    // ニュース表示の初期設定
-    if (document.getElementById('newsflexbox') === null) { 
-        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-            document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;"></div>`);
-            document.getElementById('toproom').insertAdjacentHTML("afterend",
-                `<div id="newszoombox" style="width:400px;height:600px;background-color: #110501df; visibility: hidden; z-index:4; position:absolute; margin: 0px auto 0px auto; top: 100px;left: 0; right: 0;"></div>`);
-            document.getElementById('newszoombox').insertAdjacentHTML("afterbegin",
-                `<div id="newszoomflex" style="width:400px;height:600px; gap:800px 800px; display:flex; overflow: hidden; position:absolute; margin: auto;"></div>`);
-        } else {
-            document.getElementById('toproom').insertAdjacentHTML("afterbegin", `<div id="newsflexbox" style="position:absolute; margin: auto; top: 510px;right: 0;bottom: 0;left: 450px;"></div>`);
-            document.getElementById('toproom').insertAdjacentHTML("afterend",
-                `<div id="newszoombox" style="width:850px;height:600px;background-color: #110501df; visibility: hidden; z-index:4; position:absolute; margin: 0px auto 0px auto; top: 100px;left: 0; right: 0;"></div>`);
-            document.getElementById('newszoombox').insertAdjacentHTML("afterbegin",
-                `<div id="newszoomflex" style="width:850px;height:600px; gap:800px 800px; display:flex; overflow: hidden; position:absolute; margin: auto;"></div>`);
-        }
-        var newsflexbox = document.getElementById('newsflexbox');
-        var newszoomflex = document.getElementById('newszoomflex');
-        newszoombox.insertAdjacentHTML("beforeend",
-            `<div class="newsturnleft" style="font-size:xxx-large; transform: scaleY(3); float:left;width: 20px;height: 100px; position:absolute;top: 50%; color: #8e8b88;">≪</div><div class="newsturnright" style="transform: scaleY(3); font-size:xxx-large; float:right;width: 20px;height: 100px;position:absolute;top: 50%; right: 0px; color: #8e8b88;">≫</div>`);
-        newsflexbox.insertAdjacentHTML("afterbegin",
-            `<div id="newsflex" style=" display:flex; overflow: hidden; height: 160px; width: 350px; margin: auto;background-color: #241f17;"></div>`);
-        newsflexbox.insertAdjacentHTML("beforeend",
-            `<div class="newsturnleft" style="float:left;width: 20px;height: 100px;z-index:1; position:absolute;top: 20px;"></div><div class="newsturnright" style="float:right;width: 20px;height: 100px;position:absolute;top: 20px;right: 0px;z-index:1;"></div>`);
-    }
-
-    var newsflex = document.getElementById(`newsflex`);
-
-    for (let i = 0; i < DMNum; i++) { 
-        const exhibition = exhibitionsData[i];
-        const formattedDate = formattedDatesData[i]; 
-        const calImage = cal[i]; // ロード済みImageオブジェクト
-        const zoomImage = zooms[i]; // ロード済みImageオブジェクト
-
-        // ニュースアイテムの既存要素があれば更新、なければ新規作成
-        let newsboxElem = document.getElementById(`newsbox${i}`);
-        let newsCanElem = document.getElementById(`news${i}`);
-        let newstexElem = document.getElementById(`newtex${i}`);
-        let newszoomboxElem = document.getElementById(`newszoombox${i}`);
-        let newszoomCanElem = document.getElementById(`newszooms${i}`);
-
-        if (!newsboxElem) { // 要素がまだ作成されていない場合
-            // 画像の実際の幅と高さを使用するために complete プロパティを確認
-            const actualCalImageWidth = calImage.complete ? calImage.naturalWidth : 200; // デフォルト値
-            const actualCalImageHeight = calImage.complete ? calImage.naturalHeight : 200; // デフォルト値
-            const actualZoomImageWidth = zoomImage.complete ? zoomImage.naturalWidth : 800; // デフォルト値
-            const actualZoomImageHeight = zoomImage.complete ? zoomImage.naturalHeight : 600; // デフォルト値
-
-            var newsimgheight = actualCalImageHeight * 0.6; 
-            var newsimgwidth = actualCalImageWidth * 0.6; 
-            if (actualCalImageHeight == 200) { 
-                newsimgwidth = actualCalImageWidth * 0.4; 
-                newsimgheight = actualCalImageHeight * 0.4; 
+        // original code for news zoom canvas
+        if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
+            var newszoomheight=zooms[zoomImageIndex].height/2;
+            var newszoomwidth=zooms[zoomImageIndex].width/2;
+            if(zooms[zoomImageIndex].height==800){
+                newszoomheight=zooms[zoomImageIndex].height*0.7/2;
+                newszoomwidth=zooms[zoomImageIndex].width*0.7/2;
             }
-            newsflex.insertAdjacentHTML("beforeend", `<div id="newsbox${i}" style="width: 150px;height:100px; margin: 1%;"><canvas id="news${i}" width="${newsimgwidth}px" height="${newsimgheight}px" style=" margin: 10px 0 0 10px;"></canvas></div>`);
-            newsboxElem = document.getElementById(`newsbox${i}`);
-            newsCanElem = document.getElementById(`news${i}`);
-            ctxnews[i] = newsCanElem.getContext('2d'); 
-            newsboxElem.insertAdjacentHTML("beforeend", `<div id="newtex${i}" style="margin: -0px 0px 0px 5px; color: #988; width:150px;"><p style="font-size: 12px;margin:0px;">${exhibition.name}<br><font style="font-size: xx-small;">${formattedDate}<br>${exhibition.time || ''}</font></p></div>`);
-            newstexElem = document.getElementById(`newtex${i}`);
-
-            if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-                var newszoomheight = actualZoomImageHeight / 2; 
-                var newszoomwidth = actualZoomImageWidth / 2; 
-                if (actualZoomImageHeight == 800) { 
-                    newszoomheight = actualZoomImageHeight * 0.7 / 2; 
-                    newszoomwidth = actualZoomImageWidth * 0.7 / 2; 
-                }
-                newszoomflex.insertAdjacentHTML("beforeend",
-                    `<div id="newszoombox${i}" style="width: 425px;height:300px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
-
-            } else {
-                var newszoomheight = actualZoomImageHeight; 
-                var newszoomwidth = actualZoomImageWidth; 
-                if (actualZoomImageHeight == 800) { 
-                    newszoomheight = actualZoomImageHeight * 0.7; 
-                    newszoomwidth = actualZoomImageWidth * 0.7; 
-                }
-                newszoomflex.insertAdjacentHTML("beforeend",
-                    `<div id="newszoombox${i}" style="width: 850px;height:600px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
-            }
-            newszoomboxElem = document.getElementById(`newszoombox${i}`);
-            newszoomCanElem = document.getElementById(`newszooms${i}`);
-            ctxnewszoom[i] = newszoomCanElem.getContext('2d'); 
-        }
+            newszoomflex.insertAdjacentHTML("beforeend",
+            `<div id="newszoombox${index+1}" style="width: 425px;height:300px; flex-shrink: 0;"><canvas id="newszooms${index+1}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
         
-        // Canvasの描画とテキストの更新 (初回生成時とデータ更新時に実行)
-        // ここではロード済みのImageオブジェクトを直接drawImageに渡す
-        if (calImage && calImage.complete && ctxnews[i]) {
-            ctxnews[i].clearRect(0, 0, newsCanElem.width, newsCanElem.height); 
-            ctxnews[i].drawImage(calImage, 0, 0, calImage.width, calImage.height, 0, 0, newsCanElem.width, newsCanElem.height);
         }
-
-        if (zoomImage && zoomImage.complete && ctxnewszoom[i]) {
-            ctxnewszoom[i].clearRect(0, 0, newszoomCanElem.width, newszoomCanElem.height); 
-            ctxnewszoom[i].drawImage(zoomImage, 0, 0, zoomImage.width, zoomImage.height, 0, 0, newszoomCanElem.width, newszoomCanElem.height);
+        else{
+            var newszoomheight=zooms[zoomImageIndex].height;
+            var newszoomwidth=zooms[zoomImageIndex].width;
+            if(zooms[zoomImageIndex].height==800){
+                newszoomheight=zooms[zoomImageIndex].height*0.7;
+                newszoomwidth=zooms[zoomImageIndex].width*0.7;
+            }
+            newszoomflex.insertAdjacentHTML("beforeend",
+            `<div id="newszoombox${index+1}" style="width: 850px;height:600px; flex-shrink: 0;"><canvas id="newszooms${index+1}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
+        
         }
+        newszoomCan[index+1] = document.getElementById(`newszooms${index+1}`);
+        ctxnewszoom[index+1] = newszoomCan[index+1].getContext('2d');
+        ctxnewszoom[index+1].drawImage(zooms[zoomImageIndex], 0, 0, zooms[zoomImageIndex].width, zooms[zoomImageIndex].height, 0, 0, newszoomwidth, newszoomheight);
+    });
 
-        // テキストコンテンツの更新
-        newstexElem.querySelector('p').innerHTML = `${exhibition.name}<br><font style="font-size: xx-small;">${formattedDate}<br>${exhibition.time || ''}</font>`;
+	NewsZoomer();
+	NowaDayNews(exhibitions, formattedDates); // exhibitionsとformattedDatesを渡す
+	
+	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
+		totobox.insertAdjacentHTML("afterbegin", `<canvas id="toto" width="200px" height="200px" style="position:absolute; margin: auto;top: 380px;right: 0px;left: 250px; z-index:3;"></canvas>`);
+	}
+	else{
+		totobox.insertAdjacentHTML("afterbegin", `<canvas id="toto" width="200px" height="200px" style="position:absolute; margin: auto;top: 680px;right: 0px;left: ${window.innerWidth-200}px; z-index:3;"></canvas>`);
+	}
+	const toto = document.getElementById('toto');
+	var ctxtoto = toto.getContext('2d');
+	ctxtoto.drawImage(misc, 500, 500, 200, 200, 0, 0, 200, 200);
+	PopAnim(document.getElementById('toto'), 5000,0);
 
-    }
-    NewsZoomer(); 
-    NowaDayNews(DMNum, exhibitionsData); 
+	AboutMove();  CallforMove();
 
-    // totobox以下の要素の生成はNewsEventの初回呼び出し時にのみ行う
-    if (document.getElementById('toto') === null) {
-        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-            totobox.insertAdjacentHTML("afterbegin", `<canvas id="toto" width="200px" height="200px" style="position:absolute; margin: auto;top: 380px;right: 0px;left: 250px; z-index:3;"></canvas>`);
-        } else {
-            totobox.insertAdjacentHTML("afterbegin", `<canvas id="toto" width="200px" height="200px" style="position:absolute; margin: auto;top: 680px;right: 0px;left: ${window.innerWidth-200}px; z-index:3;"></canvas>`);
-        }
-        const toto = document.getElementById('toto');
-        var ctxtoto = toto.getContext('2d');
-        // misc画像がロードされていることを確認してから描画
-        if (misc && misc.complete) {
-            ctxtoto.drawImage(misc, 500, 500, 200, 200, 0, 0, 200, 200);
-        } else {
-            misc.onload = () => { // misc画像が遅れてロードされた場合
-                ctxtoto.drawImage(misc, 500, 500, 200, 200, 0, 0, 200, 200);
-            };
-        }
-        PopAnim(document.getElementById('toto'), 5000, 0);
-        AboutMove();
-        CallforMove();
-        AchiveFolder();
-    }
 }
 
+function NowaDayNews(exhibitions, formattedDates){ // exhibitionsとformattedDatesを受け取るように変更
+	let nowaday = new Date();
+	let nowmonth = nowaday.getMonth()+1;
+	let nowday = nowaday.getDate();
+	
+	let num = -1; // 現在または今後のニュースが見つからない場合は-1
 
-// NowaDayNews 関数
-function NowaDayNews(DMNum, exhibitionsData) {
-    let nowaday = new Date();
-    let foundCurrentNews = false;
-    let targetIndex = DMNum - 1; // デフォルトは最新の展示会 (配列の最後)
-
-    for (let i = 0; i < DMNum; i++) {
-        const exhibition = exhibitionsData[i];
-
+    // 現在または今後の展示を見つける（exhibitions配列は古い順）
+    for (let i = 0; i < exhibitions.length; i++) {
+        const exhibition = exhibitions[i];
         const startDate = new Date(exhibition.startDate);
         const endDate = new Date(exhibition.endDate);
 
-        // 現在の日付が展示期間内にあるか、かつ isNews が true の場合
-        // Dateオブジェクトの比較はgetTime()を使うか、年月日を個別に比較
-        if (startDate <= nowaday && nowaday <= endDate && exhibition.isNews === true) {
-            targetIndex = i;
-            foundCurrentNews = true;
-            break; // 見つかったらループを抜ける
+        // 現在の日付が展示期間内かチェック
+        if (nowaday >= startDate && nowaday <= endDate) {
+            num = i; // 現在の展示のexhibitions配列におけるインデックス
+            break;
+        }
+        // 今後の展示かチェック（開始日が未来の場合）
+        if (nowaday < startDate) {
+            num = i; // 最初の今後の展示のexhibitions配列におけるインデックス
+            break;
         }
     }
 
-    if (foundCurrentNews) {
-        // 現在のニュースが見つかった場合、そのニュースにスクロール
-        // news_li_top はニュースの上部、newsCan[targetIndex] は個別のニュース要素
-        document.getElementById('news_li_top').scrollTo({
-            top: newsCan[targetIndex].offsetTop,
-            behavior: 'smooth'
-        });
+    if (num !== -1) {
+        // newsItems配列内の対応するインデックスを見つける
+        // newsItemsはexhibitionsの最後のDISPLAY_NEWS_COUNT個を逆順にしたもの
+        const DISPLAY_NEWS_COUNT = 4; // NewsEventで定義された数と合わせる
+        const newsItems = exhibitions.slice(Math.max(0, exhibitions.length - DISPLAY_NEWS_COUNT)).reverse();
+        
+        const newsIndexInNewsItems = newsItems.findIndex(item => item.id === exhibitions[num].id);
+        
+        if (newsIndexInNewsItems !== -1) {
+            var topnews = document.getElementById("newsflex");
+            // ニュース項目を中央に配置するようにスクロール位置を調整
+            topnews.scrollLeft = 150 * newsIndexInNewsItems - (topnews.offsetWidth / 2) + 75; 
+        }
     } else {
-        // 現在のニュースが見つからない場合、最新のニュース（リストの最後）にスクロール
-        document.getElementById('news_li_top').scrollTo({
-            top: newsCan[targetIndex].offsetTop, // targetIndex は DMNum - 1
-            behavior: 'smooth'
-        });
+        // 現在または今後のニュースがない場合は、newsflexの先頭にスクロール
+        var topnews = document.getElementById("newsflex");
+        if (topnews) {
+            topnews.scrollLeft = 0; 
+        }
     }
-}
-
-
-// ============================================================================
-// 以下は元のSichimenMain.jsに存在すると仮定されるが、定義が不明な関数群のスタブです。
-// 元のコードがある場合は、以下の空の関数を適切な実装で置き換えてください。
-// ============================================================================
-
-function Init() {
-    // ページ全体の初期化処理
-    // 例: イベントリスナーの設定、初期表示状態の調整など
-    // console.log("Init() called");
-}
-
-function Header() {
-    // ヘッダーに関する処理
-    // 例: ヘッダーの表示/非表示、スクロール時の挙動など
-    // console.log("Header() called");
-}
-
-function footer_create() {
-    // フッターの生成または初期化処理
-    // console.log("footer_create() called");
-}
-
-function Title_create() {
-    // タイトル部分（canvas要素）の生成または初期化処理
-    // misc画像の描画はDOMContentLoadedイベント内で既に行われています。
-    // console.log("Title_create() called");
-}
-
-function About() {
-    // Aboutセクションに関する処理
-    // 例: 内容の表示、アニメーションなど
-    // console.log("About() called");
-}
-
-function Gallery() {
-    // Galleryセクションに関する処理
-    // 例: 画像ギャラリーの初期化、スライドショーなど
-    // console.log("Gallery() called");
-}
-
-function Team() {
-    // Teamセクションに関する処理
-    // 例: メンバー情報の表示、レイアウト調整など
-    // console.log("Team() called");
-}
-
-function Contact() {
-    // Contactセクションに関する処理
-    // 例: 連絡先情報の表示、フォームの初期化など
-    // console.log("Contact() called");
-}
-
-function CallFor() {
-    // Call Forセクションに関する処理
-    // 例: 募集要項の表示など
-    // console.log("CallFor() called");
-}
-
-function ScrollSetting() {
-    // スクロールイベントに関する設定や処理
-    // 例: スクロールに応じた要素の表示/非表示、アニメーションなど
-    // console.log("ScrollSetting() called");
-}
-
-function Page_move() {
-    // ページ内リンクやナビゲーションによるスムーズスクロールなど、ページ移動に関する処理
-    // console.log("Page_move() called");
-}
-
-const about_container = document.getElementById('about_container');
-const about_contents = document.getElementById('about_contents');
-const about_contents1 = document.getElementById('about_contents1');
-const about_contents2 = document.getElementById('about_contents2');
-
-function AboutMove() {
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-
-        about.insertAdjacentHTML("afterbegin", `<canvas id="img1" class="img" width="400px" height="225px" style=";position:relative; top: 25px;  margin: auto; z-index:1;"></canvas>`);
-        about.insertAdjacentHTML("beforeend", `<canvas id="img2" class="hopper" width="200px" height="112px" style="position:relative; top: -140px;left: -80px; margin: auto; z-index:1; visibility: hidden;"></canvas>`);
-        about.insertAdjacentHTML("beforeend", `<canvas id="img3" class="hopper" width="200px" height="112px" style="position:relative; top: -260px;left: 150px; margin: auto;z-index: 0;visibility: hidden;"></canvas>`);
-        about.style.height = "1000px";
-        about_container.style.width = "450px";
-        about_container.style.height = "550px";
-        about_container.style.left = "0px";
-        about_container.style.top = "10px";
-        about_container.style.padding = "100px 0 100px 0";
-        about_contents.style.left = "0px";
-        about_contents.style.top = "0px";
-        about_contents.style.width = "450px";
-        about_contents1.style.float = "none";
-    } else {
-        about.insertAdjacentHTML("afterbegin", `<canvas id="img1" class="img" width="400px" height="225px" style=";position:relative; top: -140px; left: -200px; margin: auto; z-index:1;"></canvas>`);
-        about.insertAdjacentHTML("beforeend", `<canvas id="img2" class="hopper" width="200px" height="112px" style="position:relative; top: -400px;left: 450px; margin: auto; z-index:1; visibility: hidden;"></canvas>`);
-        about.insertAdjacentHTML("beforeend", `<canvas id="img3" class="hopper" width="200px" height="112px" style="position:relative; top: -320px;left: 80px; margin: auto;z-index: 0;visibility: hidden;"></canvas>`);
-    }
-
-    const pic_img1 = document.getElementById('img1');
-    const ctximg1 = img1.getContext('2d');
-    ctximg1.drawImage(img[1], 0, 0, 400, 225, 0, 0, 400, 225);
-    Popimg1(true);
-
-    const img2 = document.getElementById('img2');
-    const ctximg2 = img2.getContext('2d');
-    ctximg2.drawImage(img[2], 0, 0, 200, 112, 0, 0, 200, 112);
-
-    const img3 = document.getElementById('img3');
-    const ctximg3 = img3.getContext('2d');
-    ctximg3.drawImage(img[3], 0, 0, 200, 112, 0, 0, 200, 112);
-    stopper = false;
-}
-
-function Popimg1(pop) {
-    if (!pop) {
-        img1.animate([{
-            opacity: '0.5'
-        }, {
-            opacity: '1'
-        }], 1000);
-        img1.style.opacity = `1`;
-        return;
-    }
-    pop = true;
-    img1.animate([{
-        opacity: '0',
-        transform: 'translate(0, 100px)'
-    }, {
-        offset: 0.1,
-        opacity: '0.5'
-    }, {
-        opacity: '0.5',
-        transform: 'translate(0, 0px)'
-    }], 1500);
-    img1.style.opacity = `0.5`;
-
-}
-let totostop = false;
-
-function ToToMove() {
-    let totohead;
-    let tototitle;
-    if (totostop) {
-        totohead = document.getElementById('totohead');
-        tototitle = document.getElementById('tototitle');
-        document.getElementById('toto').style.margin = "0px";
-        totohead.style.margin = "0px";
-        tototitle.style.margin = "0px";
-        totoStopTop = window.innerHeight + window.pageYOffset - 200;
-        totoStopLeft = window.innerWidth - 200;
-        toto.style.position = 'absolute';
-        toto.style.top = `${totoStopTop}px`;
-        toto.style.left = `${totoStopLeft}px`;
-        tototitle.style.position = 'absolute';
-        tototitle.style.top = `${totoStopTop+150}px`;
-        tototitle.style.left = `${totoStopLeft-320}px`;
-        totohead.style.position = 'absolute';
-        totohead.style.top = `${totoStopTop-18}px`;
-        totohead.style.left = `${totoStopLeft+46}px`;
-        var lastdegree = 0;
-        var nowdegree = 30;
-        totohead.insertAdjacentHTML("beforebegin",
-            `<div id="hitbox" style="position:absolute;width:200px;height:200px;top: ${totoStopTop-128}px;background-color: #80292901;left: ${totoStopLeft-96}px; z-index:4; display:none;"></div>`);
-
-
-        var hitbox = document.getElementById('hitbox');
-        var first = true;
-        HoldMoves(totohead, totomouseover);
-
-        function totomouseover() {
-            first = true;
-            hitbox.style.display = "block";
-        };
-        HoldMoves(hitbox, totomousemove);
-
-        function totomousemove() {
-            var mousePosY;
-            mousePosY = event.offsetY;
-            if (mousePosY < 130 && first) {
-                first = false;
-                totohead.animate([{
-                    transform: `rotate(${lastdegree}deg)`
-                }, {
-                    transform: `rotate(${nowdegree}deg)`
-                }], {
-                    fill: "forwards",
-                    duration: 300
-                });
-            }
-            if (mousePosY > 130 && !first) {
-                first = true;
-                totohead.animate([{
-                    transform: `rotate(${nowdegree}deg)`
-                }, {
-                    transform: `rotate(${lastdegree}deg)`
-                }], {
-                    fill: "forwards",
-                    duration: 300
-                });
-            }
-            if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
-                totohead.animate([{
-                    transform: `rotate(${lastdegree}deg)`
-                }, {
-                    transform: `rotate(${nowdegree}deg)`
-                }], {
-                    fill: "forwards",
-                    duration: 300
-                }).finished
-                    .then(() => totohead.animate([{
-                        transform: `rotate(${nowdegree}deg)`
-                    }, {
-                        transform: `rotate(${lastdegree}deg)`
-                    }], {
-                        fill: "forwards",
-                        duration: 300
-                    }));
-            }
-
-        };
-
-        hitbox.addEventListener(`mouseleave`, function() {
-            hitbox.style.display = "none";
-        });
-
-        return;
-    }
-    toto.style.opacity = `0`;
-    var ctxtoto = toto.getContext('2d');
-    ctxtoto.clearRect(0, 0, 200, 200);
-    toto.style.position = 'fixed';
-    window_height = window.innerHeight;
-    window_width = window.innerWidth;
-    toto.style.top = `${window_height-200}px`;
-
-    toto.style.left = `${window_width-200}px`;
-
-    toto.style.opacity = `1`;
-    ctxtoto.drawImage(misc, 300, 500, 200, 200, 0, 0, 200, 200);
-    PopAnim(toto, 3000, 0);
-    new Promise(function(resolve) {
-        resolve();
-    }).then(function() {
-        setTimeout(function() {
-            ctxtoto.clearRect(0, 0, 200, 200);
-            ctxtoto.drawImage(misc, 100, 500, 200, 200, 0, 0, 200, 200);
-
-            totobox.insertAdjacentHTML("beforeend", `<canvas id="totohead" width="100px" height="100px" style="position:fixed; margin: auto;top:${window_height-218}px;right: 0px;left: ${window_width-216}px; z-index:3;"></canvas>`);
-
-            totohead = document.getElementById('totohead');
-            ctxtotohead = totohead.getContext('2d');
-            ctxtotohead.drawImage(misc, 0, 600, 100, 100, 0, 0, 100, 100);
-            PopAnim(toto, 3000, 0);
-            PopAnim(totohead, 3000, 0);
-        }, 1000);
-    }).then(function() {
-        setTimeout(function() {
-
-            totobox.insertAdjacentHTML("beforeend", `<canvas id="tototitle" width="400px" height="50px" style="position:fixed; margin: auto;top:${window_height-50}px;right: 0px;left: ${window_width-650}px; z-index:3;"></canvas>`);
-
-            tototitle = document.getElementById('tototitle');
-            ctxtototitle = tototitle.getContext('2d');
-            if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
-                ctxtototitle.drawImage(misc, 0, 0, 400, 50, 50, 2, 350, 48);
-            } else {
-                ctxtototitle.drawImage(misc, 0, 0, 400, 50, 0, 0, 400, 50);
-            }
-
-            PopAnim(tototitle, 2000, 0);
-        }, 2000);
-    });
-    window.addEventListener('scroll', () => {
-
-    });
 }
 const clickYear = new Array();
-let testnum = 0;
+let testnum=0;
+function AchiveFolder(allExhibitions){
+    const DMNum = allExhibitions.length;
 
-function AchiveFolder() {
-    const exhibitions = window.getExhibitions();
-    const DMNum = exhibitions.length;
+	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
+		past.insertAdjacentHTML("afterbegin", 
+		`<div id="achivebox" style="position:relative; background-color:#191a17; margin: auto; width: 450px; height:430px; display:flex; overflow: scroll;flex-wrap: wrap; padding: 0px; align-items: center;"></div>`);
+		past.insertAdjacentHTML("afterbegin",
+		`<div id="yearmenu" style="position:relative; margin: auto; width: 400px; height:50px; color:#777777;font-size:x-large; z-index: 1;"></div>`);
+		document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
+		`<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
+		past.style.height="430px";
+	}
+	else{
+		past.insertAdjacentHTML("afterbegin", 
+		`<div id="achivebox" style="position:relative; background-color:#191a17; margin: auto; width: 910px; height:430px; display:flex; overflow: scroll;flex-wrap: wrap; padding: 50px; align-items: center;"></div>`);
+		past.insertAdjacentHTML("afterbegin",
+		`<div id="yearmenu" style="position:absolute; margin: auto; width: 884px; height:50px; padding: 50px; color:#777777;font-size:x-large; z-index: 1;"></div>`);
+		document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
+		`<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
+	}
+	
+	
+	const achivebox = document.getElementById('achivebox');
+    const uniqueYears = [];
+	for (let i = DMNum; i > 0; i--) {
+        const exhibition = allExhibitions[i - 1]; // 最新の展示からアクセス
+        const flipper_i = DMNum - i + 1; // 1から始まる連番
 
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
-        past.insertAdjacentHTML("afterbegin",
-            `<div id="achivebox" style="position:relative; background-color:#191a17; margin: auto; width: 450px; height:430px; display:flex; overflow: scroll;flex-wrap: wrap; padding: 0px; align-items: center;"></div>`);
-        past.insertAdjacentHTML("afterbegin",
-            `<div id="yearmenu" style="position:relative; margin: auto; width: 400px; height:50px; color:#777777;font-size:x-large; z-index: 1;"></div>`);
-        document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
-            `<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
-        past.style.height = "430px";
-    } else {
-        past.insertAdjacentHTML("afterbegin",
-            `<div id="achivebox" style="position:relative; background-color:#191a17; margin: auto; width: 910px; height:430px; display:flex; overflow: scroll;flex-wrap: wrap; padding: 50px; align-items: center;"></div>`);
-        past.insertAdjacentHTML("afterbegin",
-            `<div id="yearmenu" style="position:absolute; margin: auto; width: 884px; height:50px; padding: 50px; color:#777777;font-size:x-large; z-index: 1;"></div>`);
-        document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
-            `<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
-    }
+        const currentYear = exhibition.year;
+        const previousYear = i - 2 >= 0 ? allExhibitions[i - 2].year : null; // 一つ前の展示の年
 
-
-    const achivebox = document.getElementById('achivebox');
-    const uniqueYears = []; // 重複しない年を格納する配列
-
-    // 年のリストを生成
-    exhibitions.forEach(exhibition => {
-        if (!uniqueYears.includes(exhibition.year)) {
-            uniqueYears.push(exhibition.year);
+        // 年の区切りヘッダーを追加
+        // 最新の年を最初に、年の変わり目にヘッダーを挿入
+        if (currentYear !== previousYear || i === DMNum) { // 最初の要素、または年が変わった場合
+             // 最新の年を最初に追加
+            if (!uniqueYears.includes(currentYear)) {
+                achivebox.insertAdjacentHTML("afterbegin",
+                    `<div id="${currentYear}" class="hopper" style=" margin:10px 50px 0px 50px; width:800px; height:50px; color:#777777;font-size:x-large; text-align: left; visibility: hidden;">${currentYear}</div>`);
+                document.getElementById(`yearbox`).insertAdjacentHTML("afterbegin",
+                    `<div id="tag${currentYear}" class="menu2">${currentYear}</div>`);
+                uniqueYears.push(currentYear); // 重複を防ぐ
+            }
         }
-    });
-    uniqueYears.sort((a, b) => b - a); // 年を降順にソート
-
-    let currentYearDiv = null;
-    let yearIndex = 0;
-
-    for (let i = 0; i < DMNum; i++) {
-        const exhibition = exhibitions[i];
-        const flipper_i = i; // 0からDMNum-1まで
-
-        // 年の区切りを挿入
-        if (yearIndex < uniqueYears.length && exhibition.year === uniqueYears[yearIndex]) {
-            const yearDiv = `<div id="${exhibition.year}" class="hopper" style=" margin:10px 50px 0px 50px; width:800px; height:50px; color:#777777;font-size:x-large; text-align: left; visibility: hidden;">${exhibition.year}</div>`;
-            achivebox.insertAdjacentHTML("beforeend", yearDiv); // beforebeginからbeforeendに変更して正しい順序に
-            document.getElementById(`yearbox`).insertAdjacentHTML("beforeend", // afterbeginからbeforeendに変更
-                `<div id="tag${exhibition.year}" class="menu2">${exhibition.year}</div>`);
-            yearIndex++;
-        }
-
-        // 展示アイテムの挿入
-        achivebox.insertAdjacentHTML("beforeend", `<canvas id="flyer${flipper_i}" class="hopper ${exhibition.year}" height="200px" width="200px" style=" margin:4px;visibility: hidden;"></canvas>`);
+        
+        // カレンダー画像と展示情報のHTMLを挿入
+        achivebox.insertAdjacentHTML("afterbegin", `<canvas id="flyer${flipper_i}" class="hopper ${exhibition.year}" height="200px" width="200px" style=" margin:4px;visibility: hidden;"></canvas>`);
         calimg[flipper_i] = document.getElementById(`flyer${flipper_i}`);
         ctxcal[flipper_i] = calimg[flipper_i].getContext('2d');
-        var caldraw_sp = (200 - cal[flipper_i].width) / 2;
-        ctxcal[flipper_i].drawImage(cal[flipper_i], 0, 0, cal[flipper_i].width, cal[flipper_i].height, caldraw_sp, 0, cal[flipper_i].width, cal[flipper_i].height);
-        achivebox.insertAdjacentHTML("beforeend", `<div id="achive${flipper_i}" class="hopper ${exhibition.year}"  style=" margin:4px 30px 4px 4px; width:200px; height:300px; color:#777777;font-size:small;visibility: hidden;">
-		<p style="background: radial-gradient(#4d2821a3 10%, #0000 60%)">${exhibition.datePeriod}</p>
-		<p>${exhibition.name}</p>
-		<p>${exhibition.exhibitors.join(', ')}</p>
-		<p>${exhibition.comments}</p>
-		</div>`);
-    }
 
-    // 年タグのクリックイベントを設定
-    uniqueYears.forEach(year => {
-        const tagElement = document.getElementById(`tag${year}`);
-        if (tagElement) {
-            tagElement.addEventListener('click', function() {
-                const targetYearElement = document.getElementById(year);
-                if (targetYearElement) {
-                    targetYearElement.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                        inline: "nearest",
-                    });
-                }
-            });
+        // cal画像が読み込まれていることを確認してから描画
+        if (cal[i-1] && cal[i-1].complete) { // cal配列のインデックスをallExhibitionsのインデックスに合わせる
+            var caldraw_sp = (200 - cal[i-1].width) / 2;
+            ctxcal[flipper_i].drawImage(cal[i-1], 0, 0, cal[i-1].width, cal[i-1].height, caldraw_sp, 0, cal[i-1].width, cal[i-1].height);
+        } else {
+            // 画像がまだ読み込まれていない場合のフォールバックや、ロード完了後に描画するロジックが必要
+            // ここでは簡易的に、画像ロード完了時に描画するようイベントリスナーを設定
+            if (cal[i-1]) {
+                cal[i-1].onload = function() {
+                    var caldraw_sp = (200 - this.width) / 2;
+                    ctxcal[flipper_i].drawImage(this, 0, 0, this.width, this.height, caldraw_sp, 0, this.width, this.height);
+                };
+            }
         }
-    });
-
-    // スクロールイベントリスナー
-    achivebox.addEventListener('scroll', () => {
-        for (i = 0; i < hopper.length; i++) {
+        let displayDate = exhibition.datePeriod;
+        achivebox.insertAdjacentHTML("afterend", `<div id="achive${flipper_i}" class="hopper ${exhibition.year}" style=" margin:4px 30px 4px 4px; width:200px; height:300px; color:#777777;font-size:small;visibility: hidden;">
+            <p style="background: radial-gradient(#4d2821a3 10%, #0000 60%)">${displayDate}</p>
+            <p>${exhibition.name}</p>
+            <p>${exhibition.exhibitors.join(', ')}</p>
+            <p>${exhibition.comments}</p>
+            </div>`);
+	}
+	
+	achivebox.addEventListener('scroll', () => {
+        for (let i = 0; i < hopper.length; i++) {
             if (achivebox.scrollTop > hopper[i].offsetTop - 300 && !hrock[i]) {
                 hrock[i] = true;
                 PopAnim(hopper[i], 1000, 1);
             }
         }
     });
-
-    menuSet(); // menuSetはここで再度呼び出す
+	
+	 // 初期ロード時に表示を調整
+    for (let i = 0; i < hopper.length; i++) {
+        if (achivebox.scrollTop > hopper[i].offsetTop - 300) {
+            PopAnim(hopper[i], 1000, 1);
+            hrock[i] = true;
+        }
+    }
 }
 
-
-function GoScroll(flex_obj, num) {
-    document.getElementById(flex_obj).children[num].scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "nearest",
-    });
+function GoScroll(flex_obj,num) {
+	document.getElementById(flex_obj).children[num].scrollIntoView({
+	behavior:"smooth",  block:"nearest",  inline:"nearest",  
+	}) 
 }
 
-const API_KEY = 'AIzaSyBoM6H0NBxC_F0fmvDfCou_ennvi8qnrD0'; // あなたのGoogle Calendar APIキー
+const API_KEY = 'AIzaSyBoM6H0NBxC_F0fmvDfCou_ennvi8qnrD0'
 const CALENDAR_ID = 'gallerysevenhalfway@gmail.com';
 let startDates = new Array();
 let endDates = new Array();
@@ -813,11 +410,11 @@ let items = new Array();
 let Gdateform = /(\d+)-0*(\d+)-0*(\d+)/;
 
 function generate_year_range(start, end) {
-    var years = "";
-    for (var year = start; year <= end; year++) {
-        years += "<option value='" + year + "'>" + year + "</option>";
-    }
-    return years;
+var years = "";
+	for (var year = start; year <= end; year++) {
+		years += "<option value='" + year + "'>" + year + "</option>";
+	}
+return years;
 }
 var today = new Date();
 var currentMonth = today.getMonth();
@@ -837,7 +434,7 @@ var days = ["日", "月", "火", "水", "木", "金", "土"];
 
 var dayHeader = "<tr>";
 for (day in days) {
-    dayHeader += "<th data-days='" + days[day] + "'>" + days[day] + "</th>";
+	dayHeader += "<th data-days='" + days[day] + "'>" + days[day] + "</th>";
 }
 dayHeader += "</tr>";
 
@@ -846,487 +443,388 @@ document.getElementById("thead-month").innerHTML = dayHeader;
 monthAndYear = document.getElementById("monthAndYear");
 
 function next() {
-    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
-    currentMonth = (currentMonth + 1) % 12;
-    showCalendar(currentMonth, currentYear);
+  currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+  currentMonth = (currentMonth + 1) % 12;
+  showCalendar(currentMonth, currentYear);
 }
 
 function previous() {
-    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-    showCalendar(currentMonth, currentYear);
+  currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+  currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+  showCalendar(currentMonth, currentYear);
 }
 
 function jump() {
-    currentYear = parseInt(selectYear.value);
-    currentMonth = parseInt(selectMonth.value);
-    showCalendar(currentMonth, currentYear);
+  currentYear = parseInt(selectYear.value);
+  currentMonth = parseInt(selectMonth.value);
+  showCalendar(currentMonth, currentYear);
 }
 const url_mouse_event = `onmouseover='this.style.color="#919cd9"'onmouseout='this.style.color="#5763a6"'`;
-
 function showCalendar(month, year) {
 
-    var firstDay = (new Date(year, month)).getDay();
-    let GformDatesS = new Array();
-    let GformDatesE = new Array();
+  var firstDay = ( new Date( year, month ) ).getDay();
+	let GformDatesS = new Array();
+	let GformDatesE = new Array();
 
-    tbl = document.getElementById("calendar-body");
+  tbl = document.getElementById("calendar-body");
 
-    tbl.innerHTML = "";
+  tbl.innerHTML = "";
 
-    monthAndYear.innerHTML = months[month] + " " + year;
-    selectYear.value = year;
-    selectMonth.value = month;
+  monthAndYear.innerHTML = months[month] + " " + year;
+  selectYear.value = year;
+  selectMonth.value = month;
 
-    // creating all cells
-    var date = 1;
-    for (var i = 0; i < 6; i++) {
-        var row = document.createElement("tr");
+  // creating all cells
+  var date = 1;
+  for ( var i = 0; i < 6; i++ ) {
+      var row = document.createElement("tr");
 
-        for (var j = 0; j < 7; j++) {
-            if (i === 0 && j < firstDay) {
-                cell = document.createElement("td");
-                cellText = document.createTextNode("");
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-            } else if (date > daysInMonth(month, year)) {
-                break;
-            } else {
-                cell = document.createElement("td");
-                cell.setAttribute("data-date", date);
-                cell.setAttribute("data-month", month + 1);
-                cell.setAttribute("data-year", year);
-                cell.setAttribute("data-month_name", months[month]);
-                cell.className = "date-picker";
-
-                cell.innerHTML = "<span>" + date + "</span>";
-                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cell.className = "date-picker selected";
-                }
-
-                for (let k = 0; k < startDates.length; k++) {
-                    GformDatesS = startDates[k].match(Gdateform);
-                    GformDatesE = endDates[k].match(Gdateform);
-                    if (year == GformDatesS[1] && year == GformDatesE[1] && month + 1 == GformDatesS[2] && date == GformDatesS[3] ||
-                        year == GformDatesS[1] && year == GformDatesE[1] && month + 1 == GformDatesE[2] && date == GformDatesE[3] ||
-                        GformDatesS[1] < GformDatesE[1] && GformDatesS[1] == year && GformDatesS[2] <= month + 1 && GformDatesS[3] < date ||
-                        GformDatesS[1] < GformDatesE[1] && GformDatesS[1] == year && month + 1 <= GformDatesE[2] && date < GformDatesE[3] ||
-                        GformDatesS[1] == GformDatesE[1] && GformDatesS[1] == year && GformDatesS[2] == month + 1 && month + 1 == GformDatesE[2] && GformDatesS[3] < date && date < GformDatesE[3] ||
-                        GformDatesS[1] == GformDatesE[1] && GformDatesS[1] == year && GformDatesS[2] < GformDatesE[2] && GformDatesS[2] == month + 1 && GformDatesS[3] < date ||
-                        GformDatesS[1] == GformDatesE[1] && GformDatesS[1] == year && GformDatesS[2] < GformDatesE[2] && GformDatesS[2] < month + 1 && GformDatesE[2] > month + 1 ||
-                        GformDatesS[1] == GformDatesE[1] && GformDatesS[1] == year && GformDatesS[2] < GformDatesE[2] && GformDatesE[2] == month + 1 && date < GformDatesE[3]
-                    ) {
-                        cell.className = "reserved";
-                        cell.title = `${items[k].summary}`;
-                        if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                            cell.className = "reserved selected";
-                        }
-                    }
-                }
-                let urldate = date;
-                let urlmonth = month + 1;
-                if (urlmonth < 10) {
-                    urlmonth = "0" + urlmonth;
-                }
-                if (date < 10) {
-                    urldate = "0" + date;
-                }
-                if (cell.className == "date-picker") {
-                    let GculURL = "https://docs.google.com/forms/d/e/1FAIpQLSf7TfudivAz1PpLR1xiSO0zu3WEHSH_oeHXRGgMbMNr39qAtg/viewform?usp=pp_url&entry.1552810174=" + `${year}-${urlmonth}-${urldate}`;
-                    cell.innerHTML = `<span>` + `<a href="${GculURL}" target=”_blank ${url_mouse_event} style="text-decoration: none; color:#5763a6;">` + date + "</a>" + "</span>";
-                }
-                row.appendChild(cell);
-                date++;
-
-            }
-        }
-        ReservedCheker();
-        tbl.appendChild(row);
-    }
+      for ( var j = 0; j < 7; j++ ) {
+          if ( i === 0 && j < firstDay ) {
+              cell = document.createElement( "td" );
+              cellText = document.createTextNode("");
+              cell.appendChild(cellText);
+              row.appendChild(cell);
+          } else if (date > daysInMonth(month, year)) {
+              break;
+          } else {
+              cell = document.createElement("td");
+              cell.setAttribute("data-date", date);
+              cell.setAttribute("data-month", month + 1);
+              cell.setAttribute("data-year", year);
+              cell.setAttribute("data-month_name", months[month]);
+              cell.className = "date-picker";
+			  
+              cell.innerHTML = "<span>" + date + "</span>";
+			  if ( date === today.getDate() && year === today.getFullYear() && month === today.getMonth() ) {
+                  cell.className = "date-picker selected";
+              }
+			  
+			  for(let k=0;k<startDates.length;k++){
+				GformDatesS = startDates[k].match(Gdateform);
+				GformDatesE = endDates[k].match(Gdateform);
+				if(year == GformDatesS[1]&&year == GformDatesE[1]&& month+ 1 == GformDatesS[2] && date == GformDatesS[3]||
+				year == GformDatesS[1]&&year == GformDatesE[1]&& month+ 1 == GformDatesE[2] && date == GformDatesE[3]||
+				GformDatesS[1]<GformDatesE[1] && GformDatesS[1]== year && GformDatesS[2]<=month+ 1 && GformDatesS[3]<date||
+				GformDatesS[1]<GformDatesE[1] && GformDatesS[1]== year && month+ 1<=GformDatesE[2] && date<GformDatesE[3]||
+				GformDatesS[1]==GformDatesE[1] && GformDatesS[1]== year && GformDatesS[2]==month+ 1&&month+ 1==GformDatesE[2] && GformDatesS[3]<date&&date<GformDatesE[3]||
+				GformDatesS[1]==GformDatesE[1] && GformDatesS[1]== year &&GformDatesS[2]<GformDatesE[2]&& GformDatesS[2]==month+ 1&& GformDatesS[3]<date||
+				GformDatesS[1]==GformDatesE[1] && GformDatesS[1]== year &&GformDatesS[2]<GformDatesE[2]&& GformDatesS[2]<month+ 1&&GformDatesE[2]>month+ 1||
+				GformDatesS[1]==GformDatesE[1] && GformDatesS[1]== year &&GformDatesS[2]<GformDatesE[2]&& GformDatesE[2]==month+ 1&&date<GformDatesE[3]
+				){
+					cell.className = "reserved";
+					cell.title = `${items[k].summary}`;
+					if ( date === today.getDate() && year === today.getFullYear() && month === today.getMonth() ) {
+                  cell.className = "reserved selected";
+              }
+				}
+			  }
+			  let urldate=date;
+			  let urlmonth= month+1;
+			  if(urlmonth<10){urlmonth="0"+urlmonth;}
+			  if(date<10){urldate="0"+date;}
+			  if(cell.className == "date-picker"){
+				let GculURL ="https://docs.google.com/forms/d/e/1FAIpQLSf7TfudivAz1PpLR1xiSO0zu3WEHSH_oeHXRGgMbMNr39qAtg/viewform?usp=pp_url&entry.1552810174="+`${year}-${urlmonth}-${urldate}`
+				cell.innerHTML = `<span>` +`<a href="${GculURL}" target=”_blank ${url_mouse_event} style="text-decoration: none; color:#5763a6;">`+ date +"</a>"+ "</span>";
+			  }
+              row.appendChild(cell);
+              date++;
+			  
+          }
+      }
+	  ReservedCheker()
+      tbl.appendChild(row);
+  }
 
 }
-
+			  	  
 function daysInMonth(iMonth, iYear) {
-    return 32 - new Date(iYear, iMonth, 32).getDate();
+	return 32 - new Date(iYear, iMonth, 32).getDate();
 }
-
-function ReservedCheker() {
-    const selected = document.getElementsByClassName('selected');
-    const reserved = document.getElementsByClassName('reserved');
-    const reserve_tips = document.getElementById('reserve_tips');
-    let mc = 0;
-    let reserved_color = "#886655";
-    let reserved_bcolor = "#9726";
-    let reserved_bcolors = [933, 386, 648, 500, 050, 005, 770, 077, 707];
-    let selected_bcolor = "#7214";
-    let i = 0;
-    let jpS_dates = new Array();
-    let jpE_dates = new Array();
-
-    while (mc < reserved.length) {
-        reserved[mc].style.textDecoration = "none";
-        reserved[mc].style.color = reserved_color;
-        if (mc > 0) {
-            if (reserved[mc].title != reserved[mc - 1].title) {
-                if (i > 8) {
-                    reserved_bcolors.push(Math.floor(Math.random() * 1000));
-                }
-                reserved_bcolor = `#${reserved_bcolors[i]}4`;
-                i++;
-            }
-        }
-        reserved[mc].style.backgroundColor = reserved_bcolor;
-        ReservePop(mc);
-        mc++;
-    }
-    if (selected.length == 1) {
-        selected[0].style.backgroundColor = selected_bcolor;
-    }
-
-    function ReservePop(j) {
-        reserved[j].addEventListener(`${pointstart}`, function() {
-            event.preventDefault();
-            for (i = 0; i < items.length; i++) {
-                jpS_dates[i] = startDates[i];
-                jpE_dates[i] = endDates[i];
-                if (reserved[j].title == items[i].summary) {
-                    jpS_dates[i] = jpS_dates[i].replace(/\d+-(\d+)-(\d+)/g, `$1月$2日～`);
-                    jpE_dates[i] = jpE_dates[i].replace(/\d+-(\d+)-(\d+)/g, `$1月$2日`);
-                    reserve_tips.innerHTML = "<p>" + items[i].summary + "</p>" + "<p>" + jpS_dates[i] + jpE_dates[i] + "</p>";
-                    reserve_tips.style.visibility = "visible";
-                }
-            }
-
-        });
-    }
+function ReservedCheker(){
+	const selected = document.getElementsByClassName('selected');
+	const reserved = document.getElementsByClassName('reserved');
+	const reserve_tips = document.getElementById('reserve_tips');
+	let mc = 0;
+	let reserved_color ="#886655";
+	let reserved_bcolor = "#9726";
+	let reserved_bcolors = [933,386,648,500,050,005,770,077,707];
+	let selected_bcolor= "#7214"
+	let i= 0;
+	let jpS_dates = new Array();
+	let jpE_dates = new Array();
+	
+	while(mc < reserved.length){
+		reserved[mc].style.textDecoration= "none";
+		reserved[mc].style.color= reserved_color;
+		if(mc>0){
+			if(reserved[mc].title != reserved[mc-1].title){
+				if(i>8){
+					reserved_bcolors.push= Math.floor(Math.random()*1000);
+				}
+				reserved_bcolor = `#${reserved_bcolors[i]}4`;
+				i++;
+			}
+		}
+		reserved[mc].style.backgroundColor= reserved_bcolor;
+		ReservePop(mc);
+		mc++;
+	}
+	if(selected.length==1){
+		selected[0].style.backgroundColor= selected_bcolor;
+	}
+	function ReservePop(j){
+		reserved[j].addEventListener(`${pointstart}`, function() {
+			event.preventDefault();
+			for(i=0; i<items.length;i++){
+				jpS_dates[i] = startDates[i];
+				jpE_dates[i] = endDates[i];
+				if(reserved[j].title==items[i].summary){
+					jpS_dates[i]=jpS_dates[i].replace( /\d+-(\d+)-(\d+)/g , `$1月$2日～` );
+					jpE_dates[i]=jpE_dates[i].replace( /\d+-(\d+)-(\d+)/g , `$1月$2日` );
+					reserve_tips.innerHTML = "<p>" + items[i].summary + "</p>" + "<p>" + jpS_dates[i] + jpE_dates[i] + "</p>";
+					reserve_tips.style.visibility ="visible";
+				}
+			}
+			
+		});
+	}
 }
-
 function Gcalender() {
     gapi.client.init({
-        'apiKey': API_KEY,
+    'apiKey': API_KEY,
     }).then(function() {
-        return gapi.client.request({
-            'path': 'https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(CALENDAR_ID) + '/events'
-        });
+    return gapi.client.request({
+        'path': 'https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(CALENDAR_ID) + '/events'
+    })
     }).then(function(response) {
-        items = response.result.items;
-
-        for (let i = 0; i < items.length; i++) {
-            startDates[i] = items[i].start.dateTime;
-            endDates[i] = items[i].end.dateTime;
-            if (items[i].start.dateTime === undefined) {
-                startDates[i] = items[i].start.date;
-                startDates[i] = startDates[i].replace(/(\d+)-(\d+)\D(\d+)/g, `$1-$2-$3`);
-                endDates[i] = items[i].start.date;
-                endDates[i] = endDates[i].replace(/(\d+)-(\d+)\D(\d+)/g, `$1-$2-$3`);
-                continue;
-            }
-            startDates[i] = startDates[i].replace(/(\d+)-(\d+)\D(\d+)\D\d+\D\d+\D\d+\D\d+\D\d+/g, `$1-$2-$3`);
-            endDates[i] = endDates[i].replace(/(\d+)-(\d+)\D(\d+)\D\d+\D\d+\D\d+\D\d+\D\d+/g, `$1-$2-$3`);
-        }
-        showCalendar(currentMonth, currentYear);
+		items = response.result.items;
+	
+		for(let i = 0; i < items.length; i++){
+			startDates[i]= items[i].start.dateTime;
+			endDates[i]= items[i].end.dateTime;
+			if(items[i].start.dateTime === undefined){
+				startDates[i]= items[i].start.date;
+				startDates[i]=startDates[i].replace( /(\d+)-(\d+)\D(\d+)/g , `$1-$2-$3` );
+				endDates[i]= items[i].start.date;
+				endDates[i]=endDates[i].replace( /(\d+)-(\d+)\D(\d+)/g , `$1-$2-$3` );
+				continue;
+			}
+			startDates[i]=startDates[i].replace( /(\d+)-(\d+)\D(\d+)\D\d+\D\d+\D\d+\D\d+\D\d+/g , `$1-$2-$3` );
+			endDates[i]=endDates[i].replace( /(\d+)-(\d+)\D(\d+)\D\d+\D\d+\D\d+\D\d+\D\d+/g , `$1-$2-$3` );
+		}
+		showCalendar(currentMonth, currentYear);
     }, function(reason) {
-        console.log('Error: ' + reason.result.error.message);
+    console.log('Error: ' + reason.result.error.message);
     });
-}
+};    
 
 
-function CallforMove() {
-    const callfor_text1 = document.getElementById("callfor_text1");
-    const callfor_container = document.getElementById("callfor_container");
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && window.orientation === 0) {
 
-        callfor_text1.insertAdjacentHTML("beforeend",
-            `<div id="spaceimgbox"  style="position:relative;width:300px;height:200px;top: 0px;left: 0px;background-color: #80292901; margin: auto; z-index:1;"></div>`);
-        callfor_container.style.width = "400px";
-        callfor.style.width = "450px";
-    } else {
-        callfor_text1.insertAdjacentHTML("beforeend",
-            `<div id="spaceimgbox"  style="position:absolute;width:300px;height:200px;top: 0px;left: 500px;background-color: #80292901; margin: auto; z-index:1;"></div>`);
-    }
-    var spaceimgbox = document.getElementById("spaceimgbox");
-    spaceimgbox.insertAdjacentHTML("beforeend",
-        `<canvas id="spaceimg" class="hopper" height="200px" width="300px" style="position:absolute;width:300px;height:200px;top: 0px;left: 0px;background-color: #80292901; visibility: hidden;"></canvas>`);
-    const spaceimg = document.getElementById("spaceimg");
-    const ctxspaceimg = spaceimg.getContext('2d');
-    ctxspaceimg.drawImage(misc, 0, 100, 300, 200, 0, 0, 300, 200);
-    const smallspace = document.getElementById("smallspace");
-    const bigspace = document.getElementById("bigspace");
-    spaceimg.insertAdjacentHTML("afterend",
-        `<div id="Bspace_erea" style="position:absolute;width:135px;height:176px;top: 10px;left: 9px; background-color: #a4323282; display: none;"><div style="position:absolute;width:48px;height:56px;top:120px;left: 135px; background-color: #a4323282; z-index:1;"></div></div>`);
-    spaceimg.insertAdjacentHTML("afterend",
-        `<div id="Sspace_erea" style="position:absolute;width:98px;height:56px;top: 130px;left: 192px; background-color: #a4323282; visibility: hidden;"></div>`);
-    const Bspace_erea = document.getElementById("Bspace_erea");
-    const Sspace_erea = document.getElementById("Sspace_erea");
-    bigspace.addEventListener(`${pointend}`, bigspaceoff);
 
-    function bigspaceoff(event) {
-        event.preventDefault();
-        Bspace_erea.style.display = "none";
-    }
-    smallspace.addEventListener(`${pointstart}`, smallspaceon);
-
-    function smallspaceon(event) {
-        event.preventDefault();
-        Sspace_erea.style.visibility = "visible";
-    }
-    smallspace.addEventListener(`${pointend}`, smallspaceoff);
-
-    function smallspaceoff(event) {
-        event.preventDefault();
-        Sspace_erea.style.visibility = "hidden";
-    }
-    bigspace.addEventListener(`${pointstart}`, bigspaceon);
-
-    function bigspaceon(event) {
-        event.preventDefault();
-        Bspace_erea.style.display = "block";
-    }
+function CallforMove(){
+	const callfor_text1 = document.getElementById("callfor_text1");
+	const callfor_container = document.getElementById("callfor_container");
+	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
+		
+		callfor_text1.insertAdjacentHTML("beforeend", 
+			`<div id="spaceimgbox"  style="position:relative;width:300px;height:200px;top: 0px;left: 0px;background-color: #80292901; margin: auto; z-index:1;"></div>`);
+		callfor_container.style.width="400px";
+		callfor.style.width="450px";
+	}
+	else{
+		callfor_text1.insertAdjacentHTML("beforeend", 
+			`<div id="spaceimgbox"  style="position:absolute;width:300px;height:200px;top: 0px;left: 500px;background-color: #80292901; margin: auto; z-index:1;"></div>`);
+	}
+	var spaceimgbox = document.getElementById("spaceimgbox");
+	spaceimgbox.insertAdjacentHTML("beforeend", 
+			`<canvas id="spaceimg" class="hopper" height="200px" width="300px" style="position:absolute;width:300px;height:200px;top: 0px;left: 0px;background-color: #80292901; visibility: hidden;"></canvas>`);
+	const spaceimg = document.getElementById("spaceimg");
+	const ctxspaceimg = spaceimg.getContext('2d');
+	ctxspaceimg.drawImage(misc, 0, 100, 300, 200, 0, 0, 300, 200);
+	const smallspace = document.getElementById("smallspace");
+	const bigspace = document.getElementById("bigspace");
+	spaceimg.insertAdjacentHTML("afterend", 
+			`<div id="Bspace_erea" style="position:absolute;width:135px;height:176px;top: 10px;left: 9px; background-color: #a4323282; display: none;"><div style="position:absolute;width:48px;height:56px;top:120px;left: 135px; background-color: #a4323282; z-index:1;"></div></div>`);
+	spaceimg.insertAdjacentHTML("afterend", 
+			`<div id="Sspace_erea" style="position:absolute;width:98px;height:56px;top: 130px;left: 192px; background-color: #a4323282; visibility: hidden;"></div>`);
+	const Bspace_erea = document.getElementById("Bspace_erea");
+	const Sspace_erea = document.getElementById("Sspace_erea");
+		bigspace.addEventListener(`${pointend}`, bigspaceoff);
+		function bigspaceoff(event){
+			event.preventDefault();
+			Bspace_erea.style.display= "none";
+		}
+		smallspace.addEventListener(`${pointstart}`, smallspaceon);
+		function smallspaceon(event){
+			event.preventDefault();
+			Sspace_erea.style.visibility= "visible";
+		}
+		smallspace.addEventListener(`${pointend}`, smallspaceoff);
+		function smallspaceoff(event){
+			event.preventDefault();
+			Sspace_erea.style.visibility= "hidden";
+		}
+		bigspace.addEventListener(`${pointstart}`, bigspaceon);
+		function bigspaceon(event){
+			event.preventDefault();
+			Bspace_erea.style.display= "block";
+		}
 }
 
 var endX;
 var starX;
+function NewsZoomer(){
+	var clicklocker=false;
+	newsCan.forEach(function(target) {
+		if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
+			long_press(target,PopNewsViewer,SampleShown);
+			function SampleShown(){
+				newszoombox.style.visibility= "visible";
+				newszoombox.style.scale="40%";
+				var target_num = target.id.replace( /news(\d+)/g , `$1` );
+				document.getElementById("newszoomflex").children[target_num-1].scrollIntoView({
+				behavior:"smooth",  block:"nearest",  inline:"nearest",  
+				})
+			}
+		}
+		else{
+			target.addEventListener(`${pointstart}`, function() {
+				newszoombox.style.visibility= "visible";
+				newszoombox.style.scale="40%";
+				var target_num = target.id.replace( /news(\d+)/g , `$1` );
+				document.getElementById("newszoomflex").children[target_num-1].scrollIntoView({
+				behavior:"smooth",  block:"nearest",  inline:"nearest",  
+				})
+			})
+		}
+		
+		target.addEventListener(`${pointend}`, function() {
+			if(!clicklocker){
+				newszoombox.style.visibility= "hidden";
+				newszoombox.style.scale="100%";
+			}
+			
+		})
+		target.addEventListener('click', PopNewsViewer);
+		function PopNewsViewer(){
+			newszoombox.style.visibility= "visible";
+			newszoombox.style.scale="100%";
+			var target_num = target.id.replace( /news(\d+)/g , `$1` );
+			document.getElementById("newszoomflex").children[target_num-1].scrollIntoView({
+			behavior:"smooth",  block:"nearest",  inline:"nearest",  
+			})
+			clicklocker=true;
+		}
+	});
 
-function NewsZoomer() {
-    var clicklocker = false;
-    newsCan.forEach(function(target) {
-        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
-            long_press(target, PopNewsViewer, SampleShown);
+	document.getElementById("home").addEventListener('click', (e) => {
+	  if(!e.target.closest('#newszoombox')) {
+		newszoombox.style.visibility= "hidden";
+		clicklocker=false;
+	  }
+	})
+	document.getElementById("about").addEventListener('click', (e) => {
+	  if(!e.target.closest('#newszoombox')) {
+		newszoombox.style.visibility= "hidden";
+		clicklocker=false;
+	  } 
+	})
 
-            function SampleShown() {
-                newszoombox.style.visibility = "visible";
-                newszoombox.style.scale = "40%";
-                var target_num = target.id.replace(/news(\d+)/g, `$1`);
-                document.getElementById("newszoomflex").children[target_num].scrollIntoView({ // target_numは0ベース
-                    behavior: "smooth",
-                    block: "nearest",
-                    inline: "nearest",
-                });
-            }
-        } else {
-            target.addEventListener(`${pointstart}`, function() {
-                newszoombox.style.visibility = "visible";
-                newszoombox.style.scale = "40%";
-                var target_num = target.id.replace(/news(\d+)/g, `$1`);
-                document.getElementById("newszoomflex").children[target_num].scrollIntoView({ // target_numは0ベース
-                    behavior: "smooth",
-                    block: "nearest",
-                    inline: "nearest",
-                });
-            });
-        }
-
-        target.addEventListener(`${pointend}`, function() {
-            if (!clicklocker) {
-                newszoombox.style.visibility = "hidden";
-                newszoombox.style.scale = "100%";
-            }
-
-        });
-        target.addEventListener('click', PopNewsViewer);
-
-        function PopNewsViewer() {
-            newszoombox.style.visibility = "visible";
-            newszoombox.style.scale = "100%";
-            var target_num = target.id.replace(/news(\d+)/g, `$1`);
-            document.getElementById("newszoomflex").children[target_num].scrollIntoView({ // target_numは0ベース
-                behavior: "smooth",
-                block: "nearest",
-                inline: "nearest",
-            });
-            clicklocker = true;
-        }
-    });
-
-    document.getElementById("home").addEventListener('click', (e) => {
-        if (!e.target.closest('#newszoombox')) {
-            newszoombox.style.visibility = "hidden";
-            clicklocker = false;
-        }
-    });
-    document.getElementById("about").addEventListener('click', (e) => {
-        if (!e.target.closest('#newszoombox')) {
-            newszoombox.style.visibility = "hidden";
-            clicklocker = false;
-        }
-    });
-
-    const newsturnright = document.getElementsByClassName(`newsturnright`);
-    const newsturnleft = document.getElementsByClassName(`newsturnleft`);
-    const roll_target = ["newsflex", "newszoomflex"];
-    for (i = 0; i < newsturnright.length; i++) {
-        Eachturn(i, roll_target[i]);
-    }
-
-    function Eachturn(i, flex_obj) {
-        newsturnright[i].addEventListener(`${pointstart}`, function() {
-            newsturnright[i].style.backgroundColor = "rgba(100,100,100,0.3)";
-            TurnRight(true, `${flex_obj}`);
-        });
-        newsturnright[i].addEventListener(`${pointend}`, function() {
-            newsturnright[i].style.backgroundColor = "rgba(1,1,1,0)";
-        });
-        newsturnleft[i].addEventListener(`${pointstart}`, function() {
-            TurnRight(false, `${flex_obj}`);
-            newsturnleft[i].style.backgroundColor = "rgba(100,100,100,0.3)";
-        });
-        newsturnleft[i].addEventListener(`${pointend}`, function() {
-            newsturnleft[i].style.backgroundColor = "rgba(1,1,1,0)";
-        });
-        document.getElementById(`${flex_obj}`).addEventListener(`touchstart`, function(event) {
-            event.preventDefault();
-            starX = event.touches[0].pageX;
-        });
-        document.getElementById(`${flex_obj}`).addEventListener(`touchmove`, function(event) {
-            event.preventDefault();
-            endX = event.touches[0].pageX;
-        });
-        document.getElementById(`${flex_obj}`).addEventListener(`touchend`, function(event) {
-            event.preventDefault();
-            if (0 < endX - starX) {
-                TurnRight(false, `${flex_obj}`);
-            } else {
-                TurnRight(true, `${flex_obj}`);
-            }
-        });
-    }
+	const newsturnright = document.getElementsByClassName(`newsturnright`);
+	const newsturnleft = document.getElementsByClassName(`newsturnleft`);
+	const roll_target = ["newsflex","newszoomflex"]
+	for(i=0; i<newsturnright.length;i++){
+		Eachturn(i,roll_target[i]);
+	}
+	function Eachturn(i,flex_obj){
+		newsturnright[i].addEventListener(`${pointstart}`, function() {
+			newsturnright[i].style.backgroundColor = "rgba(100,100,100,0.3)"
+			TurnRight(true,`${flex_obj}`)
+		});
+		newsturnright[i].addEventListener(`${pointend}`, function() {
+			newsturnright[i].style.backgroundColor = "rgba(1,1,1,0)"
+		});
+		newsturnleft[i].addEventListener(`${pointstart}`, function() {
+			TurnRight(false,`${flex_obj}`)
+			newsturnleft[i].style.backgroundColor = "rgba(100,100,100,0.3)"
+		});
+		newsturnleft[i].addEventListener(`${pointend}`, function() {
+			newsturnleft[i].style.backgroundColor = "rgba(1,1,1,0)"
+		});
+		document.getElementById(`${flex_obj}`).addEventListener(`touchstart`, function(event) {
+			event.preventDefault();
+			starX = event.touches[0].pageX;
+		});
+		document.getElementById(`${flex_obj}`).addEventListener(`touchmove`, function(event) {
+			event.preventDefault();
+			endX = event.touches[0].pageX;
+		});
+		document.getElementById(`${flex_obj}`).addEventListener(`touchend`, function(event) {
+			event.preventDefault();
+			if(0<endX-starX){TurnRight(false,`${flex_obj}`)}
+			else{TurnRight(true,`${flex_obj}`)}
+		});
+	}
 }
 let turn_right = true;
-let num = 0;
+let num =0;
 let turnAroundBlocker = false;
-
-function TurnRight(turn_right, flex_obj) {
-    var turn_element = document.getElementById(flex_obj);
-    if (!turnAroundBlocker) {
-        if (turn_right) {
-            if (num + 1 < turn_element.children.length) {
-                num++;
-            } else {
-                return;
-            }
-        } else {
-            if (num - 1 >= 0) {
-                num--;
-            } else {
-                return;
-            }
-        }
-    }
-
-    var child = turn_element.children[num];
-    child.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "nearest",
-    });
-    turnAroundBlocker = false;
+function TurnRight(turn_right,flex_obj) {
+	var turn_element = document.getElementById(flex_obj); 
+	if(!turnAroundBlocker){
+		if(turn_right){
+			if(num+1 < turn_element.children.length) { num++;}
+			else{return;}
+		}
+		else{
+			if(num-1 >= 0) { num--;}
+			else{return;}
+		}
+	}
+	
+	var child = turn_element.children[num];  
+	child.scrollIntoView({
+		behavior:"smooth",  block:"nearest",  inline:"nearest",  
+	})
+	turnAroundBlocker = false;
 }
 
 let doc;
-let pop = true;
-let pop_direction = 0;
+let pop= true;
+let pop_direction= 0;
+function PopAnim(doc,AnimTime,pop_direction){
+	
+	if(doc.style.display == 'none'){doc.style.display = 'block';}
+	if(doc.style.visibility == 'hidden'){doc.style.visibility = 'visible';}
 
-function PopAnim(doc, AnimTime, pop_direction) {
-
-    if (doc.style.display == 'none') {
-        doc.style.display = 'block';
-    }
-    if (doc.style.visibility == 'hidden') {
-        doc.style.visibility = 'visible';
-    }
-
-    if (pop_direction == 0) {
-        doc.animate([{
-            opacity: '0',
-            transform: 'translate(0, 0px)'
-        }, {
-            offset: 0.1,
-            opacity: '0.1'
-        }, {
-            opacity: '1',
-            transform: 'translate(0, 0px)'
-        }], AnimTime);
-    }
-    if (pop_direction == 1) {
-        doc.animate([{
-            opacity: '0',
-            transform: 'translate(0, 100px)'
-        }, {
-            offset: 0.1,
-            opacity: '0.1'
-        }, {
-            opacity: '1',
-            transform: 'translate(0, 0px)'
-        }], AnimTime);
-    }
-    if (pop_direction == 2) {
-        doc.animate([{
-            opacity: '0',
-            transform: 'translate(-100px, 0px)'
-        }, {
-            offset: 0.1,
-            opacity: '0.1'
-        }, {
-            opacity: '1',
-            transform: 'translate(0, 0px)'
-        }], AnimTime);
-    }
-    if (pop_direction == 3) {
-        doc.animate([{
-            opacity: '0',
-            transform: 'translate(0px, -100px)'
-        }, {
-            offset: 0.1,
-            opacity: '0.1'
-        }, {
-            opacity: '1',
-            transform: 'translate(0, 0px)'
-        }], AnimTime);
-    }
-    if (pop_direction == 4) {
-        doc.animate([{
-            opacity: '0',
-            transform: 'translate(100px, 0px)'
-        }, {
-            offset: 0.1,
-            opacity: '0.1'
-        }, {
-            opacity: '1',
-            transform: 'translate(0, 0px)'
-        }], AnimTime);
-    }
+	if(pop_direction==0){
+	doc.animate([{opacity: '0', transform: 'translate(0, 0px)'},{offset:0.1, opacity: '0.1'}, {opacity: '1', transform: 'translate(0, 0px)'}],AnimTime)
+	}
+	if(pop_direction==1){
+	doc.animate([{opacity: '0', transform: 'translate(0, 100px)'},{offset:0.1, opacity: '0.1'}, {opacity: '1', transform: 'translate(0, 0px)'}],AnimTime)
+	}
+	if(pop_direction==2){
+	doc.animate([{opacity: '0', transform: 'translate(-100px, 0px)'},{offset:0.1, opacity: '0.1'}, {opacity: '1', transform: 'translate(0, 0px)'}],AnimTime)
+	}
+	if(pop_direction==3){
+	doc.animate([{opacity: '0', transform: 'translate(0px, -100px)'},{offset:0.1, opacity: '0.1'}, {opacity: '1', transform: 'translate(0, 0px)'}],AnimTime)
+	}
+	if(pop_direction==4){
+	doc.animate([{opacity: '0', transform: 'translate(100px, 0px)'},{offset:0.1, opacity: '0.1'}, {opacity: '1', transform: 'translate(0, 0px)'}],AnimTime)
+	}
 }
 
-function HeaderPops() {
-    if (ScrollUpnow) {
-        header.animate([{
-            opacity: '1',
-            transform: 'translate(0, 0)'
-        }, {
-            offset: 0.9,
-            opacity: '0.1'
-        }, {
-            opacity: '0',
-            transform: 'translate(0, -100px)'
-        }], 100).finished
-            .then(() => header.style.display = 'none');
-    }
-    if (ontop) {
-        return;
-    }
-    if (Scrollnow) {
-        header.style.display = 'block';
-        header.animate([{
-            opacity: '0',
-            transform: 'translate(0, -100px)'
-        }, {
-            offset: 0.1,
-            opacity: '0.1'
-        }, {
-            opacity: '1',
-            transform: 'translate(0, 0px)'
-        }], 100);
-    }
+function HeaderPops(){
+	if(ScrollUpnow){
+		header.animate([{opacity: '1', transform: 'translate(0, 0)'},{offset:0.9, opacity: '0.1'}, {opacity: '0', transform: 'translate(0, -100px)'}],100).finished
+		.then(() => header.style.display = 'none');
+	}
+	if(ontop){return;}
+	if(Scrollnow){
+		header.style.display = 'block';
+		header.animate([{opacity: '0', transform: 'translate(0, -100px)'},{offset:0.1, opacity: '0.1'}, {opacity: '1', transform: 'translate(0, 0px)'}],100)
+	}
 }
 
 let set_position = 0;
@@ -1336,331 +834,296 @@ let ontop = true;
 const section = document.getElementsByTagName('section');
 let sectionNum = 0;
 var hopper = document.getElementsByClassName('hopper');
-const hrock = new Array(hopper.length).fill(false); // 初期化
+const hrock = new Array;
 var container = document.getElementsByClassName('container');
-let controck = new Array(container.length).fill(false); // 初期化
+let controck =new Array;
 let img1rock = false;
 let stopper = true;
-window.addEventListener('scroll', () => {
-    const scrollBottom = window.pageYOffset + window.innerHeight;
-    if (stopper) {
-        return;
-    }
+window.addEventListener('scroll', ()=> {
+    const scrollBottom = window.pageYOffset+window.innerHeight;
+	if(stopper){return;}
 
-    // sectionの処理
-    for (let i = 0; i < section.length; i++) {
-        if (section[i].offsetTop && scrollBottom > section[i].offsetTop + section[i].offsetHeight && sectionNum <= i) { // section[i].offsetTopの存在チェックを追加
-            sectionNum++;
-            if (i === 5) { // teamセクションのインデックスが5の場合
-                totostop = true;
-                ToToMove();
-            }
-            // 他のセクションに関する処理があればここに追加
-        }
-    }
+	for(i=0; i<section.length; i++){
+			if(scrollBottom>section[5].offsetTop+section[5].offsetHeight && sectionNum <=i){
+			
+				totostop =true;
+				ToToMove();
+				sectionNum++;
+			}
+			if(scrollBottom>section[i].offsetTop+section[i].offsetHeight && sectionNum <=i){
+			
+				sectionNum++;
+				if(i==0){
+					ToToMove();
+				}
+			}
+	}
+	for(i=0; i<hopper.length; i++){
+		if(scrollBottom > hopper[i].getBoundingClientRect().top+window.pageYOffset && !hrock[i]){
+			hrock[i]=true;
+			PopAnim(hopper[i],1000,1);
+		}
+	}
+	for(i=0; i<container.length; i++){
+		if(scrollBottom > 700 && !controck[i]){
+			PopAnim(container[i],500,2);
+			controck[i]=true;
+		}
+	}
+	if(scrollBottom>img1.getBoundingClientRect().top+window.pageYOffset && !img1rock){
+		img1rock= true;
+		Popimg1(false);
+	}
+	
 
-    // hopper要素の処理
-    for (let i = 0; i < hopper.length; i++) {
-        if (hopper[i].getBoundingClientRect().top + window.pageYOffset < scrollBottom && !hrock[i]) { // 画面内に入ったかどうかの判定
-            hrock[i] = true;
-            PopAnim(hopper[i], 1000, 1);
-        }
-    }
+	if(document.documentElement.scrollTop<500 && !ontop){
+		ontop=true;
+	}
+	if(document.documentElement.scrollTop>=500 && ontop){
+		ontop=false;
+	}
 
-    // container要素の処理
-    for (let i = 0; i < container.length; i++) {
-        if (scrollBottom > 700 && !controck[i]) {
-            PopAnim(container[i], 500, 2);
-            controck[i] = true;
-        }
-    }
-
-    // img1の処理
-    const img1Element = document.getElementById('img1');
-    if (img1Element && scrollBottom > img1Element.getBoundingClientRect().top + window.pageYOffset && !img1rock) {
-        img1rock = true;
-        Popimg1(false);
-    }
-
-
-    if (document.documentElement.scrollTop < 500 && !ontop) {
-        ontop = true;
-    }
-    if (document.documentElement.scrollTop >= 500 && ontop) {
-        ontop = false;
-    }
-
-    if (ScrollUpnow) {
-        if (Scrollnow) {
-            return;
-        }
-        if (set_position <= document.documentElement.scrollTop - 5) {
-            HeaderPops();
-            Scrollnow = true;
-            ScrollUpnow = false;
-        }
-        set_position = document.documentElement.scrollTop;
-        return;
-    }
-    if (set_position > document.documentElement.scrollTop) {
-        HeaderPops();
-        ScrollUpnow = true;
-        Scrollnow = false;
-    }
-    set_position = document.documentElement.scrollTop;
+	if(ScrollUpnow){
+		if(Scrollnow){return;}
+		if(set_position <= document.documentElement.scrollTop-5){
+			HeaderPops();Scrollnow = true; ScrollUpnow =false;
+		}
+		set_position = document.documentElement.scrollTop;
+		return;
+	}
+	if(set_position > document.documentElement.scrollTop){
+		HeaderPops(); ScrollUpnow = true; Scrollnow = false;
+	}
+	set_position = document.documentElement.scrollTop;
 
 });
 
-if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
-    window.addEventListener("orientationchange", function() {
-        if (window.orientation === 0) {
-            gallery_map.style.width = "450px";
-            contact.style.width = "450px";
-            team.style.width = "450px";
-            team.style.height = "1700px";
-            team_container.style.height = "1500px";
-            gallery.style.width = "450px";
-            footer.style.width = "450px";
-            header.style.width = "450px";
-            document.getElementById('calendar_container').style.left = "-80px";
-            document.getElementById('toproom').style.width = "450px";
-            document.getElementById('newsflexbox').style.left = "0px";
-            document.getElementById('newszoombox').style.width = "400px";
-            document.getElementById('newszoomflex').style.width = "400px";
-            const DMNum = window.getExhibitions().length; // DMNumを取得
-            for (let i = 0; i < DMNum; i++) { // NewsNumではなくDMNumを使用
-                document.getElementById(`newszoombox${i}`).style.width = "400px";
-                document.getElementById(`newszooms${i}`).style.width = `${zooms[i].width/2}px`;
-                document.getElementById(`newszooms${i}`).style.height = `${zooms[i].height/2}px`;
-                if (zooms[i].height == 800) {
-                    document.getElementById(`newszooms${i}`).style.width = `${zooms[i].width*0.7/2}px`;
-                    document.getElementById(`newszooms${i}`).style.height = `${zooms[i].height*0.7/2}px`;
-                }
-            }
-            about.style.height = "1000px";
-            about_container.style.width = "450px";
-            about_container.style.height = "550px";
-            about_container.style.left = "0px";
-            about_container.style.top = "10px";
-            about_container.style.padding = "100px 0 100px 0";
-            about_contents.style.left = "0px";
-            about_contents.style.top = "0px";
-            about_contents.style.width = "450px";
-            about_contents1.style.float = "none";
-            document.getElementById('img3').style.top = "-260px";
-            document.getElementById('img3').style.left = "150px";
-            document.getElementById('img2').style.top = "-140px";
-            document.getElementById('img2').style.left = "-80px";
-            document.getElementById('img1').style.top = "25px";
-            document.getElementById('img1').style.left = null;
-            document.getElementById('achivebox').style.width = "450px";
-            document.getElementById('achivebox').style.padding = "0px";
-            document.getElementById('yearmenu').style.position = "relative";
-            document.getElementById('yearmenu').style.padding = "0";
-            document.getElementById('yearmenu').style.width = "400px";
-            past.style.height = "430px";
-            callfor_container.style.width = "400px";
-            callfor.style.width = "450px";
-            document.getElementById('spaceimgbox').style.position = "relative";
-            document.getElementById('spaceimgbox').style.left = "0px";
-        } else {
-            gallery_map.style.width = "785px";
-            contact.style.width = "984px";
-            team.style.width = "984px";
-            team.style.height = "984px";
-            team_container.style.height = "500px";
-            gallery.style.width = "984px";
-            footer.style.width = "984px";
-            header.style.width = "100%";
-            document.getElementById('calendar_container').style.left = "0px";
-            document.getElementById('toproom').style.width = "800px";
-            document.getElementById('newsflexbox').style.left = "450px";
-            document.getElementById('newszoombox').style.width = "850px";
-            document.getElementById('newszoomflex').style.width = "850px";
-            const DMNum = window.getExhibitions().length; // DMNumを取得
-            for (let i = 0; i < DMNum; i++) { // NewsNumではなくDMNumを使用
-                document.getElementById(`newszoombox${i}`).style.width = "850px";
-                document.getElementById(`newszooms${i}`).style.width = `${zooms[i].width}px`;
-                document.getElementById(`newszooms${i}`).style.height = `${zooms[i].height}px`;
-                if (zooms[i].height == 800) {
-                    document.getElementById(`newszooms${i}`).style.width = `${zooms[i].width*0.7}px`;
-                    document.getElementById(`newszooms${i}`).style.height = `${zooms[i].height*0.7}px`;
-                }
-            }
-            about.style.height = "500px";
-            about_container.style.width = "820px";
-            about_container.style.height = "300px";
-            about_container.style.left = "-250px";
-            about_container.style.top = "-200px";
-            about_container.style.padding = "100px";
-            about_contents.style.left = "230px";
-            about_contents.style.top = "30px";
-            about_contents.style.width = "760px";
-            about_contents1.style.float = "left";
-            document.getElementById('img3').style.top = "-320px";
-            document.getElementById('img3').style.left = "80px";
-            document.getElementById('img2').style.top = "-400px";
-            document.getElementById('img2').style.left = "450px";
-            document.getElementById('img1').style.top = "-140px";
-            document.getElementById('img1').style.left = "-200px";
-            document.getElementById('achivebox').style.width = "884px";
-            document.getElementById('achivebox').style.padding = "50px";
-            document.getElementById('yearmenu').style.position = "absolute";
-            document.getElementById('yearmenu').style.padding = "50px";
-            document.getElementById('yearmenu').style.width = "884px";
-            past.style.height = "600px";
-            callfor_container.style.width = "740px";
-            callfor.style.width = "984px";
-            document.getElementById('spaceimgbox').style.position = "absolute";
-            document.getElementById('spaceimgbox').style.left = "500px";
-        }
-    });
+if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
+	window.addEventListener("orientationchange", function() {
+		if(window.orientation===0){
+			gallery_map.style.width="450px";
+			contact.style.width="450px";
+			team.style.width="450px";
+			team.style.height="1700px";
+			team_container.style.height="1500px";
+			gallery.style.width="450px";
+			footer.style.width="450px";
+			header.style.width="450px";
+			document.getElementById('calendar_container').style.left="-80px";
+			document.getElementById('toproom').style.width="450px";
+			document.getElementById('newsflexbox').style.left="0px";
+			document.getElementById('newszoombox').style.width="400px";
+			document.getElementById('newszoomflex').style.width="400px";
+			for(i=1; i <= NewsNum ; i++){
+				document.getElementById(`newszoombox${i}`).style.width="400px";
+				document.getElementById(`newszooms${i}`).style.width=`${zooms[i].width/2}`;
+				document.getElementById(`newszooms${i}`).style.height=`${zooms[i].height/2}`;
+				if(zooms[i].height==800){
+					document.getElementById(`newszooms${i}`).style.width=`${zooms[i].width*0.7/2}`;
+					document.getElementById(`newszooms${i}`).style.height=`${zooms[i].height*0.7/2}`;
+				}
+			}
+			about.style.height="1000px";
+			about_container.style.width="450px";
+			about_container.style.height="550px";
+			about_container.style.left="0px";
+			about_container.style.top="10px";
+			about_container.style.padding="100px 0 100px 0";
+			about_contents.style.left="0px";
+			about_contents.style.top="0px";
+			about_contents.style.width="450px";
+			about_contents1.style.float="none";
+			document.getElementById('img3').style.top="-260px";
+			document.getElementById('img3').style.left="150px";
+			document.getElementById('img2').style.top="-140px";
+			document.getElementById('img2').style.left="-80px";
+			document.getElementById('img1').style.top="25px";
+			document.getElementById('img1').style.left=null;
+			document.getElementById('achivebox').style.width="450px";
+			document.getElementById('achivebox').style.padding="0px";
+			document.getElementById('yearmenu').style.position="relative";
+			document.getElementById('yearmenu').style.padding="0";
+			document.getElementById('yearmenu').style.width="400px";
+			past.style.height="430px";
+			callfor_container.style.width="400px";
+			callfor.style.width="450px";
+			document.getElementById('spaceimgbox').style.position="relative";
+			document.getElementById('spaceimgbox').style.left="0px";
+		}
+		else{
+			gallery_map.style.width="785px";
+			contact.style.width= "984px";
+			team.style.width= "984px";
+			team.style.height="984px";
+			team_container.style.height="500px";
+			gallery.style.width= "984px";
+			footer.style.width= "984px";
+			header.style.width="100%";
+			document.getElementById('calendar_container').style.left="0px";
+			document.getElementById('toproom').style.width="800px";
+			document.getElementById('newsflexbox').style.left="450px";
+			document.getElementById('newszoombox').style.width="850px";
+			document.getElementById('newszoomflex').style.width="850px";
+			for(i=1; i <= NewsNum ; i++){
+			document.getElementById(`newszoombox${i}`).style.width="850px";
+			document.getElementById(`newszooms${i}`).style.width=`${zooms[i].width}`;
+			document.getElementById(`newszooms${i}`).style.height=`${zooms[i].height}`;
+				if(zooms[i].height==800){
+					document.getElementById(`newszooms${i}`).style.width=`${zooms[i]*0.7.width}`;
+					document.getElementById(`newszooms${i}`).style.height=`${zooms[i]*0.7.height}`;
+				}
+			}
+			about.style.height="500px";
+			about_container.style.width="820px";
+			about_container.style.height="300px";
+			about_container.style.left="-250px";
+			about_container.style.top="-200px";
+			about_container.style.padding="100px";
+			about_contents.style.left="230px";
+			about_contents.style.top="30px";
+			about_contents.style.width="760px";
+			about_contents1.style.float="left";
+			document.getElementById('img3').style.top="-320px";
+			document.getElementById('img3').style.left="80px";
+			document.getElementById('img2').style.top="-400px";
+			document.getElementById('img2').style.left="450px";
+			document.getElementById('img1').style.top="-140px";
+			document.getElementById('img1').style.left="-200px";
+			document.getElementById('achivebox').style.width="884px";
+			document.getElementById('achivebox').style.padding="50px";
+			document.getElementById('yearmenu').style.position="absolute";
+			document.getElementById('yearmenu').style.padding="50px";
+			document.getElementById('yearmenu').style.width="884px";
+			past.style.height="600px";
+			callfor_container.style.width="740px";
+			callfor.style.width= "984px";
+			document.getElementById('spaceimgbox').style.position="absolute";
+			document.getElementById('spaceimgbox').style.left="500px";
+		}
+	});
 }
 
 const menu = document.getElementsByClassName('menu');
 const menu2 = document.getElementsByClassName('menu2');
 const flex = document.getElementsByClassName('flex');
-const linkcolor = "#a1b9cc";
-const linkcolor2 = "#2b617b";
-
-function menuSet() {
-
-    var mc = 0;
-
-    while (mc < menu.length) {
-        menu[mc].style.fontSize = "large";
-        menu[mc].style.textDecoration = "none";
-        menu[mc].style.marginTop = "3%";
-        menu[mc].style.marginLeft = "1%";
-        menu[mc].style.marginRight = "1%";
-        menu[mc].style.color = linkcolor;
-        mc++;
-    }
-    mc = 0;
-    while (mc < menu2.length) {
-        menu2[mc].style.fontSize = "large";
-        menu2[mc].style.textDecoration = "none";
-        menu2[mc].style.marginTop = "3%";
-        menu2[mc].style.marginLeft = "1%";
-        menu2[mc].style.marginRight = "1%";
-        menu2[mc].style.color = linkcolor2;
-        mc++;
-    }
-    mc = 0;
-    while (mc < flex.length) {
-        flex[mc].style.display = "flex";
-        flex[mc].style.flexWrap = "wrap";
-        flex[mc].style.justifyContent = "center";
-        flex[mc].style.overflow = "hidden";
-        mc++;
-    }
-    mc = 0;
-    while (mc < hopper.length) {
-        hopper[mc].style.visibility = "hidden";
-        mc++;
-    }
-    var triggers = Array.from(menu);
-    triggers.forEach(function(target) {
-        target.addEventListener(`${pointstart}`, function() {
-            target.style.color = "#e1f2ff";
-        });
-        target.addEventListener(`${pointend}`, function() {
-            target.style.color = linkcolor;
-        });
-    });
-    var triggers2 = Array.from(menu2);
-    triggers2.forEach(function(target) {
-        target.addEventListener(`${pointstart}`, function() {
-            target.style.color = "#7aa6cc";
-        });
-        target.addEventListener(`${pointend}`, function() {
-            target.style.color = linkcolor2;
-        });
-    });
+const linkcolor ="#a1b9cc";
+const linkcolor2 ="#2b617b";
+function menuSet(){
+	
+	var mc = 0;
+	
+	while(mc < menu.length){
+		menu[mc].style.fontSize= "large";
+		menu[mc].style.textDecoration= "none";
+		menu[mc].style.marginTop= "3%";
+		menu[mc].style.marginLeft= "1%";
+		menu[mc].style.marginRight= "1%";
+		menu[mc].style.color= linkcolor;
+		mc++;
+	}
+	mc=0;
+	while(mc < menu2.length){
+		menu2[mc].style.fontSize= "large";
+		menu2[mc].style.textDecoration= "none";
+		menu2[mc].style.marginTop= "3%";
+		menu2[mc].style.marginLeft= "1%";
+		menu2[mc].style.marginRight= "1%";
+		menu2[mc].style.color= linkcolor2;
+		mc++;
+	}
+	mc=0;
+	while(mc < flex.length){
+		flex[mc].style.display= "flex";
+		flex[mc].style.flexWrap= "wrap";
+		flex[mc].style.justifyContent= "center";
+		flex[mc].style.overflow= "hidden";
+		mc++;
+	}
+	mc=0;
+	while(mc < hopper.length){
+		hopper[mc].style.visibility= "hidden";
+		mc++;
+	}
+	var triggers = Array.from(menu);
+	triggers.forEach(function(target) {
+		target.addEventListener(`${pointstart}`, function() {
+			target.style.color= "#e1f2ff";
+		});
+		target.addEventListener(`${pointend}`, function() {
+			target.style.color= linkcolor;
+	  });
+	});
+	var triggers2 = Array.from(menu2);
+	triggers2.forEach(function(target) {
+		target.addEventListener(`${pointstart}`, function() {
+			target.style.color= "#7aa6cc";
+		});
+		target.addEventListener(`${pointend}`, function() {
+			target.style.color= linkcolor2;
+	  });
+	});
 }
 
 
-function long_press(target_element, normal_func, long_func) {
-    let longclick = false;
-    let longtap = false;
-    let touch = false;
-    let touchmovelock = false;
-    let sec = 1000;
-    let timer;
-    let movetimer;
-    target_element.addEventListener('touchstart', (event) => {
-        event.preventDefault();
-        touchmovelock = false;
-        touch = true;
-        longtap = false;
-        timer = setTimeout(() => {
-            longtap = true;
-            long_func();
-        }, sec);
-    });
-    target_element.addEventListener('touchend', () => {
-        if (!longtap) {
-            clearTimeout(timer);
-            clearTimeout(movetimer);
-            if (!touchmovelock) {
-                normal_func();
-            }
-        } else {
-            touch = false;
-        }
-    });
-    target_element.addEventListener('touchmove', () => {
-        movetimer = setTimeout(() => {
-            touchmovelock = true;
-        }, 50);
-    });
-    target_element.addEventListener('mousedown', () => {
-        if (touch) return;
-        longclick = false;
-        timer = setTimeout(() => {
-            longclick = true;
-            long_func();
-        }, sec);
-    });
-    target_element.addEventListener('click', () => {
-        if (touch) {
-            touch = false;
-            return;
-        }
-        if (!longclick) {
-            clearTimeout(timer);
-        }
-    });
+function long_press(target_element,normal_func,long_func){
+	let longclick = false;
+	let longtap = false;
+	let touch = false;
+	let touchmovelock = false;
+	let sec = 1000;
+	let timer;
+	let movetimer;
+	target_element.addEventListener('touchstart',(event)=>{
+	event.preventDefault();
+	touchmovelock=false;
+	touch = true; longtap = false;
+	timer = setTimeout(() => {
+		longtap = true; long_func();}, sec);
+	})
+	target_element.addEventListener('touchend',()=>{
+	if(!longtap){
+		clearTimeout(timer);clearTimeout(movetimer);if(!touchmovelock){normal_func()};
+	}else{ touch = false; }
+	})
+	target_element.addEventListener('touchmove',()=>{
+	movetimer = setTimeout(() => {
+		touchmovelock=true;}, 50); 
+	})
+	target_element.addEventListener('mousedown',()=>{
+	if(touch) return; longclick = false;
+	timer = setTimeout(() => {longclick = true; long_func();}, sec);})
+	target_element.addEventListener('click',()=>{
+	if(touch){ touch = false;
+		return;
+	}
+	if(!longclick){ clearTimeout(timer);}
+	});
 }
 
-function HoldMoves(target_element, touchmove_func) {
-    let longclick = false;
-    let longtap = false;
-    let touch = false;
-    let sec = 50;
-    let timer;
-    target_element.addEventListener('touchstart', () => {
-        touch = true;
-        longtap = false;
-        timer = setTimeout(() => {
-            longtap = true;
-        }, sec);
-    });
-    target_element.addEventListener('touchend', () => {
-        if (!longtap) {
-            clearTimeout(timer);
-        } else {
-            touch = false;
-        }
-    });
-    target_element.addEventListener('touchmove', (event) => {
-        event.preventDefault();
-        touchmove_func();
-    });
-    target_element.addEventListener('mouseover', () => {
-        touchmove_func();
-    });
-    target_element.addEventListener('mousemove', () => {
-        touchmove_func();
-    });
+function HoldMoves(target_element,touchmove_func){
+	let longclick = false;
+	let longtap = false;
+	let touch = false;
+	let sec = 50;
+	let timer;
+	target_element.addEventListener('touchstart',()=>{
+		touch = true; longtap = false;
+		timer = setTimeout(() => {
+			longtap = true; }, sec);
+	})
+	target_element.addEventListener('touchend',()=>{
+		if(!longtap){
+			clearTimeout(timer);
+		}else{ touch = false; }
+	})
+	target_element.addEventListener('touchmove',(event)=>{
+		event.preventDefault();
+		touchmove_func()
+	})
+	target_element.addEventListener('mouseover',()=>{
+		touchmove_func();
+	});
+	target_element.addEventListener('mousemove',()=>{
+		touchmove_func();
+	});
 }
