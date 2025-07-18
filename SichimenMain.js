@@ -35,24 +35,21 @@ const team_container = document.getElementById('team_container');
 
 // DOMContentLoadedイベントリスナー内でデータロードを待機
 window.addEventListener('DOMContentLoaded', () => {
-    // data.js からの 'exhibitionsLoaded' イベントをリッスン
     window.addEventListener('exhibitionsLoaded', (event) => {
         const allExhibitions = event.detail.exhibitions;
         const formattedExhibitionDates = event.detail.formattedDates;
 
-        // 画像のプリロード（calとzoom）
         let imagesLoadedCount = 0;
-        // totalImagesToLoad は、存在する calImage と zoomImage の合計数で計算
-        let actualImagesToLoad = 0;
+        let actualImagesToLoad = 0; // 実際にsrcが設定される画像のみをカウント
 
         allExhibitions.forEach((exhibition, index) => {
-            // cal画像とzoom画像を先にImageオブジェクトとして初期化
+            // ★ここが最も重要です。calとzoomsの各要素を必ずImageオブジェクトとして初期化します。
             cal[index] = new Image();
             zooms[index] = new Image();
 
             // cal画像の読み込み
             if (exhibition.calImage && exhibition.calImage.filename) {
-                actualImagesToLoad++;
+                actualImagesToLoad++; // srcが設定されるのでカウント
                 cal[index].src = `../img/cal/${exhibition.calImage.filename}.${exhibition.calImage.extension}`;
                 cal[index].onload = () => {
                     imagesLoadedCount++;
@@ -68,14 +65,13 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 };
             } else {
+                // calImageデータがない場合、Imageオブジェクトは作成済みだがsrcは未設定
                 console.warn(`Skipping cal image loading for exhibition at index ${index} due to missing calImage data.`);
-                // この場合は onload/onerror が発生しないので、ここでカウントを進める必要はない。
-                // actualImagesToLoad にも含まれないため。
             }
 
-            // zoom画像の読み込み
+            // zoom画像の読み込みも同様に
             if (exhibition.zoomImage && exhibition.zoomImage.filename) {
-                actualImagesToLoad++;
+                actualImagesToLoad++; // srcが設定されるのでカウント
                 zooms[index].src = `../img/zoom/${exhibition.zoomImage.filename}.${exhibition.zoomImage.extension}`;
                 zooms[index].onload = () => {
                     imagesLoadedCount++;
@@ -85,19 +81,17 @@ window.addEventListener('DOMContentLoaded', () => {
                 };
                 zooms[index].onerror = () => {
                     console.error(`Failed to load zoom image: ${zooms[index].src}. This image might not exist.`);
-                    imagesLoadedCount++; // エラーでもカウントを進める
+                    imagesLoadedCount++;
                     if (imagesLoadedCount === actualImagesToLoad) {
                         onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
                     }
                 };
             } else {
                 console.warn(`Skipping zoom image loading for exhibition at index ${index} due to missing zoomImage data.`);
-                // この場合も onload/onerror が発生しないので、ここでカウントを進める必要はない。
-                // actualImagesToLoad にも含まれないため。
             }
         });
 
-        // 実際にロードを試みる画像がない場合の対応
+        // 実際にロードを試みる画像が一つもない場合の対応
         if (actualImagesToLoad === 0) {
             onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
         }
