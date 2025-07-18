@@ -24,7 +24,7 @@ const newszoomCan = new Array();
 const ctxnewszoom = new Array();
 const calimg = new Array(coments.length);
 const ctxcal = new Array();
-const newsNum;
+let newsNum;
 
 let pointstart;
 let pointend;
