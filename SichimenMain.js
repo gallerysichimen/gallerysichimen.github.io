@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			if (now >= endDate) {
                 actualImagesToLoad++;
-                zooms[newsNum].src = `img/zoom/${exhibition.zoomImage.filename}.${exhibition.zoomImage.extension}`;
+                zooms[newsNum].src = `img/zoom/zoom${newsNum}.${exhibition.zoomImage.extension}`;
                 zooms[newsNum].onload = () => {
                     imagesLoadedCount++;
                     if (imagesLoadedCount === actualImagesToLoad) {
@@ -79,7 +79,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 };
                 zooms[newsNum].onerror = () => {
-                    console.error(`Failed to load zoom image: ${zooms[index].src}. This image might not exist.`);
+                    console.error(`Failed to load zoom image: ${zooms[newsNum].src}. This image might not exist.`);
                     imagesLoadedCount++;
                     if (imagesLoadedCount === actualImagesToLoad) {
                         onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
