@@ -88,5 +88,6 @@ function getFormattedExhibitionDates() {
     return formattedExhibitionDates;
 }
 
+
 // 初期ロード時にデータをフェッチ
 loadExhibitionData(); // この関数は非同期なので、データが利用可能になるまで待つ必要がある

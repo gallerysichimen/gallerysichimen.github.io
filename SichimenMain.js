@@ -24,8 +24,7 @@ const newszoomCan = new Array();
 const ctxnewszoom = new Array();
 let calimg = new Array();
 const ctxcal = new Array();
-let newsNum = 0;
-let DMNum = 0;
+const newsNum =0;
 
 let pointstart;
 let pointend;
@@ -41,11 +40,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		let imagesLoadedCount = 0;
         let actualImagesToLoad = 0; 
+		const now = new Date();
 
 		allExhibitions.forEach((exhibition, index) => {
             // calとzoomsの各要素を必ずImageオブジェクトとして初期化します。
             cal[index] = new Image();
-
             // cal画像の読み込み
             if (exhibition.calImage && exhibition.calImage.filename) {
                 actualImagesToLoad++; // srcが設定されるのでカウント
@@ -68,23 +67,27 @@ window.addEventListener('DOMContentLoaded', () => {
                 console.warn(`Skipping cal image loading for exhibition at index ${index} due to missing calImage data.`);
             }
 
-			if (exhibition.isNews) {
+			const endDate = new Date(`${exhibition.endDate}T23:59:59`); 
+
+			if (now >= endDate) {
                 actualImagesToLoad++;
-				newsNum++;
-                zooms[index].src = `img/zoom/${exhibition.zoomImage.filename}.${exhibition.zoomImage.extension}`;
-                zooms[index].onload = () => {
+                zooms[newsNum].src = `img/zoom/${exhibition.zoomImage.filename}.${exhibition.zoomImage.extension}`;
+                zooms[newsNum].onload = () => {
                     imagesLoadedCount++;
                     if (imagesLoadedCount === actualImagesToLoad) {
                         onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
                     }
                 };
-                zooms[index].onerror = () => {
+                zooms[newsNum].onerror = () => {
                     console.error(`Failed to load zoom image: ${zooms[index].src}. This image might not exist.`);
                     imagesLoadedCount++;
                     if (imagesLoadedCount === actualImagesToLoad) {
                         onAllImagesLoaded(allExhibitions, formattedExhibitionDates);
                     }
                 };
+
+				newsNum++;
+
             } else {
                 console.warn(`Skipping zoom image loading for exhibition at index ${index} due to missing zoomImage data.`);
             }
@@ -119,7 +122,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function onAllImagesLoaded(allExhibitions, formattedExhibitionDates) {
 
-	DMNum = allExhibitions.length;
     calimg = new Array(allExhibitions.length);
 	
     // RoomPreparなど、calやzooms配列に依存する関数をここで呼び出す
@@ -140,8 +142,6 @@ else{
 
 
 function RoomPrepar(exhibitions, formattedDates){
-	
-	let inboxCan;
 	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
 		home.insertAdjacentHTML("beforebegin", `<div id="toproom" style=" visibility: hidden; position: absolute; background-color: #9b846d; height: 500px;width: 450px;top: 50px; left: 0; right:0; margin: auto; z-index:1;"></div>`);
 		let calendar_container = document.getElementById("calendar_container")
@@ -178,49 +178,51 @@ function NewsEvent(exhibitions, formattedDates){
 	newsflexbox.insertAdjacentHTML("beforeend", 
 	`<div class="newsturnleft" style="float:left;width: 20px;height: 100px;z-index:1; position:absolute;top: 20px;"></div><div class="newsturnright" style="float:right;width: 20px;height: 100px;position:absolute;top: 20px;right: 0px;z-index:1;"></div>`);
 	var newsflex = document.getElementById(`newsflex`);
-	for(i=1; i <= NewsNum ; i++){
-		var newsimgheight=cal[allExhibitions.length-i+1].height*0.6;
-		var newsimgwidth=cal[allExhibitions.length-i+1].width*0.6;
-		if(cal[allExhibitions.length-i+1].height==200){
-			newsimgwidth=cal[DMNum-i+1].width*0.4;
-			newsimgheight=cal[DMNum-i+1].height*0.4;
+	let inboxCan;
+	for(i=exhibitions.length-1; i > exhibitions.length-1-newsNum ; i--){
+		let reverse_i = exhibitions.length-1-i;
+		var newsimgheight=cal[i].height*0.6;
+		var newsimgwidth=cal[i].width*0.6;
+		if(cal[i].height==200){
+			newsimgwidth=cal[i].width*0.4;
+			newsimgheight=cal[i].height*0.4;
 		}
-		inboxCan = `<div id="newsbox${i}" style="width: 150px;height:100px; margin: 1%;"><canvas id="news${i}" width="${newsimgwidth}px" height="${newsimgheight}px" style=" margin: 10px 0 0 10px;"></canvas></div>`;
+		inboxCan = `<div id="newsbox${reverse_i}" style="width: 150px;height:100px; margin: 1%;"><canvas id="news${reverse_i}" width="${newsimgwidth}px" height="${newsimgheight}px" style=" margin: 10px 0 0 10px;"></canvas></div>`;
 		newsflex.insertAdjacentHTML("beforeend", inboxCan);
-		newsCan[i] = document.getElementById(`news${i}`);
-		ctxnews[i] = newsCan[i].getContext('2d');
-		ctxnews[i].drawImage(cal[DMNum-i+1], 0, 0, cal[DMNum-i+1].width, cal[DMNum-i+1].height, 0, 0, newsimgwidth, newsimgheight);
-		inboxCan = `<div id="newtex${i}" style="margin: -0px 0px 0px 5px; color: #988; width:150px;"><p style="font-size: 12px;margin:0px;">${exhibition_name[i-1]}<br><font style="font-size: xx-small;">${finalnewsdate[i-1]}<br>${exhibition_time[i-1]}</font></p></div>`;
-		document.getElementById(`newsbox${i}`).insertAdjacentHTML("beforeend", inboxCan);
+		newsCan[reverse_i] = document.getElementById(`news${reverse_i}`);
+		ctxnews[i] = newsCan[reverse_i].getContext('2d');
+		ctxnews[i].drawImage(cal[i], 0, 0, cal[i].width, cal[i].height, 0, 0, newsimgwidth, newsimgheight);
+		inboxCan = `<div id="newtex${reverse_i}" style="margin: -0px 0px 0px 5px; color: #988; width:150px;"><p style="font-size: 12px;margin:0px;">${exhibitions[i].name}<br><font style="font-size: xx-small;">${formattedDates[i]}<br>${exhibitions[i].time}</font></p></div>`;
+		document.getElementById(`newsbox${reverse_i}`).insertAdjacentHTML("beforeend", inboxCan);
 
 		if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
-			var newszoomheight=zooms[i].height/2;
-			var newszoomwidth=zooms[i].width/2;
-			if(zooms[i].height==800){
-				newszoomheight=zooms[i].height*0.7/2;
-				newszoomwidth=zooms[i].width*0.7/2;
+			var newszoomheight=zooms[reverse_i].height/2;
+			var newszoomwidth=zooms[reverse_i].width/2;
+			if(zooms[reverse_i].height==800){
+				newszoomheight=zooms[reverse_i].height*0.7/2;
+				newszoomwidth=zooms[reverse_i].width*0.7/2;
 			}
 			newszoomflex.insertAdjacentHTML("beforeend",
-			`<div id="newszoombox${i}" style="width: 425px;height:300px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
+			`<div id="newszoombox${reverse_i}" style="width: 425px;height:300px; flex-shrink: 0;"><canvas id="newszooms${reverse_i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
 		
 		}
 		else{
-			var newszoomheight=zooms[i].height;
-			var newszoomwidth=zooms[i].width;
-			if(zooms[i].height==800){
-				newszoomheight=zooms[i].height*0.7;
-				newszoomwidth=zooms[i].width*0.7;
+			var newszoomheight=zooms[reverse_i].height;
+			var newszoomwidth=zooms[reverse_i].width;
+			if(zooms[reverse_i].height==800){
+				newszoomheight=zooms[reverse_i].height*0.7;
+				newszoomwidth=zooms[reverse_i].width*0.7;
 			}
 			newszoomflex.insertAdjacentHTML("beforeend",
-			`<div id="newszoombox${i}" style="width: 850px;height:600px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
+			`<div id="newszoombox${reverse_i}" style="width: 850px;height:600px; flex-shrink: 0;"><canvas id="newszooms${reverse_i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
 		
 		}
-		newszoomCan[i] = document.getElementById(`newszooms${i}`);
-		ctxnewszoom[i] = newszoomCan[i].getContext('2d');
-		ctxnewszoom[i].drawImage(zooms[i], 0, 0, zooms[i].width, zooms[i].height, 0, 0, newszoomwidth, newszoomheight);
+		newszoomCan[reverse_i] = document.getElementById(`newszooms${reverse_i}`);
+		ctxnewszoom[reverse_i] = newszoomCan[i].getContext('2d');
+		ctxnewszoom[reverse_i].drawImage(zooms[reverse_i], 0, 0, zooms[reverse_i].width, zooms[reverse_i].height, 0, 0, newszoomwidth, newszoomheight);
 	}
 	NewsZoomer();
-	NowaDayNews();
+	NowaDayNews(exhibitions);
 	
 	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
 		totobox.insertAdjacentHTML("afterbegin", `<canvas id="toto" width="200px" height="200px" style="position:absolute; margin: auto;top: 380px;right: 0px;left: 250px; z-index:3;"></canvas>`);
@@ -239,30 +241,29 @@ function NewsEvent(exhibitions, formattedDates){
 	
 }
 
-function NowaDayNews(){
+function NowaDayNews(exhibitions){
 	let nowaday = new Date();
-	let nowmonth = nowaday.getMonth()+1;
-	let nowday = nowaday.getDate();
-	
-	for(i=0; i<finalnewsdate.length;i++){
-		if(no0newsLastmonths[i]<no0newsLastmonths[i+1] && nowmonth >= no0newsFirstmonths[i]){
-			num=i;
-			var topnews = document.getElementById("newsflex");
-			topnews.scrollLeft = 150*num-100;
+	var topnews = document.getElementById("newsflex");  
+
+	for(i=0; i<newsNum;i++){
+		const fixed_i = exhibitions.length - i;
+		const startDate = new Date(`${exhibitions[fixed_i].startDate}T00:00:00`);
+		const endDate = new Date(`${exhibitions[fixed_i].endDate}T23:59:59`); 
+		if(startDate <= nowaday && nowaday <= endDate){
+			topnews.scrollLeft = 150*i-100;
 			break;
 		}
-		if(nowmonth > no0newsLastmonths[i] || nowmonth == no0newsLastmonths[i] && nowday >= no0newsLastdates[i]){
-			num=i-1;
-			var topnews = document.getElementById("newsflex");  
-			topnews.scrollLeft = 150*num-100;
+		else if(i >= newsNum-1){
+			if(endDate < nowaday){
+			topnews.scrollLeft = 150*0-100;
 			break;
+			}
+			if(startDate > nowaday){
+				topnews.scrollLeft = 150*(newsNum-1)-100;
+				break;
+			}
 		}
-		if(i==finalnewsdate.length-1){
-			num=i;
-			var topnews = document.getElementById("newsflex");  
-			topnews.scrollLeft = 150*num-100;
-			break;
-		}
+		
 	}
 }
 
@@ -440,28 +441,28 @@ function AchiveFolder(exhibitions){
 	
 	
 	const achivebox = document.getElementById('achivebox');
-	for(i=DMNum; i >0  ; i--){
-		var flipper_i = DMNum-i+1;
+	for(i=exhibitions.length-1; i >=0  ; i--){
+		var flipper_i = exhibitions.length -1 - i;
 		
-		achivebox.insertAdjacentHTML("afterbegin", `<canvas id="flyer${flipper_i}" class="hopper ${exhibitions[i-1].year}" height="200px" width="200px" style=" margin:4px;visibility: hidden;"></canvas>`);
+		achivebox.insertAdjacentHTML("afterbegin", `<canvas id="flyer${flipper_i}" class="hopper ${exhibitions[i].year}" height="200px" width="200px" style=" margin:4px;visibility: hidden;"></canvas>`);
 		calimg[flipper_i]=document.getElementById(`flyer${flipper_i}`);
 		ctxcal[flipper_i]= calimg[flipper_i].getContext('2d')
 		var caldraw_sp=(200-cal[flipper_i].width)/2;
 		ctxcal[flipper_i].drawImage(cal[flipper_i], 0, 0, cal[flipper_i].width, cal[flipper_i].height, caldraw_sp, 0, cal[flipper_i].width, cal[flipper_i].height);
-		calimg[flipper_i].insertAdjacentHTML("afterend", `<div id="achive${i}" class="hopper ${exhibitions[i-1].year}"  style=" margin:4px 30px 4px 4px; width:200px; height:300px; color:#777777;font-size:small;visibility: hidden;">
-		<p style="background: radial-gradient(#4d2821a3 10%, #0000 60%)">${exhibitions[i-1].datePeriod}</p>
-		<p>${exhibitions[i-1].name}</p>
-		<p>${exhibitions[i-1].exhibitors}</p>
-		<p>${exhibitions[i-1].comments}</p>
+		calimg[flipper_i].insertAdjacentHTML("afterend", `<div id="achive${flipper_i}" class="hopper ${exhibitions[i].year}"  style=" margin:4px 30px 4px 4px; width:200px; height:300px; color:#777777;font-size:small;visibility: hidden;">
+		<p style="background: radial-gradient(#4d2821a3 10%, #0000 60%)">${exhibitions[i].datePeriod}</p>
+		<p>${exhibitions[i].name}</p>
+		<p>${exhibitions[i].exhibitors}</p>
+		<p>${exhibitions[i].comments}</p>
 		</div>`);
 		if(i-2>=0){
-			if(exhibitions[i-1].year<exhibitions[i-1].year){
+			if(exhibitions[i].year<exhibitions[i].year){
 				calimg[flipper_i].insertAdjacentHTML("beforebegin",
 				`<div id="${exhibitions[i].year}" class="hopper" style=" margin:10px 50px 0px 50px; width:800px; height:50px; color:#777777;font-size:x-large; text-align: left; visibility: hidden;">${exhibitions[i].year}</div>`);
 			
 				document.getElementById(`yearbox`).insertAdjacentHTML("afterbegin",
 				`<div id="tag${exhibitions[i].year}" class="menu2">${exhibitions[i].year}</div>`);
-				 Call(i-1)
+				 Call(i)
 			}
 			
 		}
@@ -1016,7 +1017,7 @@ if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
 			document.getElementById('newsflexbox').style.left="0px";
 			document.getElementById('newszoombox').style.width="400px";
 			document.getElementById('newszoomflex').style.width="400px";
-			for(i=1; i <= NewsNum ; i++){
+			for(i=1; i <= newsNum ; i++){
 				document.getElementById(`newszoombox${i}`).style.width="400px";
 				document.getElementById(`newszooms${i}`).style.width=`${zooms[i].width/2}`;
 				document.getElementById(`newszooms${i}`).style.height=`${zooms[i].height/2}`;
@@ -1066,7 +1067,7 @@ if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
 			document.getElementById('newsflexbox').style.left="450px";
 			document.getElementById('newszoombox').style.width="850px";
 			document.getElementById('newszoomflex').style.width="850px";
-			for(i=1; i <= NewsNum ; i++){
+			for(i=1; i <= newsNum ; i++){
 			document.getElementById(`newszoombox${i}`).style.width="850px";
 			document.getElementById(`newszooms${i}`).style.width=`${zooms[i].width}`;
 			document.getElementById(`newszooms${i}`).style.height=`${zooms[i].height}`;
