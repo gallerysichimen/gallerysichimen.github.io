@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			const endDate = new Date(`${exhibition.endDate}T23:59:59`); 
 
-			if (now >= endDate) {
+			if (now <= endDate) {
                 actualImagesToLoad++;
 				zooms[newsNum] = new Image();
                 zooms[newsNum].src = `img/zoom/zoom${newsNum}.${exhibition.zoomImage.extension}`;
