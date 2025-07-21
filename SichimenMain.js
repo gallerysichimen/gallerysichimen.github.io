@@ -495,7 +495,7 @@ function AchiveFolder(exhibitions){
 		clickYear.push(i);
 	}
 	for(i=0; i<clickYear.length; i++){
-		Dosomething(document.getElementById(`tag${exhibitions[clickYear[i]+1].year}`), clickYear[i]*2+clickYear.indexOf(clickYear[i]))
+		Dosomething(document.getElementById(`tag${exhibitions[i+1].year}`), clickYear[i]*2+clickYear.indexOf(clickYear[i]))
 	}
 	function Dosomething(target,testnum) {
 		target.addEventListener('click', function() {
