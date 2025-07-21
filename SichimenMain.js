@@ -495,17 +495,6 @@ function AchiveFolder(exhibitions){
 			GoScroll(`${exhibitions[i].year}`);
 		});
 	}
-	/*
-	for(i=0; i<clickYear.length; i++){
-		var flip_i = clickYear.length-i-1;
-		Dosomething(document.getElementById(`tag${exhibitions[clickYear[i+1]].year}`), clickYear[flip_i]*2+clickYear.indexOf(clickYear[i]))
-	}
-	function Dosomething(target,testnum) {
-		target.addEventListener('click', function() {
-			GoScroll(`achivebox`,testnum);
-		});
-	}
-	*/
 }
 	
 
