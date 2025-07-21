@@ -511,7 +511,7 @@ function AchiveFolder(exhibitions){
 
 function GoScroll(flex_obj) {
 	document.getElementById(flex_obj).scrollIntoView({
-	behavior:"smooth",  block:"nearest",  inline:"nearest",  
+	behavior:"smooth",  block:"start",  inline:"nearest",  
 	}) 
 }
 
