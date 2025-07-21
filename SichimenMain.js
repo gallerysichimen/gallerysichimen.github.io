@@ -652,7 +652,7 @@ function ReservedCheker(){
 	let mc = 0;
 	let reserved_color ="#886655";
 	let reserved_bcolor = "#9726";
-	let reserved_bcolors = [933,386,648,500,050,005,770,077,707];
+	let reserved_bcolors = [933,386,648,500,50,5,770,77,707];
 	let selected_bcolor= "#7214"
 	let i= 0;
 	let jpS_dates = new Array();
