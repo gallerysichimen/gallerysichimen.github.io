@@ -295,7 +295,7 @@ function AboutMove(){
 		about.insertAdjacentHTML("beforeend", `<canvas id="img3" class="hopper" width="200px" height="112px" style="position:relative; top: -320px;left: 80px; margin: auto;z-index: 0;visibility: hidden;"></canvas>`);
 	}
 	
-	const pic_img1=document.getElementById('img1');
+	const img1=document.getElementById('img1');
 	const ctximg1 = img1.getContext('2d');
 	ctximg1.drawImage(img[1], 0, 0, 400, 225, 0, 0, 400, 225);
 	Popimg1(true);
