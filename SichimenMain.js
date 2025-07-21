@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		let imagesLoadedCount = 0;
         let actualImagesToLoad = 0; 
 		const now = new Date();
-
+		
 		allExhibitions.forEach((exhibition, index) => {
             // calとzoomsの各要素を必ずImageオブジェクトとして初期化します。
             cal[index] = new Image();
@@ -92,6 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
             } else {
                 console.warn(`Skipping zoom image loading for exhibition at index ${index} due to missing zoomImage data.`);
             }
+			
         });
 
         // 実際にロードを試みる画像が一つもない場合の対応
@@ -113,6 +114,11 @@ window.addEventListener('DOMContentLoaded', () => {
 		header.style.width="450px";
 	}
 	menuSet();
+	 // img[1], img[2], img[3] のロード (静的な画像)
+    for (let i = 1; i <= ImgsNum; i++) {
+        img[i] = new Image();
+        img[i].src = `../img/img${i}.jpg`;
+    }
 	misc = new Image();
 	misc.src=`../img/misc.png`
 
