@@ -448,23 +448,22 @@ function AchiveFolder(exhibitions){
 	
 	
 	const achivebox = document.getElementById('achivebox');
-	for(i=exhibitions.length-1; i >=0  ; i--){
-		var flipper_i = exhibitions.length -1 - i;
+	for(i=0; i <exhibitions.length  ; i++){
 		
-		achivebox.insertAdjacentHTML("afterbegin", `<canvas id="flyer${flipper_i}" class="hopper ${exhibitions[i].year}" height="200px" width="200px" style=" margin:4px;visibility: hidden;"></canvas>`);
-		calimg[flipper_i]=document.getElementById(`flyer${flipper_i}`);
-		ctxcal[flipper_i]= calimg[flipper_i].getContext('2d')
-		var caldraw_sp=(200-cal[flipper_i].width)/2;
-		ctxcal[flipper_i].drawImage(cal[flipper_i], 0, 0, cal[flipper_i].width, cal[flipper_i].height, caldraw_sp, 0, cal[flipper_i].width, cal[flipper_i].height);
-		calimg[flipper_i].insertAdjacentHTML("afterend", `<div id="achive${flipper_i}" class="hopper ${exhibitions[i].year}"  style=" margin:4px 30px 4px 4px; width:200px; height:300px; color:#777777;font-size:small;visibility: hidden;">
+		achivebox.insertAdjacentHTML("afterbegin", `<canvas id="flyer${i}" class="hopper ${exhibitions[i].year}" height="200px" width="200px" style=" margin:4px;visibility: hidden;"></canvas>`);
+		calimg[i]=document.getElementById(`flyer${i}`);
+		ctxcal[i]= calimg[i].getContext('2d')
+		var caldraw_sp=(200-cal[i].width)/2;
+		ctxcal[i].drawImage(cal[i], 0, 0, cal[i].width, cal[i].height, caldraw_sp, 0, cal[i].width, cal[i].height);
+		calimg[i].insertAdjacentHTML("afterend", `<div id="achive${i}" class="hopper ${exhibitions[i].year}"  style=" margin:4px 30px 4px 4px; width:200px; height:300px; color:#777777;font-size:small;visibility: hidden;">
 		<p style="background: radial-gradient(#4d2821a3 10%, #0000 60%)">${exhibitions[i].datePeriod}</p>
 		<p>${exhibitions[i].name}</p>
 		<p>${exhibitions[i].exhibitors}</p>
 		<p>${exhibitions[i].comments}</p>
 		</div>`);
-		if(i-2>=0){
-			if(exhibitions[i].year<exhibitions[i].year){
-				calimg[flipper_i].insertAdjacentHTML("beforebegin",
+		if(i<exhibitions.length-1 ){
+			if(exhibitions[i].year<exhibitions[i+1].year){
+				calimg[i].insertAdjacentHTML("beforebegin",
 				`<div id="${exhibitions[i].year}" class="hopper" style=" margin:10px 50px 0px 50px; width:800px; height:50px; color:#777777;font-size:x-large; text-align: left; visibility: hidden;">${exhibitions[i].year}</div>`);
 			
 				document.getElementById(`yearbox`).insertAdjacentHTML("afterbegin",
@@ -473,13 +472,13 @@ function AchiveFolder(exhibitions){
 			}
 			
 		}
-		if(i==1){
+		else{
 			achivebox.insertAdjacentHTML("afterbegin",
-			`<div id="${exhibitions[0].year}" class="hopper"  style=" margin:10px 50px 0px 50px; width:800px; height:50px; color:#777777;font-size:x-large; text-align: left;visibility: hidden;">${exhibitions[0].year}</div>`);
+			`<div id="${exhibitions[i].year}" class="hopper"  style=" margin:10px 50px 0px 50px; width:800px; height:50px; color:#777777;font-size:x-large; text-align: left;visibility: hidden;">${exhibitions[0].year}</div>`);
 			document.getElementById(`yearbox`).insertAdjacentHTML("afterbegin",
-				`<div id="tag${exhibitions[0].year}" class="menu2">${exhibitions[0].year}</div>`);
+				`<div id="tag${exhibitions[i].year}" class="menu2">${exhibitions[i].year}</div>`);
 				menuSet()
-				Call(i-1)
+				Call(i)
 		}
 	}
 	
