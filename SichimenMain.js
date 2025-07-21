@@ -491,8 +491,8 @@ function AchiveFolder(exhibitions){
 		}
 	});
 	function SetYearJump(i){
-		document.getElementById(`tag${exhibitions[clickYear[i]].year}`).addEventListener('click', function() {
-			GoScroll(`${exhibitions[i].year}`,testnum);
+		document.getElementById(`tag${exhibitions[i].year}`).addEventListener('click', function() {
+			GoScroll(`${exhibitions[i].year}`);
 		});
 	}
 	/*
@@ -509,7 +509,7 @@ function AchiveFolder(exhibitions){
 }
 	
 
-function GoScroll(flex_obj,num) {
+function GoScroll(flex_obj) {
 	document.getElementById(flex_obj).scrollIntoView({
 	behavior:"smooth",  block:"nearest",  inline:"nearest",  
 	}) 
