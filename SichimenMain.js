@@ -468,17 +468,17 @@ function AchiveFolder(exhibitions){
 			
 				document.getElementById(`yearbox`).insertAdjacentHTML("afterbegin",
 				`<div id="tag${exhibitions[i].year}" class="menu2">${exhibitions[i].year}</div>`);
-				 Call(i)
+				 SetYearJump(i)
 			}
 			
 		}
 		else{
 			achivebox.insertAdjacentHTML("afterbegin",
-			`<div id="${exhibitions[i].year}" class="hopper"  style=" margin:10px 50px 0px 50px; width:800px; height:50px; color:#777777;font-size:x-large; text-align: left;visibility: hidden;">${exhibitions[0].year}</div>`);
+			`<div id="${exhibitions[i].year}" class="hopper"  style=" margin:10px 50px 0px 50px; width:800px; height:50px; color:#777777;font-size:x-large; text-align: left;visibility: hidden;">${exhibitions[i].year}</div>`);
 			document.getElementById(`yearbox`).insertAdjacentHTML("afterbegin",
 				`<div id="tag${exhibitions[i].year}" class="menu2">${exhibitions[i].year}</div>`);
+				SetYearJump(i)
 				menuSet()
-				Call(i)
 		}
 	}
 	
@@ -490,10 +490,12 @@ function AchiveFolder(exhibitions){
 			}
 		}
 	});
-	
-	function Call(i){
-		clickYear.push(i);
+	function SetYearJump(i){
+		document.getElementById(`tag${exhibitions[clickYear[i]].year}`).addEventListener('click', function() {
+			GoScroll(`${exhibitions[i].year}`,testnum);
+		});
 	}
+	/*
 	for(i=0; i<clickYear.length; i++){
 		var flip_i = clickYear.length-i-1;
 		Dosomething(document.getElementById(`tag${exhibitions[clickYear[i+1]].year}`), clickYear[flip_i]*2+clickYear.indexOf(clickYear[i]))
@@ -503,10 +505,12 @@ function AchiveFolder(exhibitions){
 			GoScroll(`achivebox`,testnum);
 		});
 	}
+	*/
 }
+	
 
 function GoScroll(flex_obj,num) {
-	document.getElementById(flex_obj).children[num].scrollIntoView({
+	document.getElementById(flex_obj).scrollIntoView({
 	behavior:"smooth",  block:"nearest",  inline:"nearest",  
 	}) 
 }
