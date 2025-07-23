@@ -4207,6 +4207,30 @@
       "endDate": "2025-05-10"
     },
     {
+      "id": null,
+      "year": "2025",
+      "name": "『土に馴染む』展",
+      "time": "13:00-19:00",
+      "exhibitors": [
+        "渡辺清司、栗山綾子"
+      ],
+      "comments": "日々の暮らしに馴染んで欲しいとの思い",
+      "calImage": {
+        "filename": "174",
+        "extension": "webp"
+      },
+      "zoomImage": null,
+      "images": [
+        {
+          "filename": "174",
+          "extension": "webp",
+          "caption": "『土に馴染む』展 メイン画像"
+        }
+      ],
+      "startDate": "2025-05-24",
+      "endDate": "2025-06-01"
+    },
+    {
       "id": "exhibition-174",
       "year": "2025",
       "name": "『EDGE』展",
@@ -4218,13 +4242,13 @@
       ],
       "comments": "そんな日もあるさ",
       "calImage": {
-        "filename": "174",
+        "filename": "175",
         "extension": "webp"
       },
       "zoomImage": null,
       "images": [
         {
-          "filename": "174",
+          "filename": "175",
           "extension": "webp",
           "caption": "『EDGE』展 メイン画像"
         }
@@ -4242,7 +4266,7 @@
       ],
       "comments": "あなたを覗く瞳がそこにあるよ",
       "calImage": {
-        "filename": "175",
+        "filename": "176",
         "extension": "webp"
       },
       "zoomImage": {
@@ -4251,7 +4275,7 @@
       },
       "images": [
         {
-          "filename": "175",
+          "filename": "176",
           "extension": "webp",
           "caption": "『つらつら』展 メイン画像"
         }
@@ -4269,7 +4293,7 @@
       ],
       "comments": "新しい景色をその目で",
       "calImage": {
-        "filename": "176",
+        "filename": "177",
         "extension": "webp"
       },
       "zoomImage": {
@@ -4278,7 +4302,7 @@
       },
       "images": [
         {
-          "filename": "176",
+          "filename": "177",
           "extension": "webp",
           "caption": "『Spectrum』展 メイン画像"
         }
