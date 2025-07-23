@@ -242,7 +242,7 @@ function NewsEvent(exhibitions, formattedDates){
 
 	AboutMove();  CallforMove();
 
-	AchiveFolder(exhibitions);
+	AchiveFolder(exhibitions,formattedDates);
 	
 }
 
@@ -424,7 +424,7 @@ function ToToMove(){
 }
 const clickYear = new Array();
 let testnum=0;
-function AchiveFolder(exhibitions){
+function AchiveFolder(exhibitions ,formattedDates){
 	if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
 		past.insertAdjacentHTML("afterbegin", 
 		`<div id="achivebox" style="position:relative; background-color:#191a17; margin: auto; width: 450px; height:430px; display:flex; overflow: scroll;flex-wrap: wrap; padding: 0px; align-items: center;"></div>`);
@@ -457,6 +457,7 @@ function AchiveFolder(exhibitions){
 		<p>${exhibitions[i].name}</p>
 		<p>${exhibitions[i].exhibitors}</p>
 		<p>${exhibitions[i].comments}</p>
+		<p>${formattedDates[i]}</p>
 		</div>`);
 		if(i<exhibitions.length-1 ){
 			if(exhibitions[i].year<exhibitions[i+1].year){
