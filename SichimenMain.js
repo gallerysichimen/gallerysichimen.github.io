@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			if (now <= endDate) {
                 actualImagesToLoad++;
 				zooms[newsNum] = new Image();
-                zooms[newsNum].src = `img/zoom/zoom${newsNum}.${exhibition.zoomImage.extension}`;
+                zooms[newsNum].src = `img/zoom/${exhibition.zoomImage.filename}.${exhibition.zoomImage.extension}`;
                 zooms[newsNum].onload = () => {
                     imagesLoadedCount++;
                     if (imagesLoadedCount === actualImagesToLoad) {
