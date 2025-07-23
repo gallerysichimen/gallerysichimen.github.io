@@ -186,47 +186,47 @@ function NewsEvent(exhibitions, formattedDates){
 	`<div class="newsturnleft" style="float:left;width: 20px;height: 100px;z-index:1; position:absolute;top: 20px;"></div><div class="newsturnright" style="float:right;width: 20px;height: 100px;position:absolute;top: 20px;right: 0px;z-index:1;"></div>`);
 	var newsflex = document.getElementById(`newsflex`);
 	let inboxCan;
-	for(i=exhibitions.length-1; i > exhibitions.length-1-newsNum ; i--){
-		let reverse_i = exhibitions.length-1-i;
-		var newsimgheight=cal[i].height*0.6;
-		var newsimgwidth=cal[i].width*0.6;
-		if(cal[i].height==200){
-			newsimgwidth=cal[i].width*0.4;
-			newsimgheight=cal[i].height*0.4;
+	for(i=0; i < newsNum; i++){
+		let fixed_i = exhibitions.length-1-newsNum-1 - i;
+		var newsimgheight=cal[fixed_i].height*0.6;
+		var newsimgwidth=cal[fixed_i].width*0.6;
+		if(cal[fixed_i].height==200){
+			newsimgwidth=cal[fixed_i].width*0.4;
+			newsimgheight=cal[fixed_i].height*0.4;
 		}
-		inboxCan = `<div id="newsbox${reverse_i}" style="width: 150px;height:100px; margin: 1%;"><canvas id="news${reverse_i}" width="${newsimgwidth}px" height="${newsimgheight}px" style=" margin: 10px 0 0 10px;"></canvas></div>`;
+		inboxCan = `<div id="newsbox${i}" style="width: 150px;height:100px; margin: 1%;"><canvas id="news${i}" width="${newsimgwidth}px" height="${newsimgheight}px" style=" margin: 10px 0 0 10px;"></canvas></div>`;
 		newsflex.insertAdjacentHTML("beforeend", inboxCan);
-		newsCan[reverse_i] = document.getElementById(`news${reverse_i}`);
-		ctxnews[i] = newsCan[reverse_i].getContext('2d');
-		ctxnews[i].drawImage(cal[i], 0, 0, cal[i].width, cal[i].height, 0, 0, newsimgwidth, newsimgheight);
-		inboxCan = `<div id="newtex${reverse_i}" style="margin: -0px 0px 0px 5px; color: #988; width:150px;"><p style="font-size: 12px;margin:0px;">${exhibitions[i].name}<br><font style="font-size: xx-small;">${formattedDates[i]}<br>${exhibitions[i].time}</font></p></div>`;
-		document.getElementById(`newsbox${reverse_i}`).insertAdjacentHTML("beforeend", inboxCan);
+		newsCan[i] = document.getElementById(`news${i}`);
+		ctxnews[i] = newsCan[i].getContext('2d');
+		ctxnews[i].drawImage(cal[i], 0, 0, cal[fixed_i].width, cal[fixed_i].height, 0, 0, newsimgwidth, newsimgheight);
+		inboxCan = `<div id="newtex${i}" style="margin: -0px 0px 0px 5px; color: #988; width:150px;"><p style="font-size: 12px;margin:0px;">${exhibitions[fixed_i].name}<br><font style="font-size: xx-small;">${formattedDates[fixed_i]}<br>${exhibitions[fixed_i].time}</font></p></div>`;
+		document.getElementById(`newsbox${i}`).insertAdjacentHTML("beforeend", inboxCan);
 
 		if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)&&window.orientation===0){
-			var newszoomheight=zooms[reverse_i].height/2;
-			var newszoomwidth=zooms[reverse_i].width/2;
-			if(zooms[reverse_i].height==800){
-				newszoomheight=zooms[reverse_i].height*0.7/2;
-				newszoomwidth=zooms[reverse_i].width*0.7/2;
+			var newszoomheight=zooms[i].height/2;
+			var newszoomwidth=zooms[i].width/2;
+			if(zooms[i].height==800){
+				newszoomheight=zooms[i].height*0.7/2;
+				newszoomwidth=zooms[i].width*0.7/2;
 			}
 			newszoomflex.insertAdjacentHTML("beforeend",
-			`<div id="newszoombox${reverse_i}" style="width: 425px;height:300px; flex-shrink: 0;"><canvas id="newszooms${reverse_i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
+			`<div id="newszoombox${i}" style="width: 425px;height:300px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
 		
 		}
 		else{
-			var newszoomheight=zooms[reverse_i].height;
-			var newszoomwidth=zooms[reverse_i].width;
-			if(zooms[reverse_i].height==800){
-				newszoomheight=zooms[reverse_i].height*0.7;
-				newszoomwidth=zooms[reverse_i].width*0.7;
+			var newszoomheight=zooms[i].height;
+			var newszoomwidth=zooms[i].width;
+			if(zooms[i].height==800){
+				newszoomheight=zooms[i].height*0.7;
+				newszoomwidth=zooms[i].width*0.7;
 			}
 			newszoomflex.insertAdjacentHTML("beforeend",
-			`<div id="newszoombox${reverse_i}" style="width: 850px;height:600px; flex-shrink: 0;"><canvas id="newszooms${reverse_i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
+			`<div id="newszoombox${i}" style="width: 850px;height:600px; flex-shrink: 0;"><canvas id="newszooms${i}" width="${newszoomwidth}px" height="${newszoomheight}px" style=" margin: 25px;"></canvas></div>`);
 		
 		}
-		newszoomCan[reverse_i] = document.getElementById(`newszooms${reverse_i}`);
-		ctxnewszoom[reverse_i] = newszoomCan[i].getContext('2d');
-		ctxnewszoom[reverse_i].drawImage(zooms[reverse_i], 0, 0, zooms[reverse_i].width, zooms[reverse_i].height, 0, 0, newszoomwidth, newszoomheight);
+		newszoomCan[i] = document.getElementById(`newszooms${i}`);
+		ctxnewszoom[i] = newszoomCan[i].getContext('2d');
+		ctxnewszoom[i].drawImage(zooms[i], 0, 0, zooms[i].width, zooms[i].height, 0, 0, newszoomwidth, newszoomheight);
 	}
 	NewsZoomer();
 	NowaDayNews(exhibitions);
