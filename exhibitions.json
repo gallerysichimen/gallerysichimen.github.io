@@ -4258,6 +4258,33 @@
       ],
       "startDate": "2025-07-19",
       "endDate": "2025-07-27"
+    },
+    {
+      "id": null,
+      "year": "2025",
+      "name": "『Spectrum』展",
+      "time": "13:00-19:00",
+      "exhibitors": [
+        "イグレオン"
+      ],
+      "comments": "新しい景色をその目で",
+      "calImage": {
+        "filename": "176",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "zoom2",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "filename": "176",
+          "extension": "webp",
+          "caption": "『Spectrum』展 メイン画像"
+        }
+      ],
+      "startDate": "2025-08-02",
+      "endDate": "2025-08-16"
     }
   ]
 }
