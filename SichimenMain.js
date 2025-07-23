@@ -198,7 +198,7 @@ function NewsEvent(exhibitions, formattedDates){
 		newsflex.insertAdjacentHTML("beforeend", inboxCan);
 		newsCan[i] = document.getElementById(`news${i}`);
 		ctxnews[i] = newsCan[i].getContext('2d');
-		ctxnews[i].drawImage(cal[i], 0, 0, cal[fixed_i].width, cal[fixed_i].height, 0, 0, newsimgwidth, newsimgheight);
+		ctxnews[i].drawImage(cal[fixed_i], 0, 0, cal[fixed_i].width, cal[fixed_i].height, 0, 0, newsimgwidth, newsimgheight);
 		inboxCan = `<div id="newtex${i}" style="margin: -0px 0px 0px 5px; color: #988; width:150px;"><p style="font-size: 12px;margin:0px;">${exhibitions[fixed_i].name}<br><font style="font-size: xx-small;">${formattedDates[fixed_i]}<br>${exhibitions[fixed_i].time}</font></p></div>`;
 		document.getElementById(`newsbox${i}`).insertAdjacentHTML("beforeend", inboxCan);
 
