@@ -453,11 +453,10 @@ function AchiveFolder(exhibitions ,formattedDates){
 		var caldraw_sp=(200-cal[i].width)/2;
 		ctxcal[i].drawImage(cal[i], 0, 0, cal[i].width, cal[i].height, caldraw_sp, 0, cal[i].width, cal[i].height);
 		calimg[i].insertAdjacentHTML("afterend", `<div id="achive${i}" class="hopper ${exhibitions[i].year}"  style=" margin:4px 30px 4px 4px; width:200px; height:300px; color:#777777;font-size:small;visibility: hidden;">
-		<p style="background: radial-gradient(#4d2821a3 10%, #0000 60%)">${exhibitions[i].datePeriod}</p>
+		<p style="background: radial-gradient(#4d2821a3 10%, #0000 60%)">${formattedDates[i]}</p>
 		<p>${exhibitions[i].name}</p>
 		<p>${exhibitions[i].exhibitors}</p>
-		<p>${exhibitions[i].comments}</p>
-		<p>${formattedDates[i]}</p>
+		<p style="margin-top: 2em;">${exhibitions[i].comments}</p>
 		</div>`);
 		if(i<exhibitions.length-1 ){
 			if(exhibitions[i].year<exhibitions[i+1].year){
