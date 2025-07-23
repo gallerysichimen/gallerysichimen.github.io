@@ -89,9 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 				newsNum++;
 
-            } else {
-                console.warn(`Skipping zoom image loading for exhibition at index ${index} due to missing zoomImage data.`);
-            }
+            } 
 			
         });
 
@@ -128,7 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 function onAllImagesLoaded(allExhibitions, formattedExhibitionDates) {
-
+	console.log(`newsNum is ${newsNum}`);
     calimg = new Array(allExhibitions.length);
 	
     // RoomPreparなど、calやzooms配列に依存する関数をここで呼び出す
@@ -187,7 +185,7 @@ function NewsEvent(exhibitions, formattedDates){
 	var newsflex = document.getElementById(`newsflex`);
 	let inboxCan;
 	for(i=0; i < newsNum; i++){
-		let fixed_i = exhibitions.length-1-newsNum-1 - i;
+		let fixed_i = exhibitions.length-newsNum + i;
 		var newsimgheight=cal[fixed_i].height*0.6;
 		var newsimgwidth=cal[fixed_i].width*0.6;
 		if(cal[fixed_i].height==200){
@@ -252,7 +250,7 @@ function NowaDayNews(exhibitions){
 	let nowaday = new Date();
 	var topnews = document.getElementById("newsflex");  
 
-	for(i = exhibitions-1 - newsNum-1; i < exhibitions-1; i++){
+	for(i = exhibitions.length - newsNum; i < exhibitions.length; i++){
 		const startDate = new Date(`${exhibitions[i].startDate}T00:00:00`);
 		const endDate = new Date(`${exhibitions[i].endDate}T23:59:59`); 
 		if(startDate <= nowaday && nowaday <= endDate){
@@ -784,7 +782,7 @@ function NewsZoomer(){
 				newszoombox.style.visibility= "visible";
 				newszoombox.style.scale="40%";
 				var target_num = target.id.replace( /news(\d+)/g , `$1` );
-				document.getElementById("newszoomflex").children[target_num-1].scrollIntoView({
+				document.getElementById("newszoomflex").children[target_num].scrollIntoView({
 				behavior:"smooth",  block:"nearest",  inline:"nearest",  
 				})
 			}
@@ -794,7 +792,7 @@ function NewsZoomer(){
 				newszoombox.style.visibility= "visible";
 				newszoombox.style.scale="40%";
 				var target_num = target.id.replace( /news(\d+)/g , `$1` );
-				document.getElementById("newszoomflex").children[target_num-1].scrollIntoView({
+				document.getElementById("newszoomflex").children[target_num].scrollIntoView({
 				behavior:"smooth",  block:"nearest",  inline:"nearest",  
 				})
 			})
@@ -812,7 +810,7 @@ function NewsZoomer(){
 			newszoombox.style.visibility= "visible";
 			newszoombox.style.scale="100%";
 			var target_num = target.id.replace( /news(\d+)/g , `$1` );
-			document.getElementById("newszoomflex").children[target_num-1].scrollIntoView({
+			document.getElementById("newszoomflex").children[target_num].scrollIntoView({
 			behavior:"smooth",  block:"nearest",  inline:"nearest",  
 			})
 			clicklocker=true;
