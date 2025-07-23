@@ -4231,6 +4231,33 @@
       ],
       "startDate": "2025-06-05",
       "endDate": "2025-06-30"
+    },
+    {
+      "id": "exhibition-175",
+      "year": "2025",
+      "name": "『つらつら』展",
+      "time": "12:00-18:00",
+      "exhibitors": [
+        "森きなこ"
+      ],
+      "comments": "あなたを覗く瞳がそこにあるよ",
+      "calImage": {
+        "filename": "175",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "zoom1",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "filename": "175",
+          "extension": "webp",
+          "caption": "『つらつら』展 メイン画像"
+        }
+      ],
+      "startDate": "2025-07-19",
+      "endDate": "2025-07-27"
     }
   ]
 }
