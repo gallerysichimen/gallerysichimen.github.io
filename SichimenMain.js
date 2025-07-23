@@ -431,7 +431,7 @@ function AchiveFolder(exhibitions ,formattedDates){
 		past.insertAdjacentHTML("afterbegin",
 		`<div id="yearmenu" style="padding: 50px;"></div>`);
 		document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
-		`<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
+		`<div id="yearbox" style="display: flex;justify-content: center; width: 100%;"></div>`);
 		past.style.height="430px";
 	}
 	else{
@@ -440,7 +440,7 @@ function AchiveFolder(exhibitions ,formattedDates){
 		past.insertAdjacentHTML("afterbegin",
 		`<div id="yearmenu" style="padding: 50px;"></div>`);
 		document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
-		`<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
+		`<div id="yearbox" style="display: flex;justify-content: center; width: 100%;"></div>`);
 	}
 	
 	
