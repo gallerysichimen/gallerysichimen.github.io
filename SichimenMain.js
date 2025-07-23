@@ -429,7 +429,7 @@ function AchiveFolder(exhibitions ,formattedDates){
 		past.insertAdjacentHTML("afterbegin", 
 		`<div id="achivebox" style="position:relative; background-color:#191a17; margin: auto; width: 450px; height:430px; display:flex; overflow: scroll;flex-wrap: wrap; padding: 0px; align-items: center;"></div>`);
 		past.insertAdjacentHTML("afterbegin",
-		`<div id="yearmenu" style="position: absolute; width: 400px; height:50px; color:#777777;font-size:x-large; z-index: 1; margin-left: auto; margin-right: auto;"></div>`);
+		`<div id="yearmenu" style="padding: 50px;"></div>`);
 		document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
 		`<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
 		past.style.height="430px";
@@ -438,7 +438,7 @@ function AchiveFolder(exhibitions ,formattedDates){
 		past.insertAdjacentHTML("afterbegin", 
 		`<div id="achivebox" style="position:relative; background-color:#191a17; margin: auto; width: 910px; height:430px; display:flex; overflow: scroll;flex-wrap: wrap; padding: 50px; align-items: center;"></div>`);
 		past.insertAdjacentHTML("afterbegin",
-		`<div id="yearmenu" style="position: absolute; width: 400px; height:50px; color:#777777;font-size:x-large; z-index: 1; margin-left: auto; margin-right: auto;"></div>`);
+		`<div id="yearmenu" style="padding: 50px;"></div>`);
 		document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
 		`<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
 	}
@@ -1040,9 +1040,6 @@ if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
 			document.getElementById('img1').style.left=null;
 			document.getElementById('achivebox').style.width="450px";
 			document.getElementById('achivebox').style.padding="0px";
-			document.getElementById('yearmenu').style.position="absolute";
-			document.getElementById('yearmenu').style.padding="0";
-			document.getElementById('yearmenu').style.width="400px";
 			past.style.height="430px";
 			callfor_container.style.width="400px";
 			callfor.style.width="450px";
@@ -1090,9 +1087,6 @@ if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
 			document.getElementById('img1').style.left="-200px";
 			document.getElementById('achivebox').style.width="884px";
 			document.getElementById('achivebox').style.padding="50px";
-			document.getElementById('yearmenu').style.position="absolute";
-			document.getElementById('yearmenu').style.padding="50px";
-			document.getElementById('yearmenu').style.width="884px";
 			past.style.height="600px";
 			callfor_container.style.width="740px";
 			callfor.style.width= "984px";
