@@ -4205,6 +4205,32 @@
       ],
       "startDate": "2025-05-02",
       "endDate": "2025-05-10"
+    },
+    {
+      "id": "exhibition-174",
+      "year": "2025",
+      "name": "『EDGE』展",
+      "time": "12:00-18:00",
+      "exhibitors": [
+        "我無",
+        "Matuski",
+        "Hironori"
+      ],
+      "comments": "そんな日もあるさ",
+      "calImage": {
+        "filename": "174",
+        "extension": "webp"
+      },
+      "zoomImage": null,
+      "images": [
+        {
+          "filename": "174",
+          "extension": "webp",
+          "caption": "『EDGE』展 メイン画像"
+        }
+      ],
+      "startDate": "2025-06-05",
+      "endDate": "2025-06-30"
     }
   ]
 }
