@@ -429,7 +429,7 @@ function AchiveFolder(exhibitions ,formattedDates){
 		past.insertAdjacentHTML("afterbegin", 
 		`<div id="achivebox" style="position:relative; background-color:#191a17; margin: auto; width: 450px; height:430px; display:flex; overflow: scroll;flex-wrap: wrap; padding: 0px; align-items: center;"></div>`);
 		past.insertAdjacentHTML("afterbegin",
-		`<div id="yearmenu" style="padding: 50px; justify-content: center; display: flex;"></div>`);
+		`<div id="yearmenu" style="padding: 25px; justify-content: center; display: flex;"></div>`);
 		document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
 		`<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
 		past.style.height="430px";
@@ -438,7 +438,7 @@ function AchiveFolder(exhibitions ,formattedDates){
 		past.insertAdjacentHTML("afterbegin", 
 		`<div id="achivebox" style="position:relative; background-color:#191a17; margin: auto; width: 910px; height:430px; display:flex; overflow: scroll;flex-wrap: wrap; padding: 50px; align-items: center;"></div>`);
 		past.insertAdjacentHTML("afterbegin",
-		`<div id="yearmenu" style="padding: 50px; justify-content: center; display: flex;"></div>`);
+		`<div id="yearmenu" style="padding: 25px; justify-content: center; display: flex;"></div>`);
 		document.getElementById(`yearmenu`).insertAdjacentHTML("afterbegin",
 		`<div id="yearbox" style="display: flex;justify-content: center;"></div>`);
 	}
