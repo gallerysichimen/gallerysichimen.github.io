@@ -252,10 +252,9 @@ function NowaDayNews(exhibitions){
 	let nowaday = new Date();
 	var topnews = document.getElementById("newsflex");  
 
-	for(i=0; i<newsNum;i++){
-		const fixed_i = exhibitions.length - i;
-		const startDate = new Date(`${exhibitions[fixed_i].startDate}T00:00:00`);
-		const endDate = new Date(`${exhibitions[fixed_i].endDate}T23:59:59`); 
+	for(i = exhibitions-1 - newsNum-1; i < exhibitions-1; i++){
+		const startDate = new Date(`${exhibitions[i].startDate}T00:00:00`);
+		const endDate = new Date(`${exhibitions[i].endDate}T23:59:59`); 
 		if(startDate <= nowaday && nowaday <= endDate){
 			topnews.scrollLeft = 150*i-100;
 			break;
