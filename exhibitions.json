@@ -4547,6 +4547,30 @@
       "endDate": "2025-06-30"
     },
     {
+      "id": "64b593d3-2bc5-4467-a8bd-12e59a1474ff",
+      "name": "test",
+      "exhibitors": [
+        "test"
+      ],
+      "startDate": "2025-07-08",
+      "endDate": "2025-07-09",
+      "time": "12:00-18:00",
+      "description": "a",
+      "images": [
+        {
+          "filename": "64b593d3-2bc5-4467-a8bd-12e59a1474ff",
+          "extension": "webp",
+          "type": "cal",
+          "caption": "test メイン画像"
+        }
+      ],
+      "calImage": {
+        "filename": "64b593d3-2bc5-4467-a8bd-12e59a1474ff",
+        "extension": "webp"
+      },
+      "zoomImage": null
+    },
+    {
       "id": "c75d2492-d0c0-4f32-8aa6-0c2a827c9b0f",
       "name": "なんでもない日",
       "exhibitors": [
