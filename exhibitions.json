@@ -4634,38 +4634,6 @@
       ],
       "startDate": "2025-08-02",
       "endDate": "2025-08-16"
-    },
-    {
-      "id": "2e7345cf-88fe-4872-b44a-7503542a146e",
-      "name": "test",
-      "exhibitors": [
-        "test"
-      ],
-      "startDate": "2025-08-28",
-      "endDate": "2025-08-29",
-      "time": "12:00-18:00",
-      "description": "testdayo",
-      "images": [
-        {
-          "filename": "2e7345cf-88fe-4872-b44a-7503542a146e",
-          "extension": "webp",
-          "type": "cal",
-          "caption": "test メイン画像"
-        },
-        {
-          "filename": "2e7345cf-88fe-4872-b44a-7503542a146e",
-          "extension": "webp",
-          "type": "zoom"
-        }
-      ],
-      "calImage": {
-        "filename": "2e7345cf-88fe-4872-b44a-7503542a146e",
-        "extension": "webp"
-      },
-      "zoomImage": {
-        "filename": "2e7345cf-88fe-4872-b44a-7503542a146e",
-        "extension": "webp"
-      }
     }
   ]
 }
