@@ -4571,6 +4571,38 @@
       "zoomImage": null
     },
     {
+      "id": "5fc08de8-d8b5-4aa2-880b-9eba9dc770e6",
+      "name": "つらつら",
+      "exhibitors": [
+        "森きなこ"
+      ],
+      "startDate": "2025-07-19",
+      "endDate": "2025-07-27",
+      "time": "12:00-18:00",
+      "description": "静かな瞳があなたを見つめます",
+      "images": [
+        {
+          "filename": "5fc08de8-d8b5-4aa2-880b-9eba9dc770e6",
+          "extension": "webp",
+          "type": "cal",
+          "caption": "つらつら メイン画像"
+        },
+        {
+          "filename": "5fc08de8-d8b5-4aa2-880b-9eba9dc770e6",
+          "extension": "webp",
+          "type": "zoom"
+        }
+      ],
+      "calImage": {
+        "filename": "5fc08de8-d8b5-4aa2-880b-9eba9dc770e6",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "5fc08de8-d8b5-4aa2-880b-9eba9dc770e6",
+        "extension": "webp"
+      }
+    },
+    {
       "id": "3c53e133-e2ae-4068-a0f0-9aee70919701",
       "year": "2025",
       "name": "『Spectrum』展",
