@@ -4372,6 +4372,39 @@
       "endDate": "2025-06-30"
     },
     {
+      "id": "1730dd01-fa07-4f9a-b9ce-f48b877eca58",
+      "name": "『つらつら展』",
+      "exhibitors": [
+        "森きなこ"
+      ],
+      "startDate": "2025-07-19",
+      "endDate": "2025-07-27",
+      "time": "12:00-18:00",
+      "comment": "君を見つめる瞳",
+      "calImage": {
+        "filename": "1730dd01-fa07-4f9a-b9ce-f48b877eca58",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "1730dd01-fa07-4f9a-b9ce-f48b877eca58",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "1730dd01-fa07-4f9a-b9ce-f48b877eca58",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "1730dd01-fa07-4f9a-b9ce-f48b877eca58",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
       "id": "3c53e133-e2ae-4068-a0f0-9aee70919701",
       "year": "2025",
       "name": "「「『Spectrum』」『展』」",
