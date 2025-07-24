@@ -4634,6 +4634,39 @@
       ],
       "startDate": "2025-08-02",
       "endDate": "2025-08-16"
+    },
+    {
+      "id": "c5080e2a-5b94-45ff-8987-41b96079666a",
+      "name": "『test』展",
+      "exhibitors": [
+        "???"
+      ],
+      "startDate": "2025-09-10",
+      "endDate": "2025-09-10",
+      "time": "12:00-18:00",
+      "comments": "aaaaa",
+      "calImage": {
+        "filename": "c5080e2a-5b94-45ff-8987-41b96079666a",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "c5080e2a-5b94-45ff-8987-41b96079666a",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "c5080e2a-5b94-45ff-8987-41b96079666a",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "c5080e2a-5b94-45ff-8987-41b96079666a",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
