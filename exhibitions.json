@@ -18,7 +18,8 @@
         {
           "filename": "1",
           "extension": "webp",
-          "caption": "陶展 メイン画像"
+          "caption": "陶展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-04-12",
@@ -42,7 +43,8 @@
         {
           "filename": "2",
           "extension": "webp",
-          "caption": "よらいん展 メイン画像"
+          "caption": "よらいん展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-04-26",
@@ -66,7 +68,8 @@
         {
           "filename": "3",
           "extension": "webp",
-          "caption": "インドシナへの旅 メイン画像"
+          "caption": "インドシナへの旅 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-05-07",
@@ -90,7 +93,8 @@
         {
           "filename": "4",
           "extension": "webp",
-          "caption": "「絵画三丁目教室」展 メイン画像"
+          "caption": "「絵画三丁目教室」展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-05-18",
@@ -114,7 +118,8 @@
         {
           "filename": "5",
           "extension": "webp",
-          "caption": "KUSHIDA AKARI PERSONAL EXHIBITION メイン画像"
+          "caption": "KUSHIDA AKARI PERSONAL EXHIBITION メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-06-01",
@@ -138,7 +143,8 @@
         {
           "filename": "6",
           "extension": "webp",
-          "caption": "このこねこのこ　展 メイン画像"
+          "caption": "このこねこのこ　展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-06-15",
@@ -162,7 +168,8 @@
         {
           "filename": "7",
           "extension": "webp",
-          "caption": "―うつりゆく刻― メイン画像"
+          "caption": "―うつりゆく刻― メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-06-27",
@@ -186,7 +193,8 @@
         {
           "filename": "8",
           "extension": "webp",
-          "caption": "待つ間 TNAKA Satomi メイン画像"
+          "caption": "待つ間 TNAKA Satomi メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-07-08",
@@ -210,7 +218,8 @@
         {
           "filename": "9",
           "extension": "webp",
-          "caption": "さいことうゆいこ 個展2017 メイン画像"
+          "caption": "さいことうゆいこ 個展2017 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-08-08",
@@ -234,7 +243,8 @@
         {
           "filename": "10",
           "extension": "webp",
-          "caption": "―フレスコ画・水彩画― メイン画像"
+          "caption": "―フレスコ画・水彩画― メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-09-10",
@@ -258,7 +268,8 @@
         {
           "filename": "11",
           "extension": "webp",
-          "caption": "妙 展　―楯野 妙　卆寿記念―油絵を描き描き続けて40年 メイン画像"
+          "caption": "妙 展　―楯野 妙　卆寿記念―油絵を描き描き続けて40年 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-09-23",
@@ -282,7 +293,8 @@
         {
           "filename": "12",
           "extension": "webp",
-          "caption": "油絵展　-ヒカリナルニワ- メイン画像"
+          "caption": "油絵展　-ヒカリナルニワ- メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-10-23",
@@ -306,7 +318,8 @@
         {
           "filename": "13",
           "extension": "webp",
-          "caption": "未象の庭＋plus メイン画像"
+          "caption": "未象の庭＋plus メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-11-03",
@@ -330,7 +343,8 @@
         {
           "filename": "14",
           "extension": "webp",
-          "caption": "-薄暮色の夢の途中- メイン画像"
+          "caption": "-薄暮色の夢の途中- メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-11-20",
@@ -354,7 +368,8 @@
         {
           "filename": "15",
           "extension": "webp",
-          "caption": "Yellow-tinted Honeyeater メイン画像"
+          "caption": "Yellow-tinted Honeyeater メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-12-10",
@@ -378,7 +393,8 @@
         {
           "filename": "16",
           "extension": "webp",
-          "caption": "俺の食 メイン画像"
+          "caption": "俺の食 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2017-12-22",
@@ -402,7 +418,8 @@
         {
           "filename": "17",
           "extension": "webp",
-          "caption": "サムホール展 メイン画像"
+          "caption": "サムホール展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-01-11",
@@ -426,7 +443,8 @@
         {
           "filename": "18",
           "extension": "webp",
-          "caption": "しあわせを呼ぶ ふくろう展 メイン画像"
+          "caption": "しあわせを呼ぶ ふくろう展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-02-10",
@@ -450,7 +468,8 @@
         {
           "filename": "19",
           "extension": "webp",
-          "caption": "ひとりあそび展 メイン画像"
+          "caption": "ひとりあそび展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-03-01",
@@ -474,7 +493,8 @@
         {
           "filename": "20",
           "extension": "webp",
-          "caption": "長谷川健司とはせがわけんじ展 メイン画像"
+          "caption": "長谷川健司とはせがわけんじ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-04-03",
@@ -498,7 +518,8 @@
         {
           "filename": "21",
           "extension": "webp",
-          "caption": "奏春譜 メイン画像"
+          "caption": "奏春譜 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-04-10",
@@ -522,7 +543,8 @@
         {
           "filename": "22",
           "extension": "webp",
-          "caption": "こねこ展 メイン画像"
+          "caption": "こねこ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-04-28",
@@ -546,7 +568,8 @@
         {
           "filename": "23",
           "extension": "webp",
-          "caption": "栗田広敏展 ―痕跡― メイン画像"
+          "caption": "栗田広敏展 ―痕跡― メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-06-21",
@@ -570,7 +593,8 @@
         {
           "filename": "24",
           "extension": "webp",
-          "caption": "梅野顕司展 -白猫のいる風景- メイン画像"
+          "caption": "梅野顕司展 -白猫のいる風景- メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-07-12",
@@ -594,7 +618,8 @@
         {
           "filename": "25",
           "extension": "webp",
-          "caption": "こねこねこのこpart.Ⅱ展 メイン画像"
+          "caption": "こねこねこのこpart.Ⅱ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-08-10",
@@ -618,7 +643,8 @@
         {
           "filename": "26",
           "extension": "webp",
-          "caption": "いぬ展 メイン画像"
+          "caption": "いぬ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-08-31",
@@ -642,7 +668,8 @@
         {
           "filename": "27",
           "extension": "webp",
-          "caption": "さいとうゆいこ展 メイン画像"
+          "caption": "さいとうゆいこ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-09-09",
@@ -666,7 +693,8 @@
         {
           "filename": "28",
           "extension": "webp",
-          "caption": "島袋慶子展 メイン画像"
+          "caption": "島袋慶子展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-09-20",
@@ -690,7 +718,8 @@
         {
           "filename": "29",
           "extension": "webp",
-          "caption": "岡林こういち展 メイン画像"
+          "caption": "岡林こういち展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-10-13",
@@ -714,7 +743,8 @@
         {
           "filename": "30",
           "extension": "webp",
-          "caption": "風の色展 メイン画像"
+          "caption": "風の色展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-11-01",
@@ -738,7 +768,8 @@
         {
           "filename": "31",
           "extension": "webp",
-          "caption": "「イラストのしごと」展 メイン画像"
+          "caption": "「イラストのしごと」展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-11-20",
@@ -762,7 +793,8 @@
         {
           "filename": "32",
           "extension": "webp",
-          "caption": "クリスマス展 メイン画像"
+          "caption": "クリスマス展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-12-01",
@@ -786,7 +818,8 @@
         {
           "filename": "33",
           "extension": "webp",
-          "caption": "ろう画会のクリスマス展 メイン画像"
+          "caption": "ろう画会のクリスマス展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2018-12-18",
@@ -810,7 +843,8 @@
         {
           "filename": "34",
           "extension": "webp",
-          "caption": "26人による小品展 メイン画像"
+          "caption": "26人による小品展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-01-07",
@@ -834,7 +868,8 @@
         {
           "filename": "35",
           "extension": "webp",
-          "caption": ">Andrea Beteta展 メイン画像"
+          "caption": ">Andrea Beteta展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-02-01",
@@ -858,7 +893,8 @@
         {
           "filename": "36",
           "extension": "webp",
-          "caption": "二人展 メイン画像"
+          "caption": "二人展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-02-07",
@@ -882,7 +918,8 @@
         {
           "filename": "37",
           "extension": "webp",
-          "caption": "猫展 メイン画像"
+          "caption": "猫展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-02-16",
@@ -906,7 +943,8 @@
         {
           "filename": "38",
           "extension": "webp",
-          "caption": "ふくろう展 メイン画像"
+          "caption": "ふくろう展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-03-16",
@@ -930,7 +968,8 @@
         {
           "filename": "39",
           "extension": "webp",
-          "caption": "こねぎたん様展示 メイン画像"
+          "caption": "こねぎたん様展示 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-03-28",
@@ -954,7 +993,8 @@
         {
           "filename": "40",
           "extension": "webp",
-          "caption": "ギャラリー2歳の誕生日会 メイン画像"
+          "caption": "ギャラリー2歳の誕生日会 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-04-06",
@@ -978,7 +1018,8 @@
         {
           "filename": "41",
           "extension": "webp",
-          "caption": "『雪のような日』展 メイン画像"
+          "caption": "『雪のような日』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-04-28",
@@ -1002,7 +1043,8 @@
         {
           "filename": "42",
           "extension": "webp",
-          "caption": "鳥展 メイン画像"
+          "caption": "鳥展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-05-10",
@@ -1026,7 +1068,8 @@
         {
           "filename": "43",
           "extension": "webp",
-          "caption": "『???展』 メイン画像"
+          "caption": "『???展』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-06-10",
@@ -1050,7 +1093,8 @@
         {
           "filename": "44",
           "extension": "webp",
-          "caption": "『和の器展』 メイン画像"
+          "caption": "『和の器展』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-06-20",
@@ -1074,7 +1118,8 @@
         {
           "filename": "45",
           "extension": "webp",
-          "caption": "『noise』展 メイン画像"
+          "caption": "『noise』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-07-15",
@@ -1098,7 +1143,8 @@
         {
           "filename": "46",
           "extension": "webp",
-          "caption": "『にゃんこ相撲-下町編-』写真展 メイン画像"
+          "caption": "『にゃんこ相撲-下町編-』写真展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-07-22",
@@ -1122,7 +1168,8 @@
         {
           "filename": "47",
           "extension": "webp",
-          "caption": "ハッピーフェイスTシャツワークショップ メイン画像"
+          "caption": "ハッピーフェイスTシャツワークショップ メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-07-31",
@@ -1146,7 +1193,8 @@
         {
           "filename": "48",
           "extension": "webp",
-          "caption": "こねこねこの子prtⅢ メイン画像"
+          "caption": "こねこねこの子prtⅢ メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-08-10",
@@ -1170,7 +1218,8 @@
         {
           "filename": "49",
           "extension": "webp",
-          "caption": "『ガラス』展 メイン画像"
+          "caption": "『ガラス』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-09-20",
@@ -1194,7 +1243,8 @@
         {
           "filename": "50",
           "extension": "webp",
-          "caption": "『秋月展III』 メイン画像"
+          "caption": "『秋月展III』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-10-05",
@@ -1218,7 +1268,8 @@
         {
           "filename": "51",
           "extension": "webp",
-          "caption": "中村あきこ展-なぜ　ここに？- メイン画像"
+          "caption": "中村あきこ展-なぜ　ここに？- メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-10-19",
@@ -1242,7 +1293,8 @@
         {
           "filename": "52",
           "extension": "webp",
-          "caption": "草『Grass』展 メイン画像"
+          "caption": "草『Grass』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-11-01",
@@ -1266,7 +1318,8 @@
         {
           "filename": "53",
           "extension": "webp",
-          "caption": "『動物達のクリスマス』展 メイン画像"
+          "caption": "『動物達のクリスマス』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2019-12-07",
@@ -1290,7 +1343,8 @@
         {
           "filename": "54",
           "extension": "webp",
-          "caption": "はな展 メイン画像"
+          "caption": "はな展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-01-11",
@@ -1314,7 +1368,8 @@
         {
           "filename": "55",
           "extension": "webp",
-          "caption": "『谷根千ねこラリー』展 メイン画像"
+          "caption": "『谷根千ねこラリー』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-02-15",
@@ -1338,7 +1393,8 @@
         {
           "filename": "56",
           "extension": "webp",
-          "caption": "ふくろう展 メイン画像"
+          "caption": "ふくろう展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-03-04",
@@ -1362,7 +1418,8 @@
         {
           "filename": "57",
           "extension": "webp",
-          "caption": "いぬが動物園に行く メイン画像"
+          "caption": "いぬが動物園に行く メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-04-18",
@@ -1386,7 +1443,8 @@
         {
           "filename": "58",
           "extension": "webp",
-          "caption": "『今日のあなたと、明日のあなた』展 メイン画像"
+          "caption": "『今日のあなたと、明日のあなた』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-06-05",
@@ -1410,7 +1468,8 @@
         {
           "filename": "59",
           "extension": "webp",
-          "caption": "青にこんがらがって メイン画像"
+          "caption": "青にこんがらがって メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-06-13",
@@ -1434,7 +1493,8 @@
         {
           "filename": "60",
           "extension": "webp",
-          "caption": "優遊展 メイン画像"
+          "caption": "優遊展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-07-18",
@@ -1458,7 +1518,8 @@
         {
           "filename": "61",
           "extension": "webp",
-          "caption": "出ズフェス ～出たかった展～ メイン画像"
+          "caption": "出ズフェス ～出たかった展～ メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-08-01",
@@ -1482,7 +1543,8 @@
         {
           "filename": "62",
           "extension": "webp",
-          "caption": "エムズ商店街へようこそ メイン画像"
+          "caption": "エムズ商店街へようこそ メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-09-01",
@@ -1506,7 +1568,8 @@
         {
           "filename": "63",
           "extension": "webp",
-          "caption": "Grasshopper Dafne Avidan Art Exhibition メイン画像"
+          "caption": "Grasshopper Dafne Avidan Art Exhibition メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-09-19",
@@ -1530,7 +1593,8 @@
         {
           "filename": "64",
           "extension": "webp",
-          "caption": "『匣の中の匣の中 HOMECOMING』展 メイン画像"
+          "caption": "『匣の中の匣の中 HOMECOMING』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-10-01",
@@ -1554,7 +1618,8 @@
         {
           "filename": "65",
           "extension": "webp",
-          "caption": "『あお空と星くず』展 メイン画像"
+          "caption": "『あお空と星くず』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-11-21",
@@ -1578,7 +1643,8 @@
         {
           "filename": "66",
           "extension": "webp",
-          "caption": "『忌械の葬列』展 メイン画像"
+          "caption": "『忌械の葬列』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-12-05",
@@ -1602,7 +1668,8 @@
         {
           "filename": "67",
           "extension": "webp",
-          "caption": "『寄ってらっしゃい遊んでらっしゃい』展 メイン画像"
+          "caption": "『寄ってらっしゃい遊んでらっしゃい』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-12-13",
@@ -1626,7 +1693,8 @@
         {
           "filename": "68",
           "extension": "webp",
-          "caption": "『縁起物市』展 メイン画像"
+          "caption": "『縁起物市』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2020-12-26",
@@ -1650,7 +1718,8 @@
         {
           "filename": "69",
           "extension": "webp",
-          "caption": "私の好きなもの メイン画像"
+          "caption": "私の好きなもの メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-01-16",
@@ -1674,7 +1743,8 @@
         {
           "filename": "70",
           "extension": "webp",
-          "caption": "『Cambria』展 メイン画像"
+          "caption": "『Cambria』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-02-06",
@@ -1698,7 +1768,8 @@
         {
           "filename": "71",
           "extension": "webp",
-          "caption": "ひなたぼっこ展 メイン画像"
+          "caption": "ひなたぼっこ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-02-06",
@@ -1722,7 +1793,8 @@
         {
           "filename": "72",
           "extension": "webp",
-          "caption": "『沖さんとおそとねこ』展　沖昌之の秘密基地 メイン画像"
+          "caption": "『沖さんとおそとねこ』展　沖昌之の秘密基地 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-04-01",
@@ -1746,7 +1818,8 @@
         {
           "filename": "73",
           "extension": "webp",
-          "caption": "『あがく』展 メイン画像"
+          "caption": "『あがく』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-04-10",
@@ -1770,7 +1843,8 @@
         {
           "filename": "74",
           "extension": "webp",
-          "caption": "『ワタシが旅した世界の断片たち』展 メイン画像"
+          "caption": "『ワタシが旅した世界の断片たち』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-04-27",
@@ -1794,7 +1868,8 @@
         {
           "filename": "75",
           "extension": "webp",
-          "caption": "谷根千とり巡り『鳥』展 メイン画像"
+          "caption": "谷根千とり巡り『鳥』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-05-08",
@@ -1818,7 +1893,8 @@
         {
           "filename": "76",
           "extension": "webp",
-          "caption": "『-遠い国から風が吹く-』展 メイン画像"
+          "caption": "『-遠い国から風が吹く-』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-05-29",
@@ -1842,7 +1918,8 @@
         {
           "filename": "77",
           "extension": "webp",
-          "caption": "『萩原始』個展 メイン画像"
+          "caption": "『萩原始』個展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-06-12",
@@ -1866,7 +1943,8 @@
         {
           "filename": "78",
           "extension": "webp",
-          "caption": "『あのこのすみか』個展 メイン画像"
+          "caption": "『あのこのすみか』個展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-07-01",
@@ -1888,7 +1966,8 @@
         {
           "filename": "79",
           "extension": "webp",
-          "caption": "『根岸工芸研究所の仕事』展 メイン画像"
+          "caption": "『根岸工芸研究所の仕事』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-07-14",
@@ -1912,7 +1991,8 @@
         {
           "filename": "80",
           "extension": "webp",
-          "caption": "『KEFALI/SOMA』展 メイン画像"
+          "caption": "『KEFALI/SOMA』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-08-01",
@@ -1936,7 +2016,8 @@
         {
           "filename": "81",
           "extension": "webp",
-          "caption": "『近藤綾　ガラス展』 メイン画像"
+          "caption": "『近藤綾　ガラス展』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-08-21",
@@ -1960,7 +2041,8 @@
         {
           "filename": "82",
           "extension": "webp",
-          "caption": "色鉛筆画展『“Colors for Yanesen”』 メイン画像"
+          "caption": "色鉛筆画展『“Colors for Yanesen”』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-09-02",
@@ -1984,7 +2066,8 @@
         {
           "filename": "83",
           "extension": "webp",
-          "caption": "『Color Scale』展 メイン画像"
+          "caption": "『Color Scale』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-09-11",
@@ -2008,7 +2091,8 @@
         {
           "filename": "84",
           "extension": "webp",
-          "caption": "『Freaks』展 メイン画像"
+          "caption": "『Freaks』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-09-28",
@@ -2032,7 +2116,8 @@
         {
           "filename": "85",
           "extension": "webp",
-          "caption": "『秋月IV』展 メイン画像"
+          "caption": "『秋月IV』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-10-12",
@@ -2056,7 +2141,8 @@
         {
           "filename": "86",
           "extension": "webp",
-          "caption": "『染色』展 メイン画像"
+          "caption": "『染色』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-10-24",
@@ -2080,7 +2166,8 @@
         {
           "filename": "87",
           "extension": "webp",
-          "caption": "『Carpe diem ~Rest In Riot~』展 メイン画像"
+          "caption": "『Carpe diem ~Rest In Riot~』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-11-04",
@@ -2104,7 +2191,8 @@
         {
           "filename": "88",
           "extension": "webp",
-          "caption": "『エムズ商店街へようこそ2』展 メイン画像"
+          "caption": "『エムズ商店街へようこそ2』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-11-21",
@@ -2128,7 +2216,8 @@
         {
           "filename": "89",
           "extension": "webp",
-          "caption": "『松谷凜花さん』展 メイン画像"
+          "caption": "『松谷凜花さん』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-12-06",
@@ -2152,7 +2241,8 @@
         {
           "filename": "90",
           "extension": "webp",
-          "caption": "『ねことこほり』展 メイン画像"
+          "caption": "『ねことこほり』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-12-22",
@@ -2176,7 +2266,8 @@
         {
           "filename": "91",
           "extension": "webp",
-          "caption": "『なにげないにちじょう』展 メイン画像"
+          "caption": "『なにげないにちじょう』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2021-12-31",
@@ -2200,7 +2291,8 @@
         {
           "filename": "92",
           "extension": "webp",
-          "caption": "瑞森聖華作陶展『瑞々』 メイン画像"
+          "caption": "瑞森聖華作陶展『瑞々』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-01-13",
@@ -2224,7 +2316,8 @@
         {
           "filename": "93",
           "extension": "webp",
-          "caption": "ダフナとトトの　[ひみつきち]展 メイン画像"
+          "caption": "ダフナとトトの　[ひみつきち]展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-02-27",
@@ -2248,7 +2341,8 @@
         {
           "filename": "94",
           "extension": "webp",
-          "caption": "『HandSome』展 メイン画像"
+          "caption": "『HandSome』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-03-09",
@@ -2272,7 +2366,8 @@
         {
           "filename": "95",
           "extension": "webp",
-          "caption": "高原悠子「純粋（小）」展 メイン画像"
+          "caption": "高原悠子「純粋（小）」展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-03-20",
@@ -2296,7 +2391,8 @@
         {
           "filename": "96",
           "extension": "webp",
-          "caption": "まちだリ展「シックス・イヤー・オールド」展 メイン画像"
+          "caption": "まちだリ展「シックス・イヤー・オールド」展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-04-01",
@@ -2320,7 +2416,8 @@
         {
           "filename": "97",
           "extension": "webp",
-          "caption": "山内菜々子「はるのえいがのじかん」展 メイン画像"
+          "caption": "山内菜々子「はるのえいがのじかん」展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-04-09",
@@ -2344,7 +2441,8 @@
         {
           "filename": "98",
           "extension": "webp",
-          "caption": "84（ばっしー）「84×20」初個展展 メイン画像"
+          "caption": "84（ばっしー）「84×20」初個展展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-04-11",
@@ -2368,7 +2466,8 @@
         {
           "filename": "99",
           "extension": "webp",
-          "caption": "渡辺清司さんと栗山綾子さんの二人展 メイン画像"
+          "caption": "渡辺清司さんと栗山綾子さんの二人展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-04-23",
@@ -2392,7 +2491,8 @@
         {
           "filename": "100",
           "extension": "webp",
-          "caption": "『Floer of Moment邦題：時分の花』展 メイン画像"
+          "caption": "『Floer of Moment邦題：時分の花』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-05-20",
@@ -2416,7 +2516,8 @@
         {
           "filename": "101",
           "extension": "webp",
-          "caption": "『岡林こういち』展 メイン画像"
+          "caption": "『岡林こういち』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-06-01",
@@ -2440,7 +2541,8 @@
         {
           "filename": "102",
           "extension": "webp",
-          "caption": "『七面坂から』Group exhibition メイン画像"
+          "caption": "『七面坂から』Group exhibition メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-06-22",
@@ -2464,7 +2566,8 @@
         {
           "filename": "103",
           "extension": "webp",
-          "caption": "『5 SICK』日芸 版画5人展 メイン画像"
+          "caption": "『5 SICK』日芸 版画5人展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-07-02",
@@ -2488,7 +2591,8 @@
         {
           "filename": "104",
           "extension": "webp",
-          "caption": "『青にこんがらがってvol.02』展 メイン画像"
+          "caption": "『青にこんがらがってvol.02』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-07-12",
@@ -2512,7 +2616,8 @@
         {
           "filename": "105",
           "extension": "webp",
-          "caption": "『minami nobukawa solo exhibition』展 メイン画像"
+          "caption": "『minami nobukawa solo exhibition』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-07-18",
@@ -2536,7 +2641,8 @@
         {
           "filename": "106",
           "extension": "webp",
-          "caption": "『個展・壱 Migiwa Hidari / Solo exhibition・1』展 メイン画像"
+          "caption": "『個展・壱 Migiwa Hidari / Solo exhibition・1』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-08-01",
@@ -2560,7 +2666,8 @@
         {
           "filename": "107",
           "extension": "webp",
-          "caption": "『garden』展 メイン画像"
+          "caption": "『garden』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-08-08",
@@ -2584,7 +2691,8 @@
         {
           "filename": "108",
           "extension": "webp",
-          "caption": "『Color Dive』展 メイン画像"
+          "caption": "『Color Dive』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-08-19",
@@ -2608,7 +2716,8 @@
         {
           "filename": "109",
           "extension": "webp",
-          "caption": "『Connect/Bond / Drama』展 メイン画像"
+          "caption": "『Connect/Bond / Drama』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-08-28",
@@ -2632,7 +2741,8 @@
         {
           "filename": "110",
           "extension": "webp",
-          "caption": "『旅する絵描き』我無個展 メイン画像"
+          "caption": "『旅する絵描き』我無個展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-09-11",
@@ -2656,7 +2766,8 @@
         {
           "filename": "111",
           "extension": "webp",
-          "caption": "『Paper wasp』展 メイン画像"
+          "caption": "『Paper wasp』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-10-01",
@@ -2680,7 +2791,8 @@
         {
           "filename": "112",
           "extension": "webp",
-          "caption": "合同企画 「ねこ写真Smite展」 メイン画像"
+          "caption": "合同企画 「ねこ写真Smite展」 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-10-08",
@@ -2704,7 +2816,8 @@
         {
           "filename": "113",
           "extension": "webp",
-          "caption": "『虚構の城』展 メイン画像"
+          "caption": "『虚構の城』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-10-19",
@@ -2728,7 +2841,8 @@
         {
           "filename": "114",
           "extension": "webp",
-          "caption": "「鉄の指す方」展 メイン画像"
+          "caption": "「鉄の指す方」展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-11-03",
@@ -2752,7 +2866,8 @@
         {
           "filename": "115",
           "extension": "webp",
-          "caption": "『京子さんの 手ぶらで 三味線』体験 メイン画像"
+          "caption": "『京子さんの 手ぶらで 三味線』体験 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-11-16",
@@ -2776,7 +2891,8 @@
         {
           "filename": "116",
           "extension": "webp",
-          "caption": "『姿と遠』宇野七穂 岡路貴理 二人展 メイン画像"
+          "caption": "『姿と遠』宇野七穂 岡路貴理 二人展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-11-18",
@@ -2800,7 +2916,8 @@
         {
           "filename": "117",
           "extension": "webp",
-          "caption": "『街灯もない道で』展 メイン画像"
+          "caption": "『街灯もない道で』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2022-12-12",
@@ -2824,7 +2941,8 @@
         {
           "filename": "118",
           "extension": "webp",
-          "caption": "『welcome』展 メイン画像"
+          "caption": "『welcome』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-01-07",
@@ -2848,7 +2966,8 @@
         {
           "filename": "119",
           "extension": "webp",
-          "caption": "『ミヤさんの作品展』-物語と戯れる- メイン画像"
+          "caption": "『ミヤさんの作品展』-物語と戯れる- メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-01-18",
@@ -2872,7 +2991,8 @@
         {
           "filename": "120",
           "extension": "webp",
-          "caption": "『縁起物市』 メイン画像"
+          "caption": "『縁起物市』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-01-24",
@@ -2896,7 +3016,8 @@
         {
           "filename": "121",
           "extension": "webp",
-          "caption": "『沖さんとおそとねこ』写真展 メイン画像"
+          "caption": "『沖さんとおそとねこ』写真展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-02-01",
@@ -2920,7 +3041,8 @@
         {
           "filename": "122",
           "extension": "webp",
-          "caption": "『334.334』グループ展 メイン画像"
+          "caption": "『334.334』グループ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-03-04",
@@ -2948,7 +3070,8 @@
         {
           "filename": "123",
           "extension": "webp",
-          "caption": "『紡ぐ』グループ展 メイン画像"
+          "caption": "『紡ぐ』グループ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-03-23",
@@ -2972,7 +3095,8 @@
         {
           "filename": "124",
           "extension": "webp",
-          "caption": "『もも助の、引っ越しだもん』展 メイン画像"
+          "caption": "『もも助の、引っ越しだもん』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-04-10",
@@ -2996,7 +3120,8 @@
         {
           "filename": "125",
           "extension": "webp",
-          "caption": "『はるのえいがのじかん』 メイン画像"
+          "caption": "『はるのえいがのじかん』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-04-29",
@@ -3023,7 +3148,8 @@
         {
           "filename": "126",
           "extension": "webp",
-          "caption": "『春の風』グループ展 メイン画像"
+          "caption": "『春の風』グループ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-04-30",
@@ -3048,7 +3174,8 @@
         {
           "filename": "127",
           "extension": "webp",
-          "caption": "『土に馴染む』 メイン画像"
+          "caption": "『土に馴染む』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-05-13",
@@ -3072,7 +3199,8 @@
         {
           "filename": "128",
           "extension": "webp",
-          "caption": "『光曼荼羅あそび』 メイン画像"
+          "caption": "『光曼荼羅あそび』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-06-04",
@@ -3096,7 +3224,8 @@
         {
           "filename": "129",
           "extension": "webp",
-          "caption": "『something between white and light』 メイン画像"
+          "caption": "『something between white and light』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-06-18",
@@ -3124,7 +3253,8 @@
         {
           "filename": "130",
           "extension": "webp",
-          "caption": "『room』 メイン画像"
+          "caption": "『room』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-06-27",
@@ -3149,7 +3279,8 @@
         {
           "filename": "131",
           "extension": "webp",
-          "caption": "『漂流』 メイン画像"
+          "caption": "『漂流』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-07-10",
@@ -3173,7 +3304,8 @@
         {
           "filename": "132",
           "extension": "webp",
-          "caption": "『真夏の夢』 メイン画像"
+          "caption": "『真夏の夢』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-08-01",
@@ -3197,7 +3329,8 @@
         {
           "filename": "133",
           "extension": "webp",
-          "caption": "『COLOUR GROUND』 メイン画像"
+          "caption": "『COLOUR GROUND』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-08-11",
@@ -3221,7 +3354,8 @@
         {
           "filename": "134",
           "extension": "webp",
-          "caption": "『古河博章 色鉛筆画展』 メイン画像"
+          "caption": "『古河博章 色鉛筆画展』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-09-01",
@@ -3247,7 +3381,8 @@
         {
           "filename": "135",
           "extension": "webp",
-          "caption": "『エムズ商店街へようこそ』 メイン画像"
+          "caption": "『エムズ商店街へようこそ』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-09-16",
@@ -3271,7 +3406,8 @@
         {
           "filename": "136",
           "extension": "webp",
-          "caption": "『ゆみ鳥の♪「日常のたからもの」展』 メイン画像"
+          "caption": "『ゆみ鳥の♪「日常のたからもの」展』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-09-30",
@@ -3301,7 +3437,8 @@
         {
           "filename": "137",
           "extension": "webp",
-          "caption": "『七人の異形頭展』 メイン画像"
+          "caption": "『七人の異形頭展』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-10-14",
@@ -3325,7 +3462,8 @@
         {
           "filename": "138",
           "extension": "webp",
-          "caption": "『UNKNOWN』展 メイン画像"
+          "caption": "『UNKNOWN』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-10-27",
@@ -3349,7 +3487,8 @@
         {
           "filename": "139",
           "extension": "webp",
-          "caption": "『三香展』 メイン画像"
+          "caption": "『三香展』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-11-13",
@@ -3373,7 +3512,8 @@
         {
           "filename": "140",
           "extension": "webp",
-          "caption": "『けてち』展 メイン画像"
+          "caption": "『けてち』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-11-22",
@@ -3397,7 +3537,8 @@
         {
           "filename": "141",
           "extension": "webp",
-          "caption": "『gallery shichimenzatocyu Group Echibition』展 メイン画像"
+          "caption": "『gallery shichimenzatocyu Group Echibition』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-12-01",
@@ -3421,7 +3562,8 @@
         {
           "filename": "142",
           "extension": "webp",
-          "caption": "『冷えた廊下、浮遊するグレープフルーツ』展 メイン画像"
+          "caption": "『冷えた廊下、浮遊するグレープフルーツ』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-12-15",
@@ -3445,7 +3587,8 @@
         {
           "filename": "143",
           "extension": "webp",
-          "caption": "『Kotoa Kotiin』展 メイン画像"
+          "caption": "『Kotoa Kotiin』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2023-12-29",
@@ -3469,7 +3612,8 @@
         {
           "filename": "144",
           "extension": "webp",
-          "caption": "『こと もの』展 メイン画像"
+          "caption": "『こと もの』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-01-06",
@@ -3493,7 +3637,8 @@
         {
           "filename": "145",
           "extension": "webp",
-          "caption": "『etra oleum - ペトラ オレウム-』展 メイン画像"
+          "caption": "『etra oleum - ペトラ オレウム-』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-02-02",
@@ -3517,7 +3662,8 @@
         {
           "filename": "146",
           "extension": "webp",
-          "caption": "『凸凹』グループ展 メイン画像"
+          "caption": "『凸凹』グループ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-02-17",
@@ -3541,7 +3687,8 @@
         {
           "filename": "147",
           "extension": "webp",
-          "caption": "『334.334』グループ展 メイン画像"
+          "caption": "『334.334』グループ展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-03-01",
@@ -3565,7 +3712,8 @@
         {
           "filename": "148",
           "extension": "webp",
-          "caption": "『ordovician』展 メイン画像"
+          "caption": "『ordovician』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-03-10",
@@ -3589,7 +3737,8 @@
         {
           "filename": "149",
           "extension": "webp",
-          "caption": "『はるのえいがのじかん』 メイン画像"
+          "caption": "『はるのえいがのじかん』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-03-29",
@@ -3613,7 +3762,8 @@
         {
           "filename": "150",
           "extension": "webp",
-          "caption": "『 イタグレフェス 』展 メイン画像"
+          "caption": "『 イタグレフェス 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-04-01",
@@ -3637,7 +3787,8 @@
         {
           "filename": "151",
           "extension": "webp",
-          "caption": "『 モグーは郵便パイロット 』展 メイン画像"
+          "caption": "『 モグーは郵便パイロット 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-05-02",
@@ -3661,7 +3812,8 @@
         {
           "filename": "152",
           "extension": "webp",
-          "caption": "『 土に馴染む 』展 メイン画像"
+          "caption": "『 土に馴染む 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-05-18",
@@ -3685,7 +3837,8 @@
         {
           "filename": "153",
           "extension": "webp",
-          "caption": "『 影を遺す 』展 メイン画像"
+          "caption": "『 影を遺す 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-06-01",
@@ -3709,7 +3862,8 @@
         {
           "filename": "154",
           "extension": "webp",
-          "caption": "『 てぴリズム 』展 メイン画像"
+          "caption": "『 てぴリズム 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-07-02",
@@ -3733,7 +3887,8 @@
         {
           "filename": "155",
           "extension": "webp",
-          "caption": "『 煙が南になびく 』展 メイン画像"
+          "caption": "『 煙が南になびく 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-07-15",
@@ -3757,7 +3912,8 @@
         {
           "filename": "156",
           "extension": "webp",
-          "caption": "『 COLOURS VOICE 』展 メイン画像"
+          "caption": "『 COLOURS VOICE 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-07-27",
@@ -3781,7 +3937,8 @@
         {
           "filename": "157",
           "extension": "webp",
-          "caption": "『 Zoe's Gloset 』展 メイン画像"
+          "caption": "『 Zoe's Gloset 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-08-04",
@@ -3805,7 +3962,8 @@
         {
           "filename": "158",
           "extension": "webp",
-          "caption": "『 Uncertain 』展 メイン画像"
+          "caption": "『 Uncertain 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-08-10",
@@ -3829,7 +3987,8 @@
         {
           "filename": "159",
           "extension": "webp",
-          "caption": "『 サロメヨカナーン 』展 メイン画像"
+          "caption": "『 サロメヨカナーン 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-08-18",
@@ -3859,7 +4018,8 @@
         {
           "filename": "160",
           "extension": "webp",
-          "caption": "『 ねこ 』展 メイン画像"
+          "caption": "『 ねこ 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-09-01",
@@ -3883,7 +4043,8 @@
         {
           "filename": "161",
           "extension": "webp",
-          "caption": "『 色鉛筆画展』 メイン画像"
+          "caption": "『 色鉛筆画展』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-09-19",
@@ -3915,7 +4076,8 @@
         {
           "filename": "162",
           "extension": "webp",
-          "caption": "『 青にこんがらがって 』展 メイン画像"
+          "caption": "『 青にこんがらがって 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-10-01",
@@ -3940,7 +4102,8 @@
         {
           "filename": "163",
           "extension": "webp",
-          "caption": "『 二人展 』 メイン画像"
+          "caption": "『 二人展 』 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-10-14",
@@ -3964,7 +4127,8 @@
         {
           "filename": "164",
           "extension": "webp",
-          "caption": "『 起源 』初個展 メイン画像"
+          "caption": "『 起源 』初個展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-11-09",
@@ -3988,7 +4152,8 @@
         {
           "filename": "165",
           "extension": "webp",
-          "caption": "『 Cheap Fakes 』絵画展 メイン画像"
+          "caption": "『 Cheap Fakes 』絵画展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-12-01",
@@ -4012,7 +4177,8 @@
         {
           "filename": "166",
           "extension": "webp",
-          "caption": "『 サプライズ 』個展 メイン画像"
+          "caption": "『 サプライズ 』個展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2024-12-16",
@@ -4036,7 +4202,8 @@
         {
           "filename": "167",
           "extension": "webp",
-          "caption": "『 MADE FROM STARDUST 』展 メイン画像"
+          "caption": "『 MADE FROM STARDUST 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-01-09",
@@ -4061,7 +4228,8 @@
         {
           "filename": "168",
           "extension": "webp",
-          "caption": "『 宙と命脈 』展 メイン画像"
+          "caption": "『 宙と命脈 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-01-21",
@@ -4089,7 +4257,8 @@
         {
           "filename": "169",
           "extension": "webp",
-          "caption": "『 ねことか 』展 メイン画像"
+          "caption": "『 ねことか 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-02-07",
@@ -4117,7 +4286,8 @@
         {
           "filename": "170",
           "extension": "webp",
-          "caption": "『 drip slip trip 』展 メイン画像"
+          "caption": "『 drip slip trip 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-02-22",
@@ -4146,7 +4316,8 @@
         {
           "filename": "171",
           "extension": "webp",
-          "caption": "『 たねえらび 』展 メイン画像"
+          "caption": "『 たねえらび 』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-03-12",
@@ -4175,7 +4346,8 @@
         {
           "filename": "172",
           "extension": "webp",
-          "caption": "『 陶女達+  』展 メイン画像"
+          "caption": "『 陶女達+  』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-03-23",
@@ -4200,7 +4372,8 @@
         {
           "filename": "173",
           "extension": "webp",
-          "caption": "『あやとやすこの七面坂反省会』展 メイン画像"
+          "caption": "『あやとやすこの七面坂反省会』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-05-02",
@@ -4224,7 +4397,8 @@
         {
           "filename": "174",
           "extension": "webp",
-          "caption": "『土に馴染む』展 メイン画像"
+          "caption": "『土に馴染む』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-05-24",
@@ -4250,11 +4424,34 @@
         {
           "filename": "175",
           "extension": "webp",
-          "caption": "『EDGE』展 メイン画像"
+          "caption": "『EDGE』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-06-05",
       "endDate": "2025-06-30"
+    },
+    {
+      "id": "c75d2492-d0c0-4f32-8aa6-0c2a827c9b0f",
+      "name": "なんでもない日",
+      "exhibitors": [
+        "toto"
+      ],
+      "startDate": "2025-07-09",
+      "endDate": "2025-07-17",
+      "time": "12:00-18:00",
+      "description": "開いてたら寄ってって",
+      "images": [
+        {
+          "filename": "176",
+          "extension": "webp",
+          "type": "cal"
+        }
+      ],
+      "calImage": {
+        "filename": "176",
+        "extension": "webp"
+      }
     },
     {
       "id": "exhibition-175",
@@ -4266,7 +4463,7 @@
       ],
       "comments": "あなたを覗く瞳がそこにあるよ",
       "calImage": {
-        "filename": "176",
+        "filename": "177",
         "extension": "webp"
       },
       "zoomImage": {
@@ -4275,9 +4472,10 @@
       },
       "images": [
         {
-          "filename": "176",
+          "filename": "177",
           "extension": "webp",
-          "caption": "『つらつら』展 メイン画像"
+          "caption": "『つらつら』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-07-19",
@@ -4293,7 +4491,7 @@
       ],
       "comments": "新しい景色をその目で",
       "calImage": {
-        "filename": "177",
+        "filename": "178",
         "extension": "webp"
       },
       "zoomImage": {
@@ -4302,9 +4500,10 @@
       },
       "images": [
         {
-          "filename": "177",
+          "filename": "178",
           "extension": "webp",
-          "caption": "『Spectrum』展 メイン画像"
+          "caption": "『Spectrum』展 メイン画像",
+          "type": "cal"
         }
       ],
       "startDate": "2025-08-02",
