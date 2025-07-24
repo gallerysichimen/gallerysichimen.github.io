@@ -126,7 +126,6 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 function onAllImagesLoaded(allExhibitions, formattedExhibitionDates) {
-	console.log(`newsNum is ${newsNum}`);
     calimg = new Array(allExhibitions.length);
 	
     // RoomPreparなど、calやzooms配列に依存する関数をここで呼び出す
