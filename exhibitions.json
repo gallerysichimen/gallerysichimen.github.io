@@ -4586,13 +4586,53 @@
           "extension": "webp",
           "type": "cal",
           "caption": "つらつら メイン画像"
+        },
+        {
+          "filename": "5fc08de8-d8b5-4aa2-880b-9eba9dc770e6",
+          "extension": "webp",
+          "type": "zoom"
         }
       ],
       "calImage": {
         "filename": "5fc08de8-d8b5-4aa2-880b-9eba9dc770e6",
         "extension": "webp"
       },
-      "zoomImage": null
+      "zoomImage": {
+        "filename": "5fc08de8-d8b5-4aa2-880b-9eba9dc770e6",
+        "extension": "webp"
+      }
+    },
+    {
+      "id": "cb99d471-2412-4689-8fb7-fe6151e238ed",
+      "name": "test",
+      "exhibitors": [
+        "test"
+      ],
+      "startDate": "2025-07-24",
+      "endDate": "2025-07-24",
+      "time": "12:00-18:00",
+      "description": "test",
+      "images": [
+        {
+          "filename": "cb99d471-2412-4689-8fb7-fe6151e238ed",
+          "extension": "webp",
+          "type": "cal",
+          "caption": "test メイン画像"
+        },
+        {
+          "filename": "cb99d471-2412-4689-8fb7-fe6151e238ed",
+          "extension": "webp",
+          "type": "zoom"
+        }
+      ],
+      "calImage": {
+        "filename": "cb99d471-2412-4689-8fb7-fe6151e238ed",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "cb99d471-2412-4689-8fb7-fe6151e238ed",
+        "extension": "webp"
+      }
     },
     {
       "id": "3c53e133-e2ae-4068-a0f0-9aee70919701",
@@ -4607,13 +4647,21 @@
         "filename": "3c53e133-e2ae-4068-a0f0-9aee70919701",
         "extension": "webp"
       },
-      "zoomImage": null,
+      "zoomImage": {
+        "filename": "3c53e133-e2ae-4068-a0f0-9aee70919701",
+        "extension": "webp"
+      },
       "images": [
         {
           "filename": "3c53e133-e2ae-4068-a0f0-9aee70919701",
           "extension": "webp",
           "type": "cal",
           "caption": "『Spectrum』展 メイン画像"
+        },
+        {
+          "filename": "3c53e133-e2ae-4068-a0f0-9aee70919701",
+          "extension": "webp",
+          "type": "zoom"
         }
       ],
       "startDate": "2025-08-02",
