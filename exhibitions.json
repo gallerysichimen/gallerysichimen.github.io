@@ -4372,29 +4372,6 @@
       "endDate": "2025-06-30"
     },
     {
-      "id": "c75d2492-d0c0-4f32-8aa6-0c2a827c9b0f",
-      "name": "なんでもない日",
-      "exhibitors": [
-        "toto"
-      ],
-      "startDate": "2025-07-09",
-      "endDate": "2025-07-17",
-      "time": "12:00-18:00",
-      "description": "よってらっしゃいな",
-      "images": [
-        {
-          "filename": "c75d2492-d0c0-4f32-8aa6-0c2a827c9b0f",
-          "extension": "webp",
-          "type": "cal"
-        }
-      ],
-      "calImage": {
-        "filename": "c75d2492-d0c0-4f32-8aa6-0c2a827c9b0f",
-        "extension": "webp"
-      },
-      "zoomImage": null
-    },
-    {
       "id": "5fc08de8-d8b5-4aa2-880b-9eba9dc770e6",
       "name": "つらつら",
       "exhibitors": [
