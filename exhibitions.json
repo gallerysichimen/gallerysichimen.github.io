@@ -4405,39 +4405,6 @@
       ]
     },
     {
-      "id": "3093ddd5-7692-498b-81c8-6422ec4d65f9",
-      "name": "『test』展",
-      "exhibitors": [
-        "test"
-      ],
-      "startDate": "2025-07-24",
-      "endDate": "2025-07-24",
-      "time": "12:00-18:00",
-      "comments": "test",
-      "calImage": {
-        "filename": "3093ddd5-7692-498b-81c8-6422ec4d65f9",
-        "extension": "webp"
-      },
-      "zoomImage": {
-        "filename": "3093ddd5-7692-498b-81c8-6422ec4d65f9",
-        "extension": "webp"
-      },
-      "images": [
-        {
-          "type": "cal",
-          "filename": "3093ddd5-7692-498b-81c8-6422ec4d65f9",
-          "extension": "webp",
-          "alt": ""
-        },
-        {
-          "type": "zoom",
-          "filename": "3093ddd5-7692-498b-81c8-6422ec4d65f9",
-          "extension": "webp",
-          "alt": ""
-        }
-      ]
-    },
-    {
       "id": "66f0a556-12ee-4650-a7e7-b54eac54da31",
       "name": "『gfd』展",
       "exhibitors": [
