@@ -4405,39 +4405,6 @@
       ]
     },
     {
-      "id": "7718771b-ac08-4da2-b12d-249870e017fd",
-      "name": "『test2』展",
-      "exhibitors": [
-        "test2"
-      ],
-      "startDate": "2025-07-28",
-      "endDate": "2025-07-29",
-      "time": "12:00-18:00",
-      "comments": "aaaa",
-      "calImage": {
-        "filename": "7718771b-ac08-4da2-b12d-249870e017fd",
-        "extension": "webp"
-      },
-      "zoomImage": {
-        "filename": "7718771b-ac08-4da2-b12d-249870e017fd",
-        "extension": "webp"
-      },
-      "images": [
-        {
-          "type": "cal",
-          "filename": "7718771b-ac08-4da2-b12d-249870e017fd",
-          "extension": "webp",
-          "alt": ""
-        },
-        {
-          "type": "zoom",
-          "filename": "7718771b-ac08-4da2-b12d-249870e017fd",
-          "extension": "webp",
-          "alt": ""
-        }
-      ]
-    },
-    {
       "id": "3c53e133-e2ae-4068-a0f0-9aee70919701",
       "year": "2025",
       "name": "『Spectrum』展",
