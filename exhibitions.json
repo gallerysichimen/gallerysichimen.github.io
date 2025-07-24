@@ -4634,18 +4634,6 @@
             ],
             "startDate": "2025-08-02",
             "endDate": "2025-08-16"
-        },
-        {
-            "id": "a945dc38-be1c-4be3-a9c7-0f4dc822247e",
-            "name": "tesy",
-            "exhibitors": [
-                "test"
-            ],
-            "startDate": "2025-09-03",
-            "endDate": "2025-09-17",
-            "time": "12:00-18:00",
-            "comment": "test",
-            "imageId": "fdcc544a-6a3e-4e3f-a9f3-35061c87e62c"
         }
     ]
 }
