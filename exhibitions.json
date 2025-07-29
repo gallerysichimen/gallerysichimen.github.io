@@ -4435,6 +4435,39 @@
       ],
       "startDate": "2025-08-02",
       "endDate": "2025-08-16"
+    },
+    {
+      "id": "edbe1cf7-e2df-4417-9348-b727cb32167b",
+      "name": "『disentanglement』展",
+      "exhibitors": [
+        "吉田明広"
+      ],
+      "startDate": "2025-09-02",
+      "endDate": "2025-09-07",
+      "time": "12:00-18:00",
+      "comments": "吉田明広 写真展",
+      "calImage": {
+        "filename": "edbe1cf7-e2df-4417-9348-b727cb32167b",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "edbe1cf7-e2df-4417-9348-b727cb32167b",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "edbe1cf7-e2df-4417-9348-b727cb32167b",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "edbe1cf7-e2df-4417-9348-b727cb32167b",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
