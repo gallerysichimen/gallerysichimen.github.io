@@ -4406,6 +4406,40 @@
       "year": "2025"
     },
     {
+      "id": "ba76484a-8e01-4344-8e7b-af7be4d833c2",
+      "year": "2025",
+      "name": "『a』展",
+      "exhibitors": [
+        "aa"
+      ],
+      "startDate": "2025-07-29",
+      "endDate": "2025-07-29",
+      "time": "12:00-18:00",
+      "comments": "aaa",
+      "calImage": {
+        "filename": "ba76484a-8e01-4344-8e7b-af7be4d833c2",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "ba76484a-8e01-4344-8e7b-af7be4d833c2",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "ba76484a-8e01-4344-8e7b-af7be4d833c2",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "ba76484a-8e01-4344-8e7b-af7be4d833c2",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
       "id": "3c53e133-e2ae-4068-a0f0-9aee70919701",
       "year": "2025",
       "name": "『Spectrum』展",
