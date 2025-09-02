@@ -4472,47 +4472,6 @@
       ]
     },
     {
-      "id": "b8526c01-c39f-4573-9b3c-322d232a0ddd",
-      "year": "2025",
-      "name": "『八人の異形頭』展",
-      "exhibitors": [
-        "Rco",
-        "おしろ",
-        "さゆ",
-        "しば",
-        "イグレオン",
-        "我無",
-        "村上",
-        "鉄塊"
-      ],
-      "startDate": "2025-09-14",
-      "endDate": "2025-09-27",
-      "time": "12:00-18:00",
-      "comments": "",
-      "calImage": {
-        "filename": "b8526c01-c39f-4573-9b3c-322d232a0ddd",
-        "extension": "webp"
-      },
-      "zoomImage": {
-        "filename": "b8526c01-c39f-4573-9b3c-322d232a0ddd",
-        "extension": "webp"
-      },
-      "images": [
-        {
-          "type": "cal",
-          "filename": "b8526c01-c39f-4573-9b3c-322d232a0ddd",
-          "extension": "webp",
-          "alt": ""
-        },
-        {
-          "type": "zoom",
-          "filename": "b8526c01-c39f-4573-9b3c-322d232a0ddd",
-          "extension": "webp",
-          "alt": ""
-        }
-      ]
-    },
-    {
       "id": "648393a8-7f16-4158-9429-a2c7d19649bb",
       "year": "2025",
       "name": "『fun-fair∞』展",
