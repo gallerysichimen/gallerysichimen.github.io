@@ -4552,6 +4552,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "14391b12-f33b-406f-b39f-fa0e4193b37a",
+      "year": "2025",
+      "name": "『すずろ庭』展",
+      "exhibitors": [
+        "高橋美恵"
+      ],
+      "startDate": "2025-09-30",
+      "endDate": "2025-10-06",
+      "time": "12:00-18:00",
+      "comments": "日本画展12：00～18：00",
+      "calImage": {
+        "filename": "14391b12-f33b-406f-b39f-fa0e4193b37a",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "14391b12-f33b-406f-b39f-fa0e4193b37a",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "14391b12-f33b-406f-b39f-fa0e4193b37a",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "14391b12-f33b-406f-b39f-fa0e4193b37a",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
