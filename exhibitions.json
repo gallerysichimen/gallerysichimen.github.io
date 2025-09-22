@@ -4545,6 +4545,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "175d2da8-73f1-474f-9a03-2256741aaec3",
+      "year": "2025",
+      "name": "『リボン』展",
+      "exhibitors": [
+        "高原悠子"
+      ],
+      "startDate": "2025-10-10",
+      "endDate": "2025-10-18",
+      "time": "13:00-18:00",
+      "comments": "石に見えるけど、ターポリン！",
+      "calImage": {
+        "filename": "175d2da8-73f1-474f-9a03-2256741aaec3",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "175d2da8-73f1-474f-9a03-2256741aaec3",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "175d2da8-73f1-474f-9a03-2256741aaec3",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "175d2da8-73f1-474f-9a03-2256741aaec3",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
