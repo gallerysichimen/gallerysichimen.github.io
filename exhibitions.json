@@ -4579,6 +4579,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "cdb8141a-cf66-4336-9ca2-e404563c5f4b",
+      "year": "2025",
+      "name": "『移動サーカスFrEAｋｓ』展",
+      "exhibitors": [
+        "Ｆuda Hajime"
+      ],
+      "startDate": "2025-10-10",
+      "endDate": "2025-11-3",
+      "time": "12:30-18:30",
+      "comments": "毎日少しずつ変化する展示です。",
+      "calImage": {
+        "filename": "cdb8141a-cf66-4336-9ca2-e404563c5f4b",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "cdb8141a-cf66-4336-9ca2-e404563c5f4b",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "cdb8141a-cf66-4336-9ca2-e404563c5f4b",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "cdb8141a-cf66-4336-9ca2-e404563c5f4b",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
