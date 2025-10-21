@@ -4583,7 +4583,7 @@
     {
       "id": "cdb8141a-cf66-4336-9ca2-e404563c5f4b",
       "year": "2025",
-      "name": "『移動サーカスFrEAｋｓ』展",
+      "name": "『移動サーカスFrEAks』展",
       "exhibitors": [
         "Ｆuda Hajime"
       ],
@@ -4609,41 +4609,6 @@
         {
           "type": "zoom",
           "filename": "cdb8141a-cf66-4336-9ca2-e404563c5f4b",
-          "extension": "webp",
-          "alt": ""
-        }
-      ]
-    },
-    {
-      "id": "2334b56b-70c0-4f90-88ff-065abfc044b8",
-      "year": "2025",
-      "name": "『Mountains & Birds』展",
-      "exhibitors": [
-        "Efrat Arilelle Peleg",
-        "Nadine Franklin"
-      ],
-      "startDate": "2025-11-04",
-      "endDate": "2025-11-15",
-      "time": "12:00-17:00",
-      "comments": "異国からの風が来ました",
-      "calImage": {
-        "filename": "2334b56b-70c0-4f90-88ff-065abfc044b8",
-        "extension": "webp"
-      },
-      "zoomImage": {
-        "filename": "2334b56b-70c0-4f90-88ff-065abfc044b8",
-        "extension": "webp"
-      },
-      "images": [
-        {
-          "type": "cal",
-          "filename": "2334b56b-70c0-4f90-88ff-065abfc044b8",
-          "extension": "webp",
-          "alt": ""
-        },
-        {
-          "type": "zoom",
-          "filename": "2334b56b-70c0-4f90-88ff-065abfc044b8",
           "extension": "webp",
           "alt": ""
         }
