@@ -4685,6 +4685,42 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "d0d0b84d-b72a-4ace-821b-eae1c10cc1d4",
+      "year": "2025",
+      "name": "『オリジナル カレンダー』展",
+      "exhibitors": [
+        "荒井牧子",
+        "藤井アキヒト，松浦由美子",
+        "関川真佐夫"
+      ],
+      "startDate": "2025-11-20",
+      "endDate": "2025-11-29",
+      "time": "12:00-19:00",
+      "comments": "個性豊かなカレンダーで巡る一年。イラスト、立体、写真、それぞれの手法で紡がれたカレンダー作品をお楽しみください。",
+      "calImage": {
+        "filename": "d0d0b84d-b72a-4ace-821b-eae1c10cc1d4",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "d0d0b84d-b72a-4ace-821b-eae1c10cc1d4",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "d0d0b84d-b72a-4ace-821b-eae1c10cc1d4",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "d0d0b84d-b72a-4ace-821b-eae1c10cc1d4",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
