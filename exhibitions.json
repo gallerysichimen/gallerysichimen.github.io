@@ -4648,41 +4648,6 @@
           "alt": ""
         }
       ]
-    },
-    {
-      "id": "74275119-d256-46f1-8057-05bbbd7ffc8a",
-      "year": "2025",
-      "name": "『<puntain & Birds』展",
-      "exhibitors": [
-        "Efrat Arilelle Peleg",
-        "Nadine Franklin"
-      ],
-      "startDate": "2025-11-04",
-      "endDate": "2025-11-15",
-      "time": "12:00-17:00",
-      "comments": "異国からの風が来ました",
-      "calImage": {
-        "filename": "74275119-d256-46f1-8057-05bbbd7ffc8a",
-        "extension": "webp"
-      },
-      "zoomImage": {
-        "filename": "74275119-d256-46f1-8057-05bbbd7ffc8a",
-        "extension": "webp"
-      },
-      "images": [
-        {
-          "type": "cal",
-          "filename": "74275119-d256-46f1-8057-05bbbd7ffc8a",
-          "extension": "webp",
-          "alt": ""
-        },
-        {
-          "type": "zoom",
-          "filename": "74275119-d256-46f1-8057-05bbbd7ffc8a",
-          "extension": "webp",
-          "alt": ""
-        }
-      ]
     }
   ]
 }
