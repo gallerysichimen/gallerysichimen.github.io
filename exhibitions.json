@@ -4615,40 +4615,6 @@
       ]
     },
     {
-      "id": "b667f7cc-8d07-4c05-80b6-a96b44ae80ad",
-      "year": "2025",
-      "name": "『test』展",
-      "exhibitors": [
-        "aaa"
-      ],
-      "startDate": "2025-10-21",
-      "endDate": "2025-10-21",
-      "time": "12:00-18:00",
-      "comments": "aaa",
-      "calImage": {
-        "filename": "b667f7cc-8d07-4c05-80b6-a96b44ae80ad",
-        "extension": "webp"
-      },
-      "zoomImage": {
-        "filename": "b667f7cc-8d07-4c05-80b6-a96b44ae80ad",
-        "extension": "webp"
-      },
-      "images": [
-        {
-          "type": "cal",
-          "filename": "b667f7cc-8d07-4c05-80b6-a96b44ae80ad",
-          "extension": "webp",
-          "alt": ""
-        },
-        {
-          "type": "zoom",
-          "filename": "b667f7cc-8d07-4c05-80b6-a96b44ae80ad",
-          "extension": "webp",
-          "alt": ""
-        }
-      ]
-    },
-    {
       "id": "2334b56b-70c0-4f90-88ff-065abfc044b8",
       "year": "2025",
       "name": "『Mountains & Birds』展",
