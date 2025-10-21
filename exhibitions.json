@@ -4613,41 +4613,6 @@
           "alt": ""
         }
       ]
-    },
-    {
-      "id": "111f6fd8-94ad-47f4-99b1-4ab56f3ac8fe",
-      "year": "2025",
-      "name": "『Mountains＆Birds』展",
-      "exhibitors": [
-        "Efrat Arielle Peleg",
-        "Nadine Franklin"
-      ],
-      "startDate": "2025-11-04",
-      "endDate": "2025-11-15",
-      "time": "12:00-17:00",
-      "comments": "異国の風がやってきました",
-      "calImage": {
-        "filename": "111f6fd8-94ad-47f4-99b1-4ab56f3ac8fe",
-        "extension": "webp"
-      },
-      "zoomImage": {
-        "filename": "111f6fd8-94ad-47f4-99b1-4ab56f3ac8fe",
-        "extension": "webp"
-      },
-      "images": [
-        {
-          "type": "cal",
-          "filename": "111f6fd8-94ad-47f4-99b1-4ab56f3ac8fe",
-          "extension": "webp",
-          "alt": ""
-        },
-        {
-          "type": "zoom",
-          "filename": "111f6fd8-94ad-47f4-99b1-4ab56f3ac8fe",
-          "extension": "webp",
-          "alt": ""
-        }
-      ]
     }
   ]
 }
