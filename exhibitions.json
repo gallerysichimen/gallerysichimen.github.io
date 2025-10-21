@@ -4721,6 +4721,43 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "c3216f61-ab04-401a-bfdd-f75f5294605e",
+      "year": "2025",
+      "name": "『クジラ展游ぐ 漫遊の旅 周波数 ハロー軌道』",
+      "exhibitors": [
+        "Matuko",
+        "きょんたし",
+        "ふみもとこ",
+        "イグレオン"
+      ],
+      "startDate": "2025-12-06",
+      "endDate": "2025-12-13",
+      "time": "12:00-18:00",
+      "comments": "クジラづくし",
+      "calImage": {
+        "filename": "c3216f61-ab04-401a-bfdd-f75f5294605e",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "c3216f61-ab04-401a-bfdd-f75f5294605e",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "c3216f61-ab04-401a-bfdd-f75f5294605e",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "c3216f61-ab04-401a-bfdd-f75f5294605e",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
