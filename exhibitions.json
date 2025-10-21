@@ -314,6 +314,43 @@
       "endDate": "2017-11-15"
     },
     {
+      "id": "c588e79e-e6da-40c5-9233-84c5052a118f",
+      "year": "2017",
+      "name": "『オリジナルカレンダー』展",
+      "exhibitors": [
+        "松浦由美子",
+        "荒井牧子",
+        "藤井アキヒト",
+        "関川真佐夫"
+      ],
+      "startDate": "2017-11-20",
+      "endDate": "2017-11-29",
+      "time": "12:00-19:00",
+      "comments": "季節の巡りをお楽しみください。",
+      "calImage": {
+        "filename": "c588e79e-e6da-40c5-9233-84c5052a118f",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "c588e79e-e6da-40c5-9233-84c5052a118f",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "c588e79e-e6da-40c5-9233-84c5052a118f",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "c588e79e-e6da-40c5-9233-84c5052a118f",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
       "id": "853d6d59-92af-4649-a4cc-cf86edb3657d",
       "year": "2017",
       "name": "『-薄暮色の夢の途中-』展",
