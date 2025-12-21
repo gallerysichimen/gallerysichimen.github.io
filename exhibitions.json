@@ -4755,40 +4755,6 @@
           "alt": ""
         }
       ]
-    },
-    {
-      "id": "aa793f9a-0835-4e01-b0c8-0d56c056783d",
-      "year": "2025",
-      "name": "『まちだりな展示ぼや』",
-      "exhibitors": [
-        "まちだりな"
-      ],
-      "startDate": "2025-12-20",
-      "endDate": "2025-12-28",
-      "time": "12:00-18:00",
-      "comments": "町にきらめく明かり、わたしとあなた、見える見えない、境目をずっと探している",
-      "calImage": {
-        "filename": "aa793f9a-0835-4e01-b0c8-0d56c056783d",
-        "extension": "webp"
-      },
-      "zoomImage": {
-        "filename": "aa793f9a-0835-4e01-b0c8-0d56c056783d",
-        "extension": "webp"
-      },
-      "images": [
-        {
-          "type": "cal",
-          "filename": "aa793f9a-0835-4e01-b0c8-0d56c056783d",
-          "extension": "webp",
-          "alt": ""
-        },
-        {
-          "type": "zoom",
-          "filename": "aa793f9a-0835-4e01-b0c8-0d56c056783d",
-          "extension": "webp",
-          "alt": ""
-        }
-      ]
     }
   ]
 }
