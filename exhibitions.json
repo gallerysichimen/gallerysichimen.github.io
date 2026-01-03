@@ -4789,6 +4789,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "47b6792d-ba5d-4d00-8060-95425c315dc2",
+      "year": "2025",
+      "name": "『絵のはからい』展",
+      "exhibitors": [
+        "野口大地"
+      ],
+      "startDate": "2025-12-31",
+      "endDate": "2026-01-12",
+      "time": "12:00-18:00",
+      "comments": "さっぱりとした朝の日差しのような柔らかい気遣いが筆先からあふれ出ます",
+      "calImage": {
+        "filename": "47b6792d-ba5d-4d00-8060-95425c315dc2",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "47b6792d-ba5d-4d00-8060-95425c315dc2",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "47b6792d-ba5d-4d00-8060-95425c315dc2",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "47b6792d-ba5d-4d00-8060-95425c315dc2",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
