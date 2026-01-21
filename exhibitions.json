@@ -4823,6 +4823,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "07a8009c-8e8a-496d-b4f1-767f77b1c2c6",
+      "year": "2026",
+      "name": "『Atelier-アトリエ-』展",
+      "exhibitors": [
+        "イグレオン・Chobo.2人展"
+      ],
+      "startDate": "2026-01-31",
+      "endDate": "2026-02-07",
+      "time": "13:00-18:00",
+      "comments": "あなた、アートと過ごすやすらぎのひと時を",
+      "calImage": {
+        "filename": "07a8009c-8e8a-496d-b4f1-767f77b1c2c6",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "07a8009c-8e8a-496d-b4f1-767f77b1c2c6",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "07a8009c-8e8a-496d-b4f1-767f77b1c2c6",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "07a8009c-8e8a-496d-b4f1-767f77b1c2c6",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
