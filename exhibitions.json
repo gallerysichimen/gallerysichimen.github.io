@@ -4857,6 +4857,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "8997a02d-4f38-4a5f-992c-5fb05bc6111c",
+      "year": "2026",
+      "name": "『LIFT off』展",
+      "exhibitors": [
+        "Hironori Matsuki"
+      ],
+      "startDate": "2026-02-21",
+      "endDate": "2026-03-01",
+      "time": "12:00-17:00",
+      "comments": "Rift offしたい方　お見逃しなく。",
+      "calImage": {
+        "filename": "8997a02d-4f38-4a5f-992c-5fb05bc6111c",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "8997a02d-4f38-4a5f-992c-5fb05bc6111c",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "8997a02d-4f38-4a5f-992c-5fb05bc6111c",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "8997a02d-4f38-4a5f-992c-5fb05bc6111c",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
