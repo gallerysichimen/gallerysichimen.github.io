@@ -4891,6 +4891,43 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "ae457001-87cb-43b6-ba9d-17950d428253",
+      "year": "2026",
+      "name": "『見切り発車展 Take it easy』",
+      "exhibitors": [
+        "小松佳織",
+        "春島夏希",
+        "松原百香",
+        "米鵜めえ"
+      ],
+      "startDate": "2026-05-02",
+      "endDate": "2026-05-10",
+      "time": "12:00-18:00",
+      "comments": "そういうわけでどうぞ気楽にいらっしゃって下さい",
+      "calImage": {
+        "filename": "ae457001-87cb-43b6-ba9d-17950d428253",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "ae457001-87cb-43b6-ba9d-17950d428253",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "ae457001-87cb-43b6-ba9d-17950d428253",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "ae457001-87cb-43b6-ba9d-17950d428253",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
