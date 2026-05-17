@@ -4973,6 +4973,41 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "6ab34b09-a76c-432b-b9f8-60fcd4468edd",
+      "year": "2026",
+      "name": "『米倉健史 彦阪泉二人』展",
+      "exhibitors": [
+        "彦阪泉",
+        "米倉健史"
+      ],
+      "startDate": "2026-06-06",
+      "endDate": "2026-06-11",
+      "time": "12:00-18:00",
+      "comments": "設立40周年となるキルトアート工房。 500色以上に染め分けた布で描く、風景と花の世 界。温かく柔らかな世界をお楽しみください。",
+      "calImage": {
+        "filename": "6ab34b09-a76c-432b-b9f8-60fcd4468edd",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "6ab34b09-a76c-432b-b9f8-60fcd4468edd",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "6ab34b09-a76c-432b-b9f8-60fcd4468edd",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "6ab34b09-a76c-432b-b9f8-60fcd4468edd",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
