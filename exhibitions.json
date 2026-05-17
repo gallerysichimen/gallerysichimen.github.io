@@ -4928,6 +4928,41 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "91e17e39-206f-4436-b28a-3d01931f72f3",
+      "year": "2026",
+      "name": "『土に馴染む陶』展",
+      "exhibitors": [
+        "栗山綾子",
+        "渡辺清司"
+      ],
+      "startDate": "2026-05-23",
+      "endDate": "2026-05-31",
+      "time": "12:00-18:00",
+      "comments": "大地から生まれた陶器から感じる豊かさ",
+      "calImage": {
+        "filename": "91e17e39-206f-4436-b28a-3d01931f72f3",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "91e17e39-206f-4436-b28a-3d01931f72f3",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "91e17e39-206f-4436-b28a-3d01931f72f3",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "91e17e39-206f-4436-b28a-3d01931f72f3",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
