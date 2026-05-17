@@ -1,30 +1,6 @@
 {
   "exhibitions": [
     {
-      "id": "a3f9e8fd-ee45-4760-bd6f-420c69ac2c5a",
-      "year": "2017",
-      "name": "『陶』展",
-      "time": "12:00-18:00",
-      "exhibitors": [
-        "中野 亘"
-      ],
-      "comments": "静寂の音が聞こえる 土の息吹を感じ取りながら土の造形と土の音が織りなす響きに独自の世界を見出しいる。中野亘さんの世界を のぞきに出かけてみませんか？",
-      "calImage": {
-        "filename": "a3f9e8fd-ee45-4760-bd6f-420c69ac2c5a",
-        "extension": "webp"
-      },
-      "zoomImage": null,
-      "images": [
-        {
-          "filename": "a3f9e8fd-ee45-4760-bd6f-420c69ac2c5a",
-          "extension": "webp",
-          "type": "cal"
-        }
-      ],
-      "startDate": "2017-04-12",
-      "endDate": "2017-04-24"
-    },
-    {
       "id": "0924c67c-fd08-453b-8537-d2cfda8e1a93",
       "year": "2017",
       "name": "『よらいん』展",
