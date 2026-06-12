@@ -5008,6 +5008,44 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "d85fadae-94c7-4e18-b390-776fbbe8ea51",
+      "year": "2026",
+      "name": "『深海』展",
+      "exhibitors": [
+        "Koshi",
+        "rco",
+        "toto",
+        "帳はるをし",
+        "我無"
+      ],
+      "startDate": "2026-06-14",
+      "endDate": "2026-06-28",
+      "time": "12:00-18:00",
+      "comments": "深海に浮かび上がる影の宴",
+      "calImage": {
+        "filename": "d85fadae-94c7-4e18-b390-776fbbe8ea51",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "d85fadae-94c7-4e18-b390-776fbbe8ea51",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "d85fadae-94c7-4e18-b390-776fbbe8ea51",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "d85fadae-94c7-4e18-b390-776fbbe8ea51",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
