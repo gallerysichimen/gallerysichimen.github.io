@@ -5046,6 +5046,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "db1ee81e-1df0-4a27-b782-a621dccfaf12",
+      "year": "2026",
+      "name": "『lⅬayered』展",
+      "exhibitors": [
+        "イグレオン"
+      ],
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-11",
+      "time": "12:00-18:00　※8/4(火)は休廊 ※最終日の18:00",
+      "comments": "今年も新たな光の表現で　個展開催中",
+      "calImage": {
+        "filename": "db1ee81e-1df0-4a27-b782-a621dccfaf12",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "db1ee81e-1df0-4a27-b782-a621dccfaf12",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "db1ee81e-1df0-4a27-b782-a621dccfaf12",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "db1ee81e-1df0-4a27-b782-a621dccfaf12",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
