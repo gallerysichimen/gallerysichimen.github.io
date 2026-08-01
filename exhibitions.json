@@ -5048,6 +5048,40 @@
       ]
     },
     {
+      "id": "2a9b1d3e-5fcc-4c5b-9332-24c91d6da235",
+      "year": "2026",
+      "name": "『DogRan』展",
+      "exhibitors": [
+        "kosi 張はるをし　RⅭO　toto"
+      ],
+      "startDate": "2026-07-01",
+      "endDate": "2026-07-29",
+      "time": "12:00-18:00　※(火)は休廊 ※最終日の18:00",
+      "comments": "ギャラリー内を涼しいドックランにしました。",
+      "calImage": {
+        "filename": "2a9b1d3e-5fcc-4c5b-9332-24c91d6da235",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "2a9b1d3e-5fcc-4c5b-9332-24c91d6da235",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "2a9b1d3e-5fcc-4c5b-9332-24c91d6da235",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "2a9b1d3e-5fcc-4c5b-9332-24c91d6da235",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
       "id": "db1ee81e-1df0-4a27-b782-a621dccfaf12",
       "year": "2026",
       "name": "『lⅬayered』展",
