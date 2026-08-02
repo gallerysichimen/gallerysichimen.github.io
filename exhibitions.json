@@ -5116,6 +5116,40 @@
       ]
     },
     {
+      "id": "5c0f2f8f-716b-4c25-88a8-a242306d7e71",
+      "year": "2026",
+      "name": "『古川博章個展‟Your Yanesen\"』",
+      "exhibitors": [
+        "古川博章"
+      ],
+      "startDate": "2026-08-20",
+      "endDate": "2026-08-29",
+      "time": "12:00-18:00　※最終日の17:00",
+      "comments": "谷根千移り変わる風景の表現",
+      "calImage": {
+        "filename": "5c0f2f8f-716b-4c25-88a8-a242306d7e71",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "5c0f2f8f-716b-4c25-88a8-a242306d7e71",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "5c0f2f8f-716b-4c25-88a8-a242306d7e71",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "5c0f2f8f-716b-4c25-88a8-a242306d7e71",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
       "id": "9d55358a-08db-4ae5-90d5-62a228ddecd4",
       "year": "2026",
       "name": "『片平智晴個展揺らぎ』",
