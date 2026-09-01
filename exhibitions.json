@@ -5182,6 +5182,50 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "ff869bd9-8943-4f48-bd09-ec3d33d77e8b",
+      "year": "2026",
+      "name": "『2026写真を楽しむ』展",
+      "exhibitors": [
+        "今井 政男",
+        "佐藤 賢吾",
+        "原尾 安徳",
+        "坂伸一郎",
+        "山本ヤエ子",
+        "岡田 忠明",
+        "戸叶 恒夫",
+        "水野 正矩",
+        "田中 和枝",
+        "首藤 義憲",
+        "高橋 照治"
+      ],
+      "startDate": "2026-09-22",
+      "endDate": "2026-09-29",
+      "time": "11:00-17:00",
+      "comments": "11人の視点から見たおのおの切り取った世界",
+      "calImage": {
+        "filename": "ff869bd9-8943-4f48-bd09-ec3d33d77e8b",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "ff869bd9-8943-4f48-bd09-ec3d33d77e8b",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "ff869bd9-8943-4f48-bd09-ec3d33d77e8b",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "ff869bd9-8943-4f48-bd09-ec3d33d77e8b",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
