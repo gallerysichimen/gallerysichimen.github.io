@@ -5260,6 +5260,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "d6ac174b-b814-42d5-a9a6-03496e2b0103",
+      "year": "2026",
+      "name": "『Ghost!』展",
+      "exhibitors": [
+        "RCO"
+      ],
+      "startDate": "2026-10-18",
+      "endDate": "2026-10-30",
+      "time": "12:00-18:00 火曜日定休　最終日17：00まで",
+      "comments": "かわいいオバケちゃん　不思議な世界へご案内",
+      "calImage": {
+        "filename": "d6ac174b-b814-42d5-a9a6-03496e2b0103",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "d6ac174b-b814-42d5-a9a6-03496e2b0103",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "d6ac174b-b814-42d5-a9a6-03496e2b0103",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "d6ac174b-b814-42d5-a9a6-03496e2b0103",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
