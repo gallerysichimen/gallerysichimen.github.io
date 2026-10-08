@@ -5226,6 +5226,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "eee4b43b-ac4d-4483-8dd8-f8dc16e6e8d7",
+      "year": "2026",
+      "name": "『すずろ庭 日本画』展",
+      "exhibitors": [
+        "高橋美恵"
+      ],
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-17",
+      "time": "12:00-18:00　最終日15時まで",
+      "comments": "日本画による　緻密な日本画の世界　お楽しみください",
+      "calImage": {
+        "filename": "eee4b43b-ac4d-4483-8dd8-f8dc16e6e8d7",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "eee4b43b-ac4d-4483-8dd8-f8dc16e6e8d7",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "eee4b43b-ac4d-4483-8dd8-f8dc16e6e8d7",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "eee4b43b-ac4d-4483-8dd8-f8dc16e6e8d7",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
