@@ -5328,6 +5328,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "9038b433-1a5f-45bf-97fb-29bab8e5dda3",
+      "year": "2026",
+      "name": "『アンフォ－ルド』展",
+      "exhibitors": [
+        "大久保なお登"
+      ],
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-17",
+      "time": "12:00-18:00",
+      "comments": "ハコとカミからはじまる世界",
+      "calImage": {
+        "filename": "9038b433-1a5f-45bf-97fb-29bab8e5dda3",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "9038b433-1a5f-45bf-97fb-29bab8e5dda3",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "9038b433-1a5f-45bf-97fb-29bab8e5dda3",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "9038b433-1a5f-45bf-97fb-29bab8e5dda3",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
