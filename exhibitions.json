@@ -5294,6 +5294,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "e6a23fcb-55ef-42fa-9363-709086247756",
+      "year": "2026",
+      "name": "『表面』展",
+      "exhibitors": [
+        "宇野七穂"
+      ],
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-09",
+      "time": "12:00-18:00",
+      "comments": "日本画の展示",
+      "calImage": {
+        "filename": "e6a23fcb-55ef-42fa-9363-709086247756",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "e6a23fcb-55ef-42fa-9363-709086247756",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "e6a23fcb-55ef-42fa-9363-709086247756",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "e6a23fcb-55ef-42fa-9363-709086247756",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
