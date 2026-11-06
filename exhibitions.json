@@ -5362,6 +5362,40 @@
           "alt": ""
         }
       ]
+    },
+    {
+      "id": "32997a9d-565d-407c-ae20-3ed4ceef7eee",
+      "year": "2026",
+      "name": "『つむぐ まぼろし』展",
+      "exhibitors": [
+        "Mori　 ｋinako"
+      ],
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-29",
+      "time": "12:00-18:00",
+      "comments": "",
+      "calImage": {
+        "filename": "32997a9d-565d-407c-ae20-3ed4ceef7eee",
+        "extension": "webp"
+      },
+      "zoomImage": {
+        "filename": "32997a9d-565d-407c-ae20-3ed4ceef7eee",
+        "extension": "webp"
+      },
+      "images": [
+        {
+          "type": "cal",
+          "filename": "32997a9d-565d-407c-ae20-3ed4ceef7eee",
+          "extension": "webp",
+          "alt": ""
+        },
+        {
+          "type": "zoom",
+          "filename": "32997a9d-565d-407c-ae20-3ed4ceef7eee",
+          "extension": "webp",
+          "alt": ""
+        }
+      ]
     }
   ]
 }
